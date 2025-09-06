@@ -1,5 +1,5 @@
 "use client";
-import Skills from "@/components/Skills";
+// import Skills from "@/components/Skills";
 import React from "react";
 import { motion, Variants } from "motion/react";
 import Image from "next/image";
@@ -12,7 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const container: Variants = {
   hidden: { opacity: 0 },

@@ -32,7 +32,6 @@ const item: Variants = {
 
 const Hero = () => {
   const { theme, systemTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <motion.div
@@ -71,7 +70,7 @@ const Hero = () => {
       {/* Hero Text */}
       <div className="text-center max-w-xl mt-6 md:mt-0">
         <motion.h1 variants={item} className="text-5xl font-bold">
-          Hi, I'm Momin
+          Hi, I&apos;m Momin
         </motion.h1>
 
         <motion.h2
@@ -97,12 +96,11 @@ const Hero = () => {
             className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring" } as any} // TS-safe
+            transition={{ type: "spring" }}
           >
             <Link href="/projects" className="flex items-center gap-2">
-            View My Work
-             </Link>
-            <ArrowRight className="w-4 h-4" />
+              View My Work <ArrowRight className="w-4 h-4" />
+            </Link>
           </MotionButton>
 
           <MotionButton
@@ -110,10 +108,11 @@ const Hero = () => {
             className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring" } as any} // TS-safe
+            transition={{ type: "spring" }}
           >
-            <FileDown className="w-4 h-4" />
-            Download Resume
+            <Link href="/resume" className="flex items-center gap-2">
+              <FileDown className="w-4 h-4" /> Download Resume
+            </Link>
           </MotionButton>
         </motion.div>
       </div>

@@ -36,13 +36,14 @@ export default function Contact() {
     setServerMessage('');
     try {
       setStatus('loading');
-      const res = await sendContactForm(data);  
+      await sendContactForm(data);
       setStatus('success');
       setServerMessage('Thanks! Your message has been sent.');
       reset();
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus('error');
-      setServerMessage(err?.message || 'Something went wrong.');
+      const message = err instanceof Error ? err.message : 'Something went wrong.';
+      setServerMessage(message);
     } finally {
       setTimeout(() => setStatus('idle'), 1200);
     }

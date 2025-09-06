@@ -47,7 +47,7 @@ const Header = () => {
               key={item.name}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, type: "spring" } as any}
+              transition={{ delay: i * 0.1, type: "spring" }}
             >
               <Link
                 href={item.link}
@@ -94,7 +94,7 @@ const Header = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring" } as any}
+            transition={{ type: "spring" }}
           >
             <ModeToggle />
           </motion.div>

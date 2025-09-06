@@ -1,6 +1,5 @@
 "use client";
 import Hero from "@/components/Hero";
-import Link from "next/link";
 import { motion } from "motion/react";
 import Services from "@/components/Services";
 
