@@ -109,10 +109,15 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring" }}
-          >
-            <Link href="/resume" className="flex items-center gap-2">
+          > <a
+          className="no-underline flex items-center gap-2"
+    href="/resume.pdf"
+    download="Momin_Mohasin_Resume.pdf">
+
               <FileDown className="w-4 h-4" /> Download Resume
-            </Link>
+    </a>
+            {/* <Link href="/resume" className="flex items-center gap-2">
+            </Link> */}
           </MotionButton>
         </motion.div>
       </div>
