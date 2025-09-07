@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion, Variants } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Heart, Sparkles, MapPin, Clock } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, Sparkles, MapPin, Clock, ArrowUp } from "lucide-react";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -127,10 +127,11 @@ const Footer = () => {
               </Button>
               <Button
                 size="sm"
-                variant="ghost"
+                variant="outline"
                 className="ml-auto"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
+                <ArrowUp />
                 Back to top
               </Button>
             </div>
