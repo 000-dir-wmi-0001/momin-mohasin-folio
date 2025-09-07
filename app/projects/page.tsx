@@ -143,7 +143,7 @@ const Projects = () => {
             variants={item}
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-8"
           >
-            Experience
+            Projects
           </motion.h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
