@@ -129,7 +129,7 @@ const About = () => {
               </div>
 
               <div className="flex gap-2 mt-2">
-                <MotionButton className="cursor-pointer" variants={buttonVariants} initial="hidden" whileHover="whileHover" whileTap="whileTap" asChild size="sm">
+                <MotionButton className="cursor-pointer" variants={buttonVariants} initial="hidden" animate="visible" whileHover="whileHover" whileTap="whileTap" asChild size="sm">
                   <a
                     className="no-underline flex items-center gap-2"
                     href="/resume.pdf"
@@ -138,7 +138,7 @@ const About = () => {
                     Resume
                   </a>
                 </MotionButton>
-                <MotionButton className="cursor-pointer" variants={buttonVariants} variant={'outline'} initial="hidden" whileHover="whileHover" whileTap="whileTap" asChild size="sm">
+                <MotionButton className="cursor-pointer" variants={buttonVariants} variant={'outline'} initial="hidden" animate="visible" whileHover="whileHover" whileTap="whileTap" asChild size="sm">
                   <Link href="/contact">Contact</Link>
                 </MotionButton>
               </div>

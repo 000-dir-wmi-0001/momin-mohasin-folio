@@ -2,12 +2,16 @@
 import Hero from "@/components/Hero";
 import { motion } from "motion/react";
 import Services from "@/components/Services";
-
+import { Separator } from "@/components/ui/separator"
 export default function Home() {
   return (
     <>
-      <Hero/>
-      <Services/>
+        <Hero />
+        <br />
+        <br />
+        <Separator />
+        <br />
+        <Services />
     </>
   );
 }

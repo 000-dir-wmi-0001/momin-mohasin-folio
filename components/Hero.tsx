@@ -24,7 +24,7 @@ const item: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6 }, 
+    transition: { duration: 0.6 },
   },
 };
 
@@ -36,7 +36,7 @@ const Hero = () => {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="px-5 m-5 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10"
+      className="w-full max-w-6xl mx-auto px-5 m-5 flex flex-col md:flex-row items-center md:items-start justify-between lg:mt-10 gap-6 md:gap-10 mb-4"
     >
       {/* Theme Emoji */}
       {/* <motion.p
@@ -54,9 +54,10 @@ const Hero = () => {
         width={360}
         height={360}
         priority
-        quality={90}
+        quality={100}
         sizes="(min-width: 768px) 360px, 60vw"
-        className="rounded-xl object-cover w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 mb-6 md:mb-0"
+        className="rounded-xl object-cover w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-90 lg:h-90 mb-6 md:mb-0"
+        draggable={false}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
         variants={item}
@@ -85,10 +86,14 @@ const Hero = () => {
         </motion.p>
 
         {/* Action Buttons */}
-  <motion.div variants={item} className="flex flex-wrap justify-center md:justify-start gap-3 mt-4">
+        <motion.div
+          variants={item}
+          className="flex flex-wrap justify-center md:justify-start gap-3 mt-4"
+        >
           <MotionButton
+            asChild
             variant="default"
-            className="cursor-pointer"
+            className="cursor-pointer gap-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring" }}
@@ -99,8 +104,9 @@ const Hero = () => {
           </MotionButton>
 
           <MotionButton
+            asChild
             variant="outline"
-            className="cursor-pointer"
+            className="cursor-pointer gap-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring" }}

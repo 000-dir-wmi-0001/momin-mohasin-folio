@@ -37,9 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <div className="h-full container">
-            {children}
-          </div>
+          {children}
           <Footer />
         </ThemeProvider>
       </body>
