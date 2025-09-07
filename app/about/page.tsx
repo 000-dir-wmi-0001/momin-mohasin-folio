@@ -5,7 +5,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-
 const MotionButton = motion(Button);
 const buttonVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -16,7 +15,7 @@ const buttonVariants = {
   },
   whileHover: { scale: 1.05 },
   whileTap: { scale: 0.95 },
-}
+};
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -36,6 +35,11 @@ const item: Variants = {
   },
 };
 
+const para= [
+  'Hi, I’m Momin Mohasin, a passionate Full-Stack Developer who enjoys turning ideas into scalable and modern web applications. I specialize in building with React, Next.js, Node.js, Django, and FastAPI, and I love learning new technologies to stay ahead.',
+  'I’m currently working as a Full-Stack Developer at Brilliantech Software Pvt Ltd. I’m passionate about mastering modern technologies, improving system performance, and delivering high-quality solutions that create real business value.',
+  'Beyond coding, I’m a tech enthusiast who enjoys experimenting with new stacks and building side projects like live-streaming platforms, AR try-on apps, and real-time chat systems.',
+]
 const About = () => {
   const skills = [
     // Frameworks
@@ -129,7 +133,16 @@ const About = () => {
               </div>
 
               <div className="flex gap-2 mt-2">
-                <MotionButton className="cursor-pointer" variants={buttonVariants} initial="hidden" animate="visible" whileHover="whileHover" whileTap="whileTap" asChild size="sm">
+                <MotionButton
+                  className="cursor-pointer"
+                  variants={buttonVariants}
+                  initial="hidden"
+                  animate="visible"
+                  whileHover="whileHover"
+                  whileTap="whileTap"
+                  asChild
+                  size="sm"
+                >
                   <a
                     className="no-underline flex items-center gap-2"
                     href="/resume.pdf"
@@ -138,7 +151,17 @@ const About = () => {
                     Resume
                   </a>
                 </MotionButton>
-                <MotionButton className="cursor-pointer" variants={buttonVariants} variant={'outline'} initial="hidden" animate="visible" whileHover="whileHover" whileTap="whileTap" asChild size="sm">
+                <MotionButton
+                  className="cursor-pointer"
+                  variants={buttonVariants}
+                  variant={"outline"}
+                  initial="hidden"
+                  animate="visible"
+                  whileHover="whileHover"
+                  whileTap="whileTap"
+                  asChild
+                  size="sm"
+                >
                   <Link href="/contact">Contact</Link>
                 </MotionButton>
               </div>
@@ -175,28 +198,17 @@ const About = () => {
               </p>
             </motion.div>
 
-            <motion.div
+            {para.slice(1).map((p, idx) => (
+              <motion.div
+              key={idx}
               variants={item}
               className="rounded-xl border shadow-sm p-5 backdrop-blur bg-white/60 dark:bg-zinc-900/50"
             >
               <p className="text-base md:text-lg text-center md:text-left leading-relaxed max-w-prose mx-auto md:mx-0">
-                I’m currently working at Brilliantech Software Pvt Ltd as a
-                Full-Stack Developer. My immediate career goal is to keep
-                growing my expertise and achieve a ₹12 LPA role, while
-                contributing to impactful projects that solve real problems.
+                {p}
               </p>
             </motion.div>
-
-            <motion.div
-              variants={item}
-              className="rounded-xl border shadow-sm p-5 backdrop-blur bg-white/60 dark:bg-zinc-900/50"
-            >
-              <p className="text-base md:text-lg text-center md:text-left leading-relaxed max-w-prose mx-auto md:mx-0">
-                Beyond coding, I’m a tech enthusiast who enjoys experimenting
-                with new stacks and building side projects like live-streaming
-                platforms, AR try-on apps, and real-time chat systems.
-              </p>
-            </motion.div>
+          ))}
 
             {/* Quick Stats */}
             <motion.ul
