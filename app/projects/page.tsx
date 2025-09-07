@@ -37,7 +37,7 @@ const Projects = () => {
       name: "Sad Guru Tiles",
       description:
         "A professional business website built for a tiles company, showcasing products and services with a modern responsive design.",
-      technologies: ["Next.js", "TailwindCSS"],
+      technologies: ["Angular.js", "Express.js", "TailwindCSS", "Node.js", "MongoDB", "REST APIs", "Google Gemini API"],
       status: "complete",
       link: "https://sg-tiles.vercel.app/",
     },
@@ -45,7 +45,7 @@ const Projects = () => {
       name: "Scroll Screen Blocker (Android)",
       description:
         "StopScroll: An Android app to block addictive content like Reels and Shorts, empowering users to regain control over screen time with content blocking, usage tracking, and customizable controls.",
-      technologies: ["Android", "Java", "Firebase"],
+      technologies: ["Android", "Java", "XML"],
       status: "published",
       link: "https://play.google.com/store/apps/details?id=com.uma.scrollblock&pli=1",
     },
@@ -53,7 +53,7 @@ const Projects = () => {
       name: "Note App (Python)",
       description:
         "A simple and efficient note-taking application built with Python Flask framework for managing notes with CRUD functionality.",
-      technologies: ["Python", "Flask", "SQLite", "HTML", "CSS"],
+      technologies: ["Python", "Flask", "JavaScript", "SQLite", "HTML", "CSS","TailwindCSS"],
       status: "complete",
     },
     {
@@ -62,11 +62,11 @@ const Projects = () => {
         "Tasky is a basic task management application built with Django, featuring user authentication, task creation, updates, and deletion. It allows users to manage their profiles and stay organized.",
       technologies: [
         "Django",
+        "JavaScript",
         "SQLite",
         "Bootstrap",
         "HTML",
         "CSS",
-        "JavaScript",
       ],
       status: "complete",
     },
@@ -97,35 +97,35 @@ const Projects = () => {
       name: "MCrouchet",
       description:
         "An e-commerce Android application for crochet enthusiasts. Features include product browsing, secure login, cart, payment gateway, and an admin panel for managing content and orders.",
-      technologies: ["Android", "Java", "Firebase"],
+      technologies: ["Android", "Java", "XML", "Firebase"],
       status: "complete",
     },
     {
       name: "MTimer",
       description:
         "A simple Android timer app with background functionality, customizable alerts, and notifications for time-sensitive tasks. Supports multiple timers and runs even when the app is closed.",
-      technologies: ["Android", "Java", "Firebase"],
+      technologies: ["Android", "Java", "XML"],
       status: "complete",
     },
     {
       name: "Recipe Finder",
       description:
         "An Android app that helps users discover recipes using Gemini API. Built in Java, it allows searching and exploring a variety of recipes with ease.",
-      technologies: ["Android", "Java", "Firebase", "Gemini API"],
+      technologies: ["Android", "Java", "XML", "Firebase", "Gemini API"],
       status: "inProgress",
     },
     {
       name: "Mtube",
       description:
         "A React.js web application that integrates with the YouTube API to allow users to search, browse, and watch videos in a modern UI.",
-      technologies: ["React.js", "YouTube API"],
+      technologies: ["React.js","tailwindcss", "YouTube API"],
       status: "complete",
     },
     {
       name: "MNovels",
       description:
         "An Android app built in Java for reading novels and books with a clean and user-friendly interface for book lovers.",
-      technologies: ["Android", "Java", "Firebase"],
+      technologies: ["Android", "Java", "XML", "Firebase"],
       status: "inProgress",
     },
   ];

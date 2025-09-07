@@ -6,6 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 
+const MotionButton = motion(Button);
+const buttonVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+  whileHover: { scale: 1.05 },
+  whileTap: { scale: 0.95 },
+}
+
 const container: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -25,63 +37,61 @@ const item: Variants = {
 };
 
 const About = () => {
-const skills = [
-  // Frameworks
-  "Next.js",
-  "Angular",
-  "Node.js",
-  "Express.js",
-  "NestJS",
-  "Django",
-  "Django REST Framework",
-  "Django Ninja",
-  "FastAPI",
+  const skills = [
+    // Frameworks
+    "Next.js",
+    "Angular",
+    "Node.js",
+    "Express.js",
+    "NestJS",
+    "Django",
+    "Django REST Framework",
+    "Django Ninja",
+    "FastAPI",
 
-  // Libraries
-  "React",
-  "Framer Motion",
-  "Shadcn UI",
-  "Lucide Icons",
-  "TailwindCSS",
-  "Bootstrap",
+    // Libraries
+    "React",
+    "Framer Motion",
+    "Shadcn UI",
+    "Lucide Icons",
+    "TailwindCSS",
+    "Bootstrap",
 
-  // Languages
-  "Python",
-  "JavaScript",
-  "TypeScript",
-  "Java",
-  "PHP",
+    // Languages
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "Java",
+    "PHP",
 
-  // Databases
-  "MySQL",
-  "PostgreSQL",
-  "MongoDB",
-  "SQLite",
-  "Prisma",
-  "SQLAlchemy",
-  "Mongoose",
-  "Sequelize",
+    // Databases
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "SQLite",
+    "Prisma",
+    "SQLAlchemy",
+    "Mongoose",
+    "Sequelize",
 
-  // Tools / DevOps
-  "Git",
-  "GitHub",
-  "Linux",
-  // "Docker",
-  // "CI/CD (GitHub Actions / GitLab CI)",
+    // Tools / DevOps
+    "Git",
+    "GitHub",
+    "Linux",
+    // "Docker",
+    // "CI/CD (GitHub Actions / GitLab CI)",
 
-  // Authentication / Security
-  "JWT",
-  "OAuth 2.0",
-  "Role-Based Access Control (RBAC)",
+    // Authentication / Security
+    "JWT",
+    "OAuth 2.0",
+    "Role-Based Access Control (RBAC)",
 
-  // Others / Advanced
-  "WebRTC",
-  "WebSockets",
-  // "Redis",
-  // "Kafka",
-];
-
-
+    // Others / Advanced
+    "WebRTC",
+    "WebSockets",
+    // "Redis",
+    // "Kafka",
+  ];
 
   return (
     <section className="w-full font-mono">
@@ -119,12 +129,18 @@ const skills = [
               </div>
 
               <div className="flex gap-2 mt-2">
-                <Button asChild size="sm">
-                  <Link href="/resume">Resume</Link>
-                </Button>
-                <Button asChild size="sm" variant="outline">
+                <MotionButton className="cursor-pointer" variants={buttonVariants} initial="hidden" whileHover="whileHover" whileTap="whileTap" asChild size="sm">
+                  <a
+                    className="no-underline flex items-center gap-2"
+                    href="/resume.pdf"
+                    download="Momin_Mohasin_Resume.pdf"
+                  >
+                    Resume
+                  </a>
+                </MotionButton>
+                <MotionButton className="cursor-pointer" variants={buttonVariants} variant={'outline'} initial="hidden" whileHover="whileHover" whileTap="whileTap" asChild size="sm">
                   <Link href="/contact">Contact</Link>
-                </Button>
+                </MotionButton>
               </div>
             </div>
 

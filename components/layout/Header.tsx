@@ -14,6 +14,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const Header = () => {
   const items = [
@@ -28,6 +29,8 @@ const Header = () => {
 
   return (
     <div className="w-full font-mono border-b sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-black/60 shadow-2xl rounded-b-lg">
+             <ScrollProgress />
+
       <nav className="flex items-center justify-between py-2 px-4 sm:px-6 mx-auto w-full max-w-7xl">
         {/* Logo & Name */}
         <div className="flex items-center gap-3">
