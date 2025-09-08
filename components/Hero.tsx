@@ -36,7 +36,7 @@ const Hero = () => {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="w-full max-w-6xl mx-auto px-5 m-5 flex flex-col md:flex-row items-center md:items-start justify-between lg:mt-10 gap-6 md:gap-10 mb-4"
+      className="w-full max-w-6xl mx-auto px-5 m-5 flex flex-col md:flex-row items-center md:items-start justify-between lg:mt-10 gap-6 md:gap-10 mb-4 font-mono"
     >
       {/* Theme Emoji */}
       {/* <motion.p
