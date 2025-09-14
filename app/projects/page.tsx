@@ -31,7 +31,7 @@ const Projects = () => {
         "KarLo is a location-based To-Do reminder platform that helps users create and manage tasks with geolocation triggers. The app sends notifications when users are near predefined locations.",
       technologies: ["React.js", "FastAPI", "PostgreSQL", "Alembic", "Google Maps API"],
       status: "inProgress",
-      link: "https://kar-lo-frontend.vercel.app/",
+      link: "https://kar-lo.vercel.app/",
     },
     {
       name: "Sad Guru Tiles",
