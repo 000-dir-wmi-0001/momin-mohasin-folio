@@ -53,14 +53,14 @@ export const SkillsShowcase = ({ skillCategories, title = "Technical Skills" }: 
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="group relative transform hover:scale-105 transition-transform duration-500"
             >
               {/* Enhanced Background Glow */}
               <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-700 scale-105 group-hover:scale-110 opacity-0 group-hover:opacity-100" />
               <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-secondary/8 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
 
               {/* Main Card */}
-              <div className="relative p-8 rounded-2xl border border-border/40 bg-card/90 backdrop-blur-md hover:bg-card/95 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 group-hover:-translate-y-2 overflow-hidden">
+              <div className="relative p-8 rounded-2xl border border-border/40 bg-card/90 backdrop-blur-md hover:bg-card/95 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden">
                 {/* Subtle Inner Glow */}
                 <div className="absolute inset-0 bg-linear-to-br from-transparent via-primary/2 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl" />
 
@@ -69,7 +69,7 @@ export const SkillsShowcase = ({ skillCategories, title = "Technical Skills" }: 
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3 }}
-                    className={`p-3 rounded-xl bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10 shadow-lg`}
+                    className={`p-3 rounded-xl bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10 shadow-lg transform`}
                   >
                     <IconComponent className={`w-6 h-6 ${categoryData.color} drop-shadow-sm`} />
                   </motion.div>

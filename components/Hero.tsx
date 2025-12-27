@@ -14,16 +14,16 @@ const container: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }, // Reduced stagger and added small delay
   },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 }, // Reduced y offset
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 0.6, ease: "easeOut" }, // Reduced duration
   },
 };
 
@@ -34,15 +34,15 @@ const Hero = () => {
       initial="hidden"
       animate="visible"
       className="relative w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-12 lg:py-20"
+      style={{ contain: 'layout style paint' }} // CSS containment for better performance
     >
-      {/* Enhanced Background Elements */}
+      {/* Simplified Background Elements - Reduced complexity for better LCP */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-16 md:-left-32 w-48 h-48 md:w-96 md:h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 -right-16 md:-right-32 w-48 h-48 md:w-96 md:h-96 bg-secondary/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-100 h-100 md:w-200 md:h-200 bg-linear-to-r from-primary/2 via-transparent to-secondary/2 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-1/4 -left-16 md:-left-32 w-32 h-32 md:w-64 md:h-64 bg-primary/2 rounded-full blur-2xl" />
+        <div className="absolute bottom-1/4 -right-16 md:-right-32 w-32 h-32 md:w-64 md:h-64 bg-secondary/2 rounded-full blur-2xl" />
 
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.01] bg-[linear-gradient(45deg,#000_1px,transparent_1px),linear-gradient(-45deg,#000_1px,transparent_1px)] bg-[size:20px_20px] md:bg-[size:30px_30px]" />
+        {/* Simplified Grid Pattern - Reduced opacity and complexity */}
+        <div className="absolute inset-0 opacity-[0.005] bg-[linear-gradient(45deg,#000_1px,transparent_1px),linear-gradient(-45deg,#000_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
       {/* Hero Content */}
@@ -92,8 +92,7 @@ const Hero = () => {
           <MotionButton
             asChild
             size="lg"
-            className="group px-10 py-5 text-lg font-semibold gap-3 bg-primary hover:bg-primary/90 shadow-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 rounded-2xl"
-            whileHover={{ scale: 1.05, y: -3 }}
+            className="group px-10 py-5 text-lg font-semibold gap-3 bg-primary hover:bg-primary/90 shadow-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 rounded-2xl transform hover:scale-105"
             whileTap={{ scale: 0.98 }}
           >
             <Link href="/projects" className="flex items-center gap-3">
@@ -106,8 +105,7 @@ const Hero = () => {
             asChild
             variant="outline"
             size="lg"
-            className="group px-10 py-5 text-lg font-semibold gap-3 border-2 border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-500 rounded-2xl backdrop-blur-sm"
-            whileHover={{ scale: 1.05, y: -3 }}
+            className="group px-10 py-5 text-lg font-semibold gap-3 border-2 border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-500 rounded-2xl backdrop-blur-sm transform hover:scale-105"
             whileTap={{ scale: 0.98 }}
           >
             <a
@@ -134,12 +132,12 @@ const Hero = () => {
           <MotionImage
             src="/momin.jpg"
             alt="Momin Mohasin portrait"
-            width={320}
-            height={320}
+            width={240}
+            height={240}
             priority
-            quality={85}
-            sizes="(min-width: 1024px) 320px, (min-width: 768px) 256px, 192px"
-            className="relative rounded-full object-cover w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 shadow-2xl backdrop-blur-sm"
+            quality={75}
+            sizes="(min-width: 1024px) 240px, (min-width: 768px) 192px, 160px"
+            className="relative rounded-full object-cover w-40 h-40 sm:w-48 sm:h-48 lg:w-60 lg:h-60 shadow-2xl backdrop-blur-sm"
             style={{ mixBlendMode: 'darken' }}
             draggable={false}
             whileHover={{
@@ -147,7 +145,6 @@ const Hero = () => {
               rotate: 2,
               transition: { duration: 0.4, ease: "easeOut" }
             }}
-            whileTap={{ scale: 0.95 }}
           />
 
           {/* Subtle Floating Elements */}

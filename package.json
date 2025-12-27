@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "build:analyze": "ANALYZE=true next build --turbopack",
-    "start": "next start",
+    "start": "node .next/standalone/server.js",
+    "start:standalone": "node .next/standalone/server.js",
+    "preview": "next start",
     "lint": "eslint",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf .next out node_modules/.cache"
