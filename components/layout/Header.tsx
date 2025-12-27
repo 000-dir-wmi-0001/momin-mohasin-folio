@@ -5,9 +5,10 @@ import { ModeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { motion } from "motion/react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
+import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,7 +34,16 @@ const Header = () => {
         {/* Logo & Name */}
         <div className="flex items-center gap-3">
           <Avatar className="w-10 h-10 lg:w-12 lg:h-12 origin-left transition-transform hover:scale-105 hover:shadow-lg">
-            <AvatarImage src="/momin.jpg" alt="Momin avatar" />
+            <Image
+              src="/momin.jpg"
+              alt="Momin avatar"
+              width={48}
+              height={48}
+              quality={80}
+              sizes="48px"
+              className="rounded-full object-cover w-full h-full"
+              priority={false}
+            />
             <AvatarFallback>MM</AvatarFallback>
           </Avatar>
           <h1 className="font-extrabold text-lg origin-left lg:text-2xl font-mono transition-colors hover:text-primary cursor-pointer">

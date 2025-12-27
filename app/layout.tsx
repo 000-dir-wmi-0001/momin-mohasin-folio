@@ -12,6 +12,7 @@ const geistSans = Geist({
   subsets: ["latin"],
   display: 'swap',
   preload: true,
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
 const geistMono = Geist_Mono({
@@ -19,6 +20,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   display: 'swap',
   preload: true,
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -51,14 +53,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://mominmohasin.dev'),
+  metadataBase: new URL('https://momin-mohasin.me'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://mominmohasin.dev',
+    url: 'https://momin-mohasin.me',
     title: 'Momin Mohasin - Full-Stack Developer & Tech Enthusiast',
     description: 'Portfolio showcasing expertise in modern web development technologies including React, Next.js, Node.js, Django, and FastAPI.',
     siteName: 'Momin Mohasin Portfolio',
@@ -91,6 +93,10 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'D1gQW36z0ywReJh5n3Vta-QdJRtjfqe4l7-Ql7FgZ_U',
+  },
+  other: {
+    'dns-prefetch': 'https://fonts.googleapis.com',
+    'preconnect': 'https://fonts.gstatic.com',
   },
 };
 

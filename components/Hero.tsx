@@ -137,8 +137,8 @@ const Hero = () => {
             width={320}
             height={320}
             priority
-            quality={100}
-            sizes="(min-width: 1024px) 320px, (min-width: 768px) 256px, 200px"
+            quality={85}
+            sizes="(min-width: 1024px) 320px, (min-width: 768px) 256px, 192px"
             className="relative rounded-full object-cover w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 shadow-2xl backdrop-blur-sm"
             style={{ mixBlendMode: 'darken' }}
             draggable={false}
