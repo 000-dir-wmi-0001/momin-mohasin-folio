@@ -24,14 +24,56 @@ const item: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+function getDuration(from: string, to?: string) {
+  const start = new Date(from);
+  const end = to ? new Date(to) : new Date();
+
+  // Normalize both dates to first day of month
+  const startYear = start.getFullYear();
+  const startMonth = start.getMonth();
+
+  const endYear = end.getFullYear();
+  const endMonth = end.getMonth();
+
+  // Inclusive month calculation
+  let totalMonths =
+    (endYear - startYear) * 12 +
+    (endMonth - startMonth) +
+    1; // 👈 include current month
+
+  if (totalMonths < 1) totalMonths = 1;
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  if (years > 0 && months > 0) {
+    return `${years} yr ${months} mo`;
+  }
+
+  if (years > 0) return `${years} yr`;
+  return `${months} mo`;
+}
+
+
 const experiences = [
   {
     company: "Brilliantech Software Pvt Ltd",
     logo: "/bt.png",
     role: "Full-Stack Developer",
     period: "Jul 2025 – Present",
+    startDate: "2025-07-01",
+
     location: "Pune, Maharashtra, India",
-    techs: ["MERN Stack","MEAN Stack","React", "Next.js", "Node.js",  "REST APIs","Django", "FastAPI",],
+    techs: [
+      "MERN Stack",
+      "MEAN Stack",
+      "React",
+      "Next.js",
+      "Node.js",
+      "REST APIs",
+      "Django",
+      "FastAPI",
+    ],
     description:
       "Working on full-stack development projects using MERN stack and other modern technologies, delivering scalable and responsive web applications.",
   },
@@ -40,6 +82,8 @@ const experiences = [
     logo: "/ts.png",
     role: "Software Engineer",
     period: "Jan 2025 – Jun 2025",
+    startDate: "2025-01-01",
+    endDate: "2025-06-01",
     location: "Pune, Maharashtra, India",
     techs: ["Angular", "TypeScript", "MEAN Stack", "REST APIs"],
     description:
@@ -70,29 +114,43 @@ const Experience = () => {
         </motion.h1>
 
         <div className="flex flex-col gap-8">
-          {experiences.map((exp)=>(
-            <Card key={exp.company} className="rounded-xl border shadow-sm backdrop-blur bg-white/60 dark:bg-zinc-900/50">
-              <CardHeader className="flex items-center gap-4 mb-4">
-                {/* <Avatar>
-                  <AvatarImage src={exp.logo} />
-                  <AvatarFallback>{exp.company.charAt (0)}</AvatarFallback>
-                </Avatar> */}
+          {experiences.map((exp) => (
+            <Card
+              key={exp.company}
+              className="rounded-xl border shadow-sm backdrop-blur bg-white/60 dark:bg-zinc-900/50"
+            >
+              <CardHeader className="flex gap-4">
                 <Image
                   src={exp.logo}
                   alt={`${exp.company} logo`}
-                  width={60}
-                  height={60}
-                  className="object-cover"
+                  width={56}
+                  height={56}
+                  className="rounded-md object-cover"
                 />
-                <CardTitle className="font-bold text-xl">{exp.role}
 
-                <CardDescription className="text-sm text-muted-foreground">
-                  {exp.company} · {exp.period} · {exp.location}
-                </CardDescription>
-                </CardTitle>
+                <div className="flex flex-col">
+                  <CardTitle className="font-bold text-xl">
+                    {exp.role}
+                  </CardTitle>
+
+                  <CardDescription className="text-sm text-muted-foreground">
+                    {exp.company} · {exp.period}
+                    <span className="mx-1">·</span>
+                    <span className="font-medium text-foreground/80">
+                      ({getDuration(exp.startDate, exp.endDate)})
+                    </span>
+                  </CardDescription>
+
+                  <CardDescription className="text-xs text-muted-foreground/80 mt-1">
+                    {exp.location}
+                  </CardDescription>
+                </div>
               </CardHeader>
+
               <CardContent>
-                <CardDescription className="mb-2 text-wrap">{exp.description}</CardDescription>
+                <CardDescription className="mb-2 text-wrap">
+                  {exp.description}
+                </CardDescription>
                 {exp.highlights && (
                   <ul className="list-disc pl-5 text-sm mb-2">
                     {exp.highlights.map((highlight, index) => (
