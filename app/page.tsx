@@ -1,9 +1,17 @@
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
 import { portfolioData } from "@/lib/portfolio-data";
-import { SkillsShowcase } from "@/components/SkillsShowcase";
 import { StatsSection } from "@/components/StatsSection";
 import { HighlightsSection } from "@/components/HighlightsSection";
+import dynamic from "next/dynamic";
+
+// Dynamically import components that are not immediately visible
+const Services = dynamic(() => import("@/components/Services"), {
+  loading: () => <div className="h-96 flex items-center justify-center">Loading...</div>
+});
+
+const SkillsShowcase = dynamic(() => import("@/components/SkillsShowcase").then(mod => ({ default: mod.SkillsShowcase })), {
+  loading: () => <div className="h-96 flex items-center justify-center">Loading...</div>
+});
 
 export const metadata = {
   title: "Home",

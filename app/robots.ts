@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/static/', '/admin/'],
     },
-    sitemap: 'https://mominmohasin.dev/sitemap.xml',
+    sitemap: 'https://momin-mohasin.me/sitemap.xml',
   }
 }
