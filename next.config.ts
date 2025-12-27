@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    imageSizes: [16, 32, 48, 64, 96, 128, 160, 192, 240, 256, 384],
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -30,6 +30,9 @@ const nextConfig: NextConfig = {
   // Compression and optimization
   compress: true,
   poweredByHeader: false,
+
+  // Output optimization
+  output: 'standalone',
 
 
   // Bundle analyzer (conditionally)
@@ -74,11 +77,15 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/_next/image(.*)',
+        source: '/momin.jpg',
         headers: [
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Link',
+            value: '</momin.jpg>; rel=preload; as=image',
           },
         ],
       },

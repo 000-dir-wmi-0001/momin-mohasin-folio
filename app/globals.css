@@ -3,6 +3,60 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Prevent layout shifts and improve CLS */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile */
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Improve touch targets on mobile */
+  button, a, [role="button"] {
+    min-height: 44px; /* iOS Human Interface Guidelines */
+    min-width: 44px;
+  }
+}
+
+/* Ensure stable layout for buttons and interactive elements */
+button, a, [role="button"] {
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Prevent CLS from images */
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optimize animations to prevent layout shifts */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

@@ -68,7 +68,7 @@ const Services = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
               whileHover={{ scale: 1.05 }}
-              className="backdrop-blur bg-white/60 dark:bg-zinc-900/50 hover:bg-primary/5 transition-colors">
+              className="backdrop-blur bg-white/60 dark:bg-zinc-900/50 hover:bg-primary/5 transition-colors transform">
                 <CardHeader className="flex flex-row items-start gap-3">
                   <span className="rounded-md border p-2 bg-white/60 dark:bg-zinc-900/40">
                     <Icon className="w-5 h-5 text-primary" />
