@@ -1,32 +1,63 @@
-import axios, { AxiosInstance } from "axios";
+type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
-// Create an Axios instance
-const axiosClient: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-  timeout: 10000, // optional timeout
-});
+interface FetchOptions extends RequestInit {
+  timeout?: number;
+}
 
-// Request interceptor (optional, e.g., for auth token)
-axiosClient.interceptors.request.use(
-  (config) => {
-    // Example: Add token if exists
-    const token = localStorage.getItem("token");
-    if (token) config.headers.Authorization = `Bearer ${token}`;
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-// Response interceptor
-axiosClient.interceptors.response.use(
-  (response) => response.data, // return only response.data
-  (error) => {
-    console.error("Axios Error:", error.response || error.message);
-    return Promise.reject(error);
+async function fetchClient<T>(
+  endpoint: string,
+  method: HttpMethod = "GET",
+  body?: unknown,
+  options: FetchOptions = {}
+): Promise<T> {
+  const controller = new AbortController();
+  const timeout = options.timeout ?? 10000;
+
+  const id = setTimeout(() => controller.abort(), timeout);
+
+  try {
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+      ...(options.headers as Record<string, string>),
+    };
+
+    // Add token ONLY on client
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
+    }
+
+    const res = await fetch(`${BASE_URL}${endpoint}`, {
+      method,
+      headers,
+      body: body ? JSON.stringify(body) : undefined,
+      signal: controller.signal,
+      ...options,
+    });
+
+    if (!res.ok) {
+      const errorBody = await res.json().catch(() => null);
+      throw {
+        status: res.status,
+        message: errorBody?.message || res.statusText,
+      };
+    }
+
+    return (await res.json()) as T;
+  } catch (error: any) {
+    if (error.name === "AbortError") {
+      console.error("Fetch timeout");
+    } else {
+      console.error("Fetch error:", error);
+    }
+    throw error;
+  } finally {
+    clearTimeout(id);
   }
-);
+}
 
-export default axiosClient;
+export default fetchClient;

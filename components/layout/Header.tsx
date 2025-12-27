@@ -19,8 +19,6 @@ import ScrollProgress from "@/components/ScrollProgress";
 const Header = () => {
   const items = [
     { name: "Home", link: "/" },
-    { name: "About", link: "/about" },
-    { name: "Experience", link: "/experience" },
     { name: "Projects", link: "/projects" },
     { name: "Contact", link: "/contact" },
   ];
