@@ -1,23 +1,108 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
-  title: "Momin Mohasin",
-  description: "Momin Mohasin's personal portfolio website showcasing projects, experience, and skills in web development and backend engineering.",
+  title: {
+    default: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+    template: "%s | Momin Mohasin"
+  },
+  description: "Momin Mohasin's personal portfolio website showcasing expertise in React, Next.js, Node.js, Django, FastAPI, and modern web development technologies. View projects, experience, and technical skills.",
+  keywords: [
+    "Momin Mohasin",
+    "Full-Stack Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "Django Developer",
+    "FastAPI Developer",
+    "Web Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "JavaScript",
+    "TypeScript",
+    "Python",
+    "Portfolio"
+  ],
+  authors: [{ name: "Momin Mohasin" }],
+  creator: "Momin Mohasin",
+  publisher: "Momin Mohasin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://mominmohasin.dev'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://mominmohasin.dev',
+    title: 'Momin Mohasin - Full-Stack Developer & Tech Enthusiast',
+    description: 'Portfolio showcasing expertise in modern web development technologies including React, Next.js, Node.js, Django, and FastAPI.',
+    siteName: 'Momin Mohasin Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Momin Mohasin - Full-Stack Developer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Momin Mohasin - Full-Stack Developer & Tech Enthusiast',
+    description: 'Portfolio showcasing expertise in modern web development technologies.',
+    images: ['/og-image.jpg'],
+    creator: '@mominmohasin',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
 };
 
 export default function RootLayout({
@@ -36,9 +121,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Footer />
+          <ErrorBoundary>
+            <PerformanceMonitor />
+            <Header />
+            {children}
+            <Footer />
+          </ErrorBoundary>
         </ThemeProvider>
       </body>
     </html>

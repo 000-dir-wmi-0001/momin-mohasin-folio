@@ -12,16 +12,14 @@ import { motion, Variants } from "motion/react";
 import { Button } from "@/components/ui/button";
 import StatusBadge from "@/components/ui/StatusBadge";
 import { InlineTabs } from "@/components/ui/InlineTab";
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import { portfolioData } from "@/lib/portfolio-data";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 const container: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 export type ProjectStatus =
   | "completed"
@@ -338,12 +336,12 @@ const projects = [
 ];
 
 const MotionCard = motion(Card);
-type ProjectTab = "all" | "company" | "personal";
+type ProjectTab = "experience" | "company" | "personal";
 const Projects = () => {
   const [activeTab, setActiveTab] = useState<ProjectTab>("company");
 
   const tabs: { title: string; value: ProjectTab }[] = [
-    // { title: "All", value: "all" },
+    { title: "Experience", value: "experience" },
     { title: "Company & Clients", value: "company" },
     { title: "Personal", value: "personal" },
   ];
@@ -358,10 +356,13 @@ const Projects = () => {
           className="mx-auto max-w-6xl px-4 md:px-6 py-8 md:py-12"
         >
           <motion.h1
-            variants={item}
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-8"
           >
-            Projects
+            {activeTab === "experience" ? "Experience" : "Projects"}
           </motion.h1>
           <div className="w-full justify-center items-center">
             <InlineTabs
@@ -425,6 +426,67 @@ const Projects = () => {
                 </div>
               </div>
             )} */}
+            {activeTab === "experience" && (
+              <div className="mt-6">
+                <div className="flex flex-col gap-8">
+                  {portfolioData.experience.map((exp) => (
+                    <Card
+                      key={exp.company}
+                      className="rounded-xl border shadow-sm backdrop-blur bg-white/60 dark:bg-zinc-900/50"
+                    >
+                      <CardHeader className="flex gap-4">
+                        <Image
+                          src={exp.logo}
+                          alt={`${exp.company} logo`}
+                          width={56}
+                          height={56}
+                          className="rounded-md object-cover"
+                        />
+
+                        <div className="flex flex-col">
+                          <CardTitle className="font-bold text-xl">
+                            {exp.role}
+                          </CardTitle>
+
+                          <CardDescription className="text-sm text-muted-foreground">
+                            {exp.company} · {exp.period}
+                          </CardDescription>
+
+                          <CardDescription className="text-xs text-muted-foreground/80 mt-1">
+                            {exp.location}
+                          </CardDescription>
+                        </div>
+                      </CardHeader>
+
+                      <CardContent>
+                        <CardDescription className="mb-2 text-wrap">
+                          {exp.description}
+                        </CardDescription>
+                        {exp.highlights && (
+                          <ul className="list-disc pl-5 text-sm mb-2">
+                            {exp.highlights.map((highlight, index) => (
+                              <li key={index}>{highlight}</li>
+                            ))}
+                          </ul>
+                        )}
+                        <CardFooter className="flex flex-wrap gap-2 mt-2 px-0">
+                          {exp.techs.map((tech) => (
+                            <Badge
+                              key={tech}
+                              variant="secondary"
+                              className="px-3 py-1 text-sm hover:scale-105 transition-transform duration-200"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </CardFooter>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {activeTab === "company" && (
               <div className="mt-6">
                 {companyProjects.length > 0 ? (
