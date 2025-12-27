@@ -21,10 +21,10 @@ export function HighlightsSection() {
         return (
           <motion.div
             key={highlight.title}
-            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.2 + 0.4, ease: "easeOut" }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-80px" }}
             className="group"
           >
             <div className="p-6 rounded-3xl border border-border/30 bg-card/70 backdrop-blur-md hover:bg-card/85 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/8 transition-all duration-500 group-hover:-translate-y-4">

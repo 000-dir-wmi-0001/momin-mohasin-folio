@@ -30,8 +30,8 @@ const item: Variants = {
 const Hero = () => {
   return (
     <motion.div
-      variants={container}
-      initial="hidden"
+      // variants={container}
+      initial={false}
       animate="visible"
       className="relative w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-12 lg:py-20"
       style={{ contain: 'layout style paint' }} // CSS containment for better performance
@@ -57,15 +57,18 @@ const Hero = () => {
         </motion.div>
 
         {/* Main Heading */}
-        <motion.h1
+        {/* <motion.h1
           variants={item}
           className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
-        >
+        > */}
+<h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+
           Hi, I&apos;m{" "}
-          <span className="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-pulse">
-            Momin
+          <span className="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            Momin Mohasin
           </span>
-        </motion.h1>
+        </h1>
+        {/* </motion.h1> */}
 
         {/* Subtitle */}
         <motion.h2
