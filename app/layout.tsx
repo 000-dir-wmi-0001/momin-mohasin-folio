@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'D1gQW36z0ywReJh5n3Vta-QdJRtjfqe4l7-Ql7FgZ_U',
   },
 };
 
@@ -112,6 +112,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
