@@ -11,27 +11,43 @@ import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: 'swap',
+  display: "swap",
   preload: true,
-  weight: ['400', '500', '600', '700'],
-  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  weight: ["400", "500", "600", "700"],
+  fallback: [
+    "system-ui",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Segoe UI",
+    "Roboto",
+    "sans-serif",
+  ],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: 'swap',
+  display: "swap",
   preload: true,
-  weight: ['400', '500', '600'],
-  fallback: ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+  weight: ["400", "500", "600"],
+  fallback: [
+    "ui-monospace",
+    "SFMono-Regular",
+    "Monaco",
+    "Consolas",
+    "Liberation Mono",
+    "Courier New",
+    "monospace",
+  ],
 });
 
 export const metadata: Metadata = {
   title: {
     default: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
-    template: "%s | Momin Mohasin"
+    template: "%s | Momin Mohasin",
   },
-  description: "Momin Mohasin's personal portfolio website showcasing expertise in React, Next.js, Node.js, Django, FastAPI, and modern web development technologies. View projects, experience, and technical skills.",
+  description:
+    "Momin Mohasin's personal portfolio website showcasing expertise in React, Next.js, Node.js, Django, FastAPI, and modern web development technologies. View projects, experience, and technical skills.",
   keywords: [
     "Momin Mohasin",
     "Full-Stack Developer",
@@ -46,7 +62,7 @@ export const metadata: Metadata = {
     "JavaScript",
     "TypeScript",
     "Python",
-    "Portfolio"
+    "Portfolio",
   ],
   authors: [{ name: "Momin Mohasin" }],
   creator: "Momin Mohasin",
@@ -56,32 +72,34 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://momin-mohasin.me'),
+  metadataBase: new URL("https://momin-mohasin.me"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://momin-mohasin.me',
-    title: 'Momin Mohasin - Full-Stack Developer & Tech Enthusiast',
-    description: 'Portfolio showcasing expertise in modern web development technologies including React, Next.js, Node.js, Django, and FastAPI.',
-    siteName: 'Momin Mohasin Portfolio',
+    type: "website",
+    locale: "en_US",
+    url: "https://momin-mohasin.me",
+    title: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+    description:
+      "Portfolio showcasing expertise in modern web development technologies including React, Next.js, Node.js, Django, and FastAPI.",
+    siteName: "Momin Mohasin Portfolio",
     images: [
       {
-        url: '/og-image.jpg',
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: 'Momin Mohasin - Full-Stack Developer',
+        alt: "Momin Mohasin - Full-Stack Developer",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Momin Mohasin - Full-Stack Developer & Tech Enthusiast',
-    description: 'Portfolio showcasing expertise in modern web development technologies.',
-    images: ['/og-image.jpg'],
-    creator: '@mominmohasin',
+    card: "summary_large_image",
+    title: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+    description:
+      "Portfolio showcasing expertise in modern web development technologies.",
+    images: ["/og-image.jpg"],
+    creator: "@mominmohasin",
   },
   robots: {
     index: true,
@@ -89,29 +107,29 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
-    google: 'D1gQW36z0ywReJh5n3Vta-QdJRtjfqe4l7-Ql7FgZ_U',
+    google: "D1gQW36z0ywReJh5n3Vta-QdJRtjfqe4l7-Ql7FgZ_U",
   },
   other: {
-    'dns-prefetch': 'https://fonts.googleapis.com',
-    'preconnect': 'https://fonts.gstatic.com',
+    "dns-prefetch": "https://fonts.googleapis.com",
+    preconnect: "https://fonts.gstatic.com",
   },
 };
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  viewportFit: 'cover',
+  viewportFit: "cover",
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
 };
 
@@ -122,15 +140,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
         <Script
           strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9990858894070712"
           crossOrigin="anonymous"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9990858894070712"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
