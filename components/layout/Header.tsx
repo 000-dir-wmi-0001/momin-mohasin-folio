@@ -28,11 +28,11 @@ const Header = () => {
 
   return (
     <div className="w-full font-mono border-b sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-black/60 shadow-2xl rounded-b-lg">
-             <ScrollProgress />
+      <ScrollProgress />
 
       <nav className="flex items-center justify-between py-2 px-4 sm:px-6 mx-auto w-full max-w-7xl">
         {/* Logo & Name */}
-        <div className="flex items-center gap-3">
+        {/* <div className="flex items-center gap-3">
           <Avatar className="w-10 h-10 lg:w-12 lg:h-12 origin-left transition-transform hover:scale-105 hover:shadow-lg">
             <Image
               src="/momin.jpg"
@@ -49,6 +49,28 @@ const Header = () => {
           <h1 className="font-extrabold text-lg origin-left lg:text-2xl font-mono transition-colors hover:text-primary cursor-pointer">
             Momin Mohasin
           </h1>
+        </div> */}
+        {/* Logo & Name */}
+        <div className="flex items-center gap-3">
+          <Avatar className="w-10 h-10 lg:w-12 lg:h-12 origin-left transition-transform hover:scale-105 hover:shadow-lg">
+            <Image
+              src="/momin.jpg"
+              alt="Momin Mohasin avatar"
+              width={48}
+              height={48}
+              quality={80}
+              sizes="48px"
+              className="rounded-full object-cover w-full h-full"
+            />
+            <AvatarFallback>MM</AvatarFallback>
+          </Avatar>
+
+          <span
+            className="font-extrabold text-lg origin-left lg:text-2xl font-mono transition-colors hover:text-primary cursor-pointer"
+            aria-label="Momin Mohasin"
+          >
+            Momin Mohasin
+          </span>
         </div>
 
         {/* Nav Links (Desktop) */}
@@ -90,7 +112,11 @@ const Header = () => {
                   <DropdownMenuItem key={item.name} asChild>
                     <Link
                       href={item.link}
-                      className={pathname === item.link ? "text-primary font-semibold" : ""}
+                      className={
+                        pathname === item.link
+                          ? "text-primary font-semibold"
+                          : ""
+                      }
                       aria-current={pathname === item.link ? "page" : undefined}
                     >
                       {item.name}

@@ -4,14 +4,15 @@ import { StatsSection } from "@/components/StatsSection";
 import { HighlightsSection } from "@/components/HighlightsSection";
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+import Loading from "./loading";
 
 // Dynamically import components that are not immediately visible
 const Services = dynamic(() => import("@/components/Services"), {
-  loading: () => <div className="h-96 flex items-center justify-center">Loading...</div>
+  loading: () => <Loading />
 });
 
 const SkillsShowcase = dynamic(() => import("@/components/SkillsShowcase").then(mod => ({ default: mod.SkillsShowcase })), {
-  loading: () => <div className="h-96 flex items-center justify-center">Loading...</div>
+  loading: () => <Loading />
 });
 
 

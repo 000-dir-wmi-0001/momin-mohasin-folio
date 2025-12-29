@@ -25,7 +25,7 @@ const iconMap = {
 
 export const SkillsShowcase = ({
   skillCategories,
-  title = "Technical Skills",
+  title = "",
 }: SkillsShowcaseProps) => {
   return (
     <motion.div

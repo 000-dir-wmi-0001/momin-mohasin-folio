@@ -6,7 +6,6 @@ import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
-import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
