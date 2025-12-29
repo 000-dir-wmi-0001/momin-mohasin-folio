@@ -165,7 +165,7 @@ export const portfolioData = {
       company: "Brilliantech Software Pvt Ltd",
       logo: "/bt.png",
       role: "Full-Stack Developer",
-      period: "Jul 2025 – Present",
+      period: "Jul 2025 - Present",
       startDate: "2025-07-01",
       location: "Pune, Maharashtra, India",
       techs: [
@@ -185,7 +185,7 @@ export const portfolioData = {
       company: "TECHONSY Software Pvt Ltd",
       logo: "/ts.png",
       role: "Software Engineer",
-      period: "Jan 2025 – Jun 2025",
+      period: "Jan 2025 - Jun 2025",
       startDate: "2025-01-01",
       endDate: "2025-06-01",
       location: "Pune, Maharashtra, India",

@@ -94,7 +94,7 @@ export const companyProjects: CompanyProject[] = [
     link: "https://app.linkcode.in",
   },
   {
-    name: "Sadhguru Tiles & Marbles – Digital Catalog Platform",
+    name: "Sadhguru Tiles & Marbles - Digital Catalog Platform",
     category: "company",
     client: "Sadhguru Tiles & Marbles, Pune",
     role: "Full-Stack Developer",
