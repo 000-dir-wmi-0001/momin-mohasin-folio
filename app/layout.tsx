@@ -41,83 +41,227 @@ const geistMono = Geist_Mono({
   ],
 });
 
+// export const metadata: Metadata = {
+//   title: {
+//     default: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+//     template: "%s | Momin Mohasin",
+//   },
+//   description:
+//     "Full Stack Developer from Pune, India specializing in React, Next.js, NestJS, FastAPI, Django, and scalable backend development. View projects and skills.",
+//   keywords: [
+//     "Momin Mohasin",
+//     "Full-Stack Developer",
+//     "React Developer",
+//     "Next.js Developer",
+//     "Node.js Developer",
+//     "Django Developer",
+//     "FastAPI Developer",
+//     "Web Developer",
+//     "Backend Developer",
+//     "Frontend Developer",
+//     "JavaScript",
+//     "TypeScript",
+//     "Python",
+//     "Portfolio",
+//     "Software Engineer",
+//     "Web Application Developer",
+//     "MERN Stack",
+//     "MEAN Stack",
+//     "REST API",
+//     "GraphQL",
+//     "MongoDB",
+//     "PostgreSQL",
+//     "MySQL",
+//     "Redis",
+//     "Docker",
+//     "Kubernetes",
+//     "AWS",
+//     "Vercel",
+//     "Git",
+//     "GitHub",
+//     "CI/CD",
+//     "Agile Development",
+//     "Scrum",
+//     "Responsive Design",
+//     "Mobile-First Development",
+//     "Progressive Web Apps",
+//     "Single Page Applications",
+//     "Serverless Architecture",
+//     "Microservices",
+//     "API Development",
+//     "Database Design",
+//     "UI/UX Developer",
+//     "Tailwind CSS",
+//     "Material UI",
+//     "Chakra UI",
+//     "Framer Motion",
+//     "Three.js",
+//     "WebGL",
+//     "Performance Optimization",
+//     "SEO Optimization",
+//     "Technical Writing",
+//     "Code Review",
+//     "Mentorship",
+//     "Open Source Contributor",
+//     "Tech Lead",
+//     "System Architecture",
+//     "Cloud Computing",
+//     "DevOps",
+//     "Linux",
+//     "Bash Scripting",
+//     "Nginx",
+//     "Apache",
+//     "Web Security",
+//     "Cybersecurity",
+//     "Data Structures",
+//     "Algorithms",
+//     "Clean Code",
+//     "Test Driven Development",
+//     "Unit Testing",
+//     "Integration Testing",
+//     "Jest",
+//     "Cypress",
+//     "Playwright",
+//     "Freelance Developer",
+//     "Remote Developer",
+//     "Tech Consultant",
+//     "Digital Solutions",
+//     "Innovation",
+//     "Problem Solving",
+//     "Creative Coding",
+//   ],
+//   authors: [{ name: "Momin Mohasin" }],
+//   creator: "Momin Mohasin",
+//   publisher: "Momin Mohasin",
+//   formatDetection: {
+//     email: false,
+//     address: false,
+//     telephone: false,
+//   },
+//   metadataBase: new URL("https://momin-mohasin.me"),
+//   alternates: {
+//     canonical: "/",
+//   },
+//   openGraph: {
+//     type: "website",
+//     locale: "en_US",
+//     url: "https://momin-mohasin.me",
+//     title: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+//     description:
+//       "Portfolio showcasing expertise in modern web development technologies including React, Next.js, Node.js, Django, and FastAPI.",
+//     siteName: "Momin Mohasin Portfolio",
+//     images: [
+//       {
+//         url: "/og-image.jpg",
+//         width: 1200,
+//         height: 630,
+//         alt: "Momin Mohasin - Full-Stack Developer",
+//       },
+//     ],
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+//     description:
+//       "Portfolio showcasing expertise in modern web development technologies.",
+//     images: ["/og-image.jpg"],
+//     creator: "@mominmohasin",
+//   },
+//   robots: {
+//     index: true,
+//     follow: true,
+//     googleBot: {
+//       index: true,
+//       follow: true,
+//       "max-video-preview": -1,
+//       "max-image-preview": "large",
+//       "max-snippet": -1,
+//     },
+//   },
+//   verification: {
+//     google: "D1gQW36z0ywReJh5n3Vta-QdJRtjfqe4l7-Ql7FgZ_U",
+//   },
+//   other: {
+//     "dns-prefetch": "https://fonts.googleapis.com",
+//     preconnect: "https://fonts.gstatic.com",
+//     "msvalidate.01": "25C4CE3A7C2779B0115120600E473DCC",
+//   },
+// };
+
 export const metadata: Metadata = {
   title: {
-    default: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+    default: "Momin Mohasin – Full Stack Developer",
     template: "%s | Momin Mohasin",
   },
   description:
-    "Momin Mohasin's personal portfolio website showcasing expertise in React, Next.js, Node.js, Django, FastAPI, and modern web development technologies. View projects, experience, and technical skills.",
+    "Full Stack Developer from Pune, India specializing in React, Next.js, NestJS, FastAPI, Django, and scalable backend development. View projects and skills.",
+
   keywords: [
     "Momin Mohasin",
-    "Full-Stack Developer",
+    "Full Stack Developer",
+    "Full Stack Developer Pune",
     "React Developer",
     "Next.js Developer",
-    "Node.js Developer",
-    "Django Developer",
+    "NestJS Developer",
     "FastAPI Developer",
-    "Web Developer",
+    "Django Developer",
     "Backend Developer",
-    "Frontend Developer",
+    "Web Developer",
     "JavaScript",
     "TypeScript",
     "Python",
+    "REST API Developer",
+    "WebSocket Developer",
+    "PostgreSQL",
+    "MongoDB",
+    "Docker",
+    "AWS",
     "Portfolio",
   ],
+
   authors: [{ name: "Momin Mohasin" }],
   creator: "Momin Mohasin",
   publisher: "Momin Mohasin",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+
   metadataBase: new URL("https://momin-mohasin.me"),
   alternates: {
     canonical: "/",
   },
+
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     url: "https://momin-mohasin.me",
-    title: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+    title: "Momin Mohasin – Full Stack Developer",
     description:
-      "Portfolio showcasing expertise in modern web development technologies including React, Next.js, Node.js, Django, and FastAPI.",
+      "Full Stack Developer from Pune, India with experience in React, Next.js, NestJS, FastAPI, Django, and real-world backend systems.",
     siteName: "Momin Mohasin Portfolio",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Momin Mohasin - Full-Stack Developer",
+        alt: "Momin Mohasin – Full Stack Developer",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Momin Mohasin - Full-Stack Developer & Tech Enthusiast",
+    title: "Momin Mohasin – Full Stack Developer",
     description:
-      "Portfolio showcasing expertise in modern web development technologies.",
+      "Full Stack Developer specializing in modern web and backend technologies.",
     images: ["/og-image.jpg"],
     creator: "@mominmohasin",
   },
+
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
+
   verification: {
     google: "D1gQW36z0ywReJh5n3Vta-QdJRtjfqe4l7-Ql7FgZ_U",
-  },
-  other: {
-    "dns-prefetch": "https://fonts.googleapis.com",
-    preconnect: "https://fonts.gstatic.com",
   },
 };
 
@@ -140,18 +284,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <Script
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9990858894070712"
-          crossOrigin="anonymous"
-        />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9990858894070712"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
