@@ -17,6 +17,16 @@ import { portfolioData } from "@/lib/portfolio-data";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects – Full Stack Developer Portfolio",
+  description:
+    "Explore real-world full stack and backend projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
+};
+
+
+
 const container: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } },

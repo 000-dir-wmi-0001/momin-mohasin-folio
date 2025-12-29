@@ -3,6 +3,7 @@ import { portfolioData } from "@/lib/portfolio-data";
 import { StatsSection } from "@/components/StatsSection";
 import { HighlightsSection } from "@/components/HighlightsSection";
 import dynamic from "next/dynamic";
+import type { Metadata } from "next";
 
 // Dynamically import components that are not immediately visible
 const Services = dynamic(() => import("@/components/Services"), {
@@ -13,10 +14,13 @@ const SkillsShowcase = dynamic(() => import("@/components/SkillsShowcase").then(
   loading: () => <div className="h-96 flex items-center justify-center">Loading...</div>
 });
 
-export const metadata = {
-  title: "Home",
-  description: "Welcome to Momin Mohasin's portfolio - Full-Stack Developer specializing in modern web technologies.",
+
+export const metadata: Metadata = {
+  title: "Momin Mohasin – Full Stack Developer",
+  description:
+    "Full Stack Developer from Pune, India with hands-on experience in React, Next.js, NestJS, FastAPI, Django, and real-world backend systems.",
 };
+
 
 export default function Home() {
   return (

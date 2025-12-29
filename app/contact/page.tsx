@@ -10,6 +10,16 @@ import {FormState} from "@/interface/contact"
 import { sendContactForm } from '@/api/api';
 import { Textarea } from '@/components/ui/textarea';
 
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact – Hire Full Stack Developer",
+  description:
+    "Get in touch with Momin Mohasin, a Full Stack Developer from Pune, India, open to full-time roles and freelance opportunities.",
+};
+
+
 const container: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
