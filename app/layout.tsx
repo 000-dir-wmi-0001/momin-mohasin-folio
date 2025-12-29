@@ -42,7 +42,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Momin Mohasin – Full Stack Developer",
+    default: "Momin Mohasin - Full Stack Developer",
     template: "%s | Momin Mohasin",
   },
   description:
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://momin-mohasin.me",
-    title: "Momin Mohasin – Full Stack Developer",
+    title: "Momin Mohasin - Full Stack Developer",
     description:
       "Full Stack Developer from Pune, India with experience in React, Next.js, NestJS, FastAPI, Django, and real-world backend systems.",
     siteName: "Momin Mohasin Portfolio",
