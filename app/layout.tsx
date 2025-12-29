@@ -50,27 +50,22 @@ export const metadata: Metadata = {
     "Full Stack Developer from Pune, India specializing in React, Next.js, NestJS, FastAPI, Django, and scalable backend development. View projects and skills.",
 
   keywords: [
-    "Momin Mohasin",
-    "Full Stack Developer",
-    "Full Stack Developer Pune",
-    "React Developer",
-    "Next.js Developer",
-    "NestJS Developer",
-    "FastAPI Developer",
-    "Django Developer",
-    "Backend Developer",
-    "Web Developer",
-    "JavaScript",
-    "TypeScript",
-    "Python",
-    "REST API Developer",
-    "WebSocket Developer",
-    "PostgreSQL",
-    "MongoDB",
-    "Docker",
-    "AWS",
-    "Portfolio",
-  ],
+  "Momin Mohasin",
+  "Mid-Level Full Stack Developer Pune",
+  "Backend-heavy Full Stack Developer",
+  "Full Stack Developer with Project Leadership Experience",
+  "Next.js & NestJS Full Stack Engineer",
+  "Python FastAPI Developer",
+  "Django Backend Developer",
+  "React.js Specialist",
+  "TypeScript Software Engineer",
+  "REST API Developer",
+  "Real-time WebSocket Developer",
+  "PostgreSQL & MongoDB Database Design",
+  "Docker & AWS Cloud Deployment",
+  "Scalable Web Applications",
+  "Software Engineer Portfolio",
+],
 
   authors: [{ name: "Momin Mohasin" }],
   creator: "Momin Mohasin",
@@ -94,14 +89,14 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Momin Mohasin – Full Stack Developer",
+        alt: "Momin Mohasin - Full Stack Developer",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Momin Mohasin – Full Stack Developer",
+    title: "Momin Mohasin - Full Stack Developer",
     description:
       "Full Stack Developer specializing in modern web and backend technologies.",
     images: ["/og-image.jpg"],
@@ -168,23 +163,6 @@ export default function RootLayout({
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "usxqm1qi9j");
-          `}
-        </Script>
-
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZTY155WK7V"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-        >
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ZTY155WK7V');
           `}
         </Script>
       </body>

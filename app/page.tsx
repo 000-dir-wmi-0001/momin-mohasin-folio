@@ -17,7 +17,7 @@ const SkillsShowcase = dynamic(() => import("@/components/SkillsShowcase").then(
 
 
 export const metadata: Metadata = {
-  title: "Momin Mohasin – Full Stack Developer",
+  title: "Momin Mohasin - Full Stack Developer",
   description:
     "Full Stack Developer from Pune, India with hands-on experience in React, Next.js, NestJS, FastAPI, Django, and real-world backend systems.",
 };
