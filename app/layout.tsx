@@ -181,11 +181,11 @@ const geistMono = Geist_Mono({
 //   verification: {
 //     google: "D1gQW36z0ywReJh5n3Vta-QdJRtjfqe4l7-Ql7FgZ_U",
 //   },
-//   other: {
-//     "dns-prefetch": "https://fonts.googleapis.com",
-//     preconnect: "https://fonts.gstatic.com",
-//     "msvalidate.01": "25C4CE3A7C2779B0115120600E473DCC",
-//   },
+  // other: {
+  //   "dns-prefetch": "https://fonts.googleapis.com",
+  //   preconnect: "https://fonts.gstatic.com",
+  //   "msvalidate.01": "25C4CE3A7C2779B0115120600E473DCC",
+  // },
 // };
 
 export const metadata: Metadata = {
@@ -262,6 +262,9 @@ export const metadata: Metadata = {
 
   verification: {
     google: "D1gQW36z0ywReJh5n3Vta-QdJRtjfqe4l7-Ql7FgZ_U",
+  },
+   other: {
+    "msvalidate.01": "25C4CE3A7C2779B0115120600E473DCC",
   },
 };
 
