@@ -34,7 +34,7 @@ const Hero = () => {
       initial={false}
       animate="visible"
       className="relative w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-12 lg:py-20"
-      style={{ contain: 'layout style paint' }} // CSS containment for better performance
+      style={{ contain: "layout style paint" }} // CSS containment for better performance
     >
       {/* Simplified Background Elements - Reduced complexity for better LCP */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -61,8 +61,7 @@ const Hero = () => {
           variants={item}
           className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
         > */}
-<h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
-
+        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
           Hi, I&apos;m{" "}
           <span className="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             Momin Mohasin
@@ -83,8 +82,10 @@ const Hero = () => {
           variants={item}
           className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto lg:mx-0 leading-relaxed mb-10 font-light"
         >
-          I build modern, scalable web applications with React, Next.js, Node.js, Django, and FastAPI.
-          Currently working at Brilliantech Software Pvt Ltd, passionate about creating impactful digital solutions.
+          I build modern, scalable web applications with React, Next.js,
+          Node.js, Django, and FastAPI. Currently working at Brilliantech
+          Software Pvt Ltd, passionate about creating impactful digital
+          solutions.
         </motion.p>
 
         {/* Action Buttons */}
@@ -124,10 +125,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Image */}
-      <motion.div
-        variants={item}
-        className="relative z-10 shrink-0"
-      >
+      <motion.div variants={item} className="relative z-10 shrink-0">
         <div className="relative bg-white rounded-full">
           {/* Subtle Image Glow */}
           <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-full blur-2xl scale-110 animate-pulse opacity-60" />
@@ -141,12 +139,12 @@ const Hero = () => {
             quality={75}
             sizes="(min-width: 1024px) 240px, (min-width: 768px) 192px, 160px"
             className="relative rounded-full object-cover w-40 h-40 sm:w-48 sm:h-48 lg:w-60 lg:h-60 shadow-2xl backdrop-blur-sm"
-            style={{ mixBlendMode: 'darken' }}
+            style={{ mixBlendMode: "darken" }}
             draggable={false}
             whileHover={{
               scale: 1.05,
               rotate: 2,
-              transition: { duration: 0.4, ease: "easeOut" }
+              transition: { duration: 0.4, ease: "easeOut" },
             }}
           />
 
@@ -155,12 +153,12 @@ const Hero = () => {
             animate={{
               y: [0, -10, 0],
               rotate: [0, 5, 0],
-              scale: [1, 1.05, 1]
+              scale: [1, 1.05, 1],
             }}
             transition={{
               duration: 6,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             className="absolute -top-4 -right-4 w-8 h-8 bg-primary/15 rounded-full blur-sm"
           />
@@ -168,18 +166,16 @@ const Hero = () => {
             animate={{
               y: [0, 10, 0],
               rotate: [0, -5, 0],
-              scale: [1, 1.05, 1]
+              scale: [1, 1.05, 1],
             }}
             transition={{
               duration: 7,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 1
+              delay: 1,
             }}
             className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary/15 rounded-full blur-sm"
           />
-
-
         </div>
       </motion.div>
     </motion.div>
