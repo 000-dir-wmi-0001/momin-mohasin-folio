@@ -5,7 +5,7 @@ import { ModeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { motion } from "motion/react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import Image from "next/image";
@@ -31,37 +31,9 @@ const Header = () => {
       <ScrollProgress />
 
       <nav className="flex items-center justify-between py-2 px-4 sm:px-6 mx-auto w-full max-w-7xl">
-        {/* Logo & Name */}
-        {/* <div className="flex items-center gap-3">
-          <Avatar className="w-10 h-10 lg:w-12 lg:h-12 origin-left transition-transform hover:scale-105 hover:shadow-lg">
-            <Image
-              src="/momin.jpg"
-              alt="Momin avatar"
-              width={48}
-              height={48}
-              quality={80}
-              sizes="48px"
-              className="rounded-full object-cover w-full h-full"
-              priority={false}
-            />
-            <AvatarFallback>MM</AvatarFallback>
-          </Avatar>
-          <h1 className="font-extrabold text-lg origin-left lg:text-2xl font-mono transition-colors hover:text-primary cursor-pointer">
-            Momin Mohasin
-          </h1>
-        </div> */}
-        {/* Logo & Name */}
         <div className="flex items-center gap-3">
           <Avatar className="w-10 h-10 lg:w-12 lg:h-12 origin-left transition-transform hover:scale-105 hover:shadow-lg">
-            <Image
-              src="/momin.jpg"
-              alt="Momin Mohasin avatar"
-              width={48}
-              height={48}
-              quality={80}
-              sizes="48px"
-              className="rounded-full object-cover w-full h-full"
-            />
+            <AvatarImage src={"/momin.jpg"} alt="MM" asChild />
             <AvatarFallback>MM</AvatarFallback>
           </Avatar>
 
