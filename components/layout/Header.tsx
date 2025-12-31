@@ -33,7 +33,7 @@ const Header = () => {
       <nav className="flex items-center justify-between py-2 px-4 sm:px-6 mx-auto w-full max-w-7xl">
         <div className="flex items-center gap-3">
           <Avatar className="w-10 h-10 lg:w-12 lg:h-12 origin-left transition-transform hover:scale-105 hover:shadow-lg">
-            <AvatarImage src={"/momin.jpg"} alt="MM" asChild />
+            <AvatarImage src="/momin.jpg" />
             <AvatarFallback>MM</AvatarFallback>
           </Avatar>
 
