@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -165,6 +166,8 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "usxqm1qi9j");
           `}
         </Script>
+
+        <Analytics />
       </body>
     </html>
   );
