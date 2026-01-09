@@ -52,8 +52,8 @@ export function FAQSection() {
 
       <div className="relative mx-auto max-w-4xl px-4 md:px-6">
         <div className="text-center mb-16 md:mb-24">
-          <div className="inline-block px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
-            <HelpCircle className="w-4 h-4 inline mr-2" />
+          <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
+            <HelpCircle className="w-4 h-4 mr-2 flex-shrink-0" />
             Frequently Asked Questions
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">

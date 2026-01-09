@@ -11,6 +11,12 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }
 
 /* Mobile-specific optimizations */

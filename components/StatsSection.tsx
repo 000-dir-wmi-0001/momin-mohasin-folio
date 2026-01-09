@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "motion/react";
 import { portfolioData } from "@/lib/portfolio-data";
 import { Briefcase, Rocket, Building2 } from "lucide-react";
@@ -10,7 +11,7 @@ const iconMap = {
   Building2,
 };
 
-export function StatsSection() {
+export const StatsSection = React.memo(() => {
   const stats = Object.values(portfolioData.stats);
 
   return (
@@ -67,7 +68,7 @@ export function StatsSection() {
       })}
     </div>
   );
-}
+});
 
 
 // "use client";
