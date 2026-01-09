@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -150,6 +151,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            <SpeedInsights />
           </ErrorBoundary>
         </ThemeProvider>
 
