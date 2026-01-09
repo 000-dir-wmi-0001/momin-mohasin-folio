@@ -316,7 +316,7 @@ const projects = [
     description:
       "An Android app that helps users discover recipes using Gemini API. Built in Java, it allows searching and exploring a variety of recipes with ease.",
     technologies: ["Android", "Java", "XML", "Firebase", "Gemini API"],
-    status: "inprogress",
+    status: "completed",
   },
   {
     name: "Mtube",
@@ -332,7 +332,7 @@ const projects = [
     description:
       "An Android app built in Java for reading novels and books with a clean and user-friendly interface for book lovers.",
     technologies: ["Android", "Java", "XML", "Firebase"],
-    status: "inprogress",
+    status: "completed",
   },
 ];
 

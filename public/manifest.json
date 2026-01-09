@@ -1,0 +1,21 @@
+{
+  "name": "Momin Mohasin - Full Stack Developer Portfolio",
+  "short_name": "Momin Mohasin",
+  "description": "Portfolio of Momin Mohasin, a Full Stack Developer specializing in modern web technologies.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/og-momin.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/og-momin.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
