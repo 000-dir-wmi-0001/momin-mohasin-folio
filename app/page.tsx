@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { StatsSectionSkeleton, HighlightsSectionSkeleton, ServicesSkeleton, SkillsShowcaseSkeleton, FAQSectionSkeleton } from "@/components/skeletons";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { User, Code, Settings } from "lucide-react";
 
 // Dynamically import components that are not immediately visible
 const StatsSection = dynamic(() => import("@/components/StatsSection").then(mod => ({ default: mod.StatsSection })), {
@@ -55,8 +56,8 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
           <div className="text-center mb-16 md:mb-24">
-            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-105">
-              <span className="w-2 h-2 bg-primary rounded-full mr-3 animate-pulse"></span>
+            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
+              <User className="w-4 h-4 mr-2 flex-shrink-0" />
               Professional Overview
             </div>
             <h2 id="overview-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
@@ -88,8 +89,8 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
           <div className="text-center mb-16 md:mb-24">
-            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-secondary bg-secondary/8 rounded-full border border-secondary/15 backdrop-blur-sm shadow-lg hover:shadow-secondary/10 transition-all duration-300 hover:scale-105">
-              <span className="w-2 h-2 bg-secondary rounded-full mr-3 animate-pulse"></span>
+            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
+              <Code className="w-4 h-4 mr-2 flex-shrink-0" />
               Technical Expertise
             </div>
             <h2 id="skills-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
@@ -119,8 +120,8 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
           <div className="text-center mb-16 md:mb-24">
-            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-accent bg-accent/8 rounded-full border border-accent/15 backdrop-blur-sm shadow-lg hover:shadow-accent/10 transition-all duration-300 hover:scale-105">
-              <span className="w-2 h-2 bg-accent rounded-full mr-3 animate-pulse"></span>
+            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
+              <Settings className="w-4 h-4 mr-2 flex-shrink-0" />
               Service Expertise
             </div>
             <h2 id="services-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
