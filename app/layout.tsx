@@ -8,6 +8,7 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -167,6 +168,8 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "usxqm1qi9j");
           `}
         </Script>
+
+        <Analytics />
       </body>
     </html>
   );
