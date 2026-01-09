@@ -6,7 +6,9 @@ import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -163,6 +165,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            <SpeedInsights />
           </ErrorBoundary>
         </ThemeProvider>
 
@@ -373,6 +376,7 @@ export default function RootLayout({
             }
           })}
         </Script>
+        <Analytics />
       </body>
     </html>
   );
