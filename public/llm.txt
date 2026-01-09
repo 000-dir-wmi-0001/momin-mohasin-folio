@@ -1,0 +1,108 @@
+# LLM.txt for Momin Mohasin Portfolio
+
+## Site Information
+- **Name**: Momin Mohasin Portfolio
+- **Description**: A personal portfolio website showcasing the work, skills, and projects of Momin Mohasin, a Full-Stack Developer specializing in modern web technologies.
+- **Purpose**: To provide an overview of professional background, technical expertise, experience, and contact information for potential collaborators, employers, or clients.
+- **Primary Audience**: Recruiters, developers, and tech enthusiasts interested in web development and software engineering.
+- **Language**: English
+- **Technology Stack**: Built with Next.js, React, TypeScript, Tailwind CSS, and various backend technologies including Node.js, Django, and FastAPI.
+- **Author**: Momin Mohasin
+- **Created**: 2024
+- **Modified**: January 9, 2026
+
+## Personal Information
+- **Name**: Momin Mohasin
+- **Title**: Full-Stack Developer
+- **Tagline**: Tech Enthusiast
+- **Description**: Passionate about creating scalable web applications with modern technologies. Builds modern, scalable web applications with React, Next.js, Node.js, Django, and FastAPI. Currently working at Brilliantech Software Pvt Ltd, passionate about impactful solutions.
+- **Location**: Pune, Maharashtra, India
+
+## Professional Experience
+- **Current Role**: Full-Stack Developer at Brilliantech Software Pvt Ltd (Jul 2025 - Present)
+  - Technologies: MERN Stack, MEAN Stack, React, Next.js, Node.js, REST APIs, Django, FastAPI
+  - Description: Working on full-stack development projects using MERN stack and other modern technologies, delivering scalable and responsive web applications.
+
+- **Previous Role**: Software Engineer at TECHONSY Software Pvt Ltd (Jan 2025 - Jun 2025)
+  - Technologies: Angular, TypeScript, MEAN Stack, REST APIs
+  - Description: Contributed to full-stack development using the MEAN stack. Developed LMS, integrated REST APIs, optimized API rendering, and implemented responsive UI/UX.
+  - Highlights:
+    - Developed a Learning Management System (LMS) using Angular v19 and TypeScript.
+    - Built and integrated RESTful APIs, improving app performance and scalability.
+    - Implemented mobile-friendly UI/UX and responsive design.
+    - Participated in Agile sprints, daily stand-ups, and code reviews.
+
+## Skills and Expertise
+### Frameworks
+- Next.js, Angular, Node.js, NestJS, Express.js, Fastify, Django, FastAPI
+
+### Libraries
+- React, Framer Motion, Shadcn UI, Lucide Icons, TailwindCSS, Bootstrap
+
+### Languages
+- JavaScript, TypeScript, Python, Java, PHP
+
+### Databases
+- MySQL, PostgreSQL, MongoDB, SQLite, Prisma, SQLAlchemy, Mongoose, Sequelize
+
+### Tools / DevOps
+- Git, GitHub, Linux, Docker, DigitalOcean, AWS (S3, EC2), Nginx, PM2, CI/CD (GitHub Actions)
+
+### Authentication / Security
+- JWT, OAuth 2.0, Role-Based Access Control (RBAC)
+
+### Others / Advanced
+- WebRTC, WebSockets, Redis, Stripe, Cashfree, Razorpay, Zoom SDK, Calendly, Twilio, SendGrid, Strapi (Headless CMS), Firebase
+
+## Statistics
+- Years of Experience: 1+
+- Projects Completed: 15+
+- Companies Worked: 2
+
+## Site Structure
+The website is organized into the following main sections:
+
+### Home Page (/)
+- Hero section introducing Momin Mohasin
+- Highlights of expertise, methodology, and impact
+- Services offered
+- Statistics and performance metrics
+- Call-to-action for contact
+
+### Projects Page (/projects)
+- Showcase of completed projects
+- Descriptions, technologies used, and links to live demos or repositories
+- Interactive project gallery
+
+### Contact Page (/contact)
+- Contact form for inquiries
+- Social media links and professional profiles
+- Location and availability information
+
+### Skills and Services
+- Technical skills section with proficiency levels
+- Services offered (e.g., web development, consulting)
+- FAQ section for common questions
+
+## Key Features
+- Responsive design for mobile and desktop
+- Dark/light theme toggle
+- Performance monitoring and optimization
+- SEO optimized for search engines and AI models
+- Accessibility features
+- Modern UI with animations and interactive elements
+
+## Contact Information
+- Email: [Contact email, if available]
+- LinkedIn: [LinkedIn profile]
+- GitHub: [GitHub profile]
+- Resume: /resume.pdf
+
+## AI/LLM Optimization Notes
+This llm.txt file is provided to help Large Language Models (LLMs) better understand and index the website content. It includes structured information about the site's purpose, structure, key elements, and detailed professional information to facilitate easier parsing and summarization by AI systems. For SEO purposes, the site is designed with semantic HTML, clear headings, and descriptive metadata. The content is based on the latest portfolio data as of January 9, 2026.
+
+## Additional Resources
+- Sitemap: /sitemap.xml
+- Robots.txt: /robots.txt
+- Manifest: /manifest.json
+- Resume: /resume.pdf
