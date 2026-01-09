@@ -1,9 +1,36 @@
 "use client";
 
 import { useEffect } from "react";
+import { onCLS, onINP, onFCP, onLCP, onTTFB } from "web-vitals";
 
 export function PerformanceMonitor() {
   useEffect(() => {
+    // Core Web Vitals monitoring
+    onCLS((metric) => {
+      console.log("CLS:", metric);
+      // Send to analytics if needed
+    });
+
+    onINP((metric) => {
+      console.log("INP:", metric);
+      // Send to analytics if needed
+    });
+
+    onFCP((metric) => {
+      console.log("FCP:", metric);
+      // Send to analytics if needed
+    });
+
+    onLCP((metric) => {
+      console.log("LCP:", metric);
+      // Send to analytics if needed
+    });
+
+    onTTFB((metric) => {
+      console.log("TTFB:", metric);
+      // Send to analytics if needed
+    });
+
     // ❗ Exit early on mobile or server
     if (typeof window === "undefined" || window.innerWidth < 768) return;
     if (!("PerformanceObserver" in window)) return;

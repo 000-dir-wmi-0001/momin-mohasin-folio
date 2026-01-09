@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import { portfolioData } from "@/lib/portfolio-data";
 import { StatsSection } from "@/components/StatsSection";
 import { HighlightsSection } from "@/components/HighlightsSection";
+import { FAQSection } from "@/components/FAQSection";
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import Loading from "./loading";
@@ -119,6 +120,11 @@ export default function Home() {
           </div>
           <Services />
         </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative overflow-hidden">
+        <FAQSection />
       </section>
     </main>
   );
