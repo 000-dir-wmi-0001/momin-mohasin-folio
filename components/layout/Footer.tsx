@@ -48,7 +48,8 @@ const Footer = () => {
         <motion.div
           variants={container}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 gap-8 md:grid-cols-3"
         >
           {/* CTA */}
@@ -67,7 +68,7 @@ const Footer = () => {
                 <Link href="/contact">Contact</Link>
               </Button>
               <Button asChild size="sm" variant="outline">
-                <Link href="/">Resume</Link>
+              <Link href="/resume.pdf" download="Momin_Mohasin_Resume.pdf">Resume</Link>
               </Button>
             </div>
           </motion.div>

@@ -5,11 +5,7 @@ export const metadata: Metadata = {
   title: "Contact - Hire Full Stack Developer",
   description:
     "Get in touch with Momin Mohasin, a Full Stack Developer from Pune, India, open to full-time roles and freelance opportunities.",
-  other: {
-    'dns-prefetch': 'https://api.example.com', // Replace with your actual API domain
-    'preconnect': 'https://fonts.googleapis.com',
-    'preload': '/_next/static/css/app/contact/page.css',
-  },
+  alternates: { canonical: "https://momin-mohasin.me/contact" },
 };
 
 export default function Contact() {
