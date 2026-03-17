@@ -161,6 +161,32 @@ const projects = [
     type: "web",
     link: "https://mchat.momin-mohasin.me/",
   },
+  
+  {
+    name: "KarLo",
+    category: "personal",
+    description:
+      "KarLo is a location-aware To-Do and reminder platform branded as 'Apna Reminder Dost', designed to trigger reminders based on real-world location context.",
+    purpose:
+      "Help users remember tasks exactly when and where they matter most using geofencing.",
+    keyFeatures: [
+      "Geofenced reminders based on user location",
+      "Smart notifications triggered by proximity",
+      "Fast task creation with minimal user input",
+      "Designed for commuters and modern multitaskers",
+    ],
+    technologies: [
+      "React.js",
+      "FastAPI",
+      "PostgreSQL",
+      "Alembic",
+      "Google Maps API",
+      "Geolocation Services",
+    ],
+    status: "completed",
+    type: "fullstack",
+    link: "https://karlo.momin-mohasin.me/",
+  },
   {
     name: "m_share",
     category: "personal",
@@ -187,31 +213,6 @@ const projects = [
     link: "https://mshare.momin-mohasin.me/",
   },
 
-  {
-    name: "KarLo",
-    category: "personal",
-    description:
-      "KarLo is a location-aware To-Do and reminder platform branded as 'Apna Reminder Dost', designed to trigger reminders based on real-world location context.",
-    purpose:
-      "Help users remember tasks exactly when and where they matter most using geofencing.",
-    keyFeatures: [
-      "Geofenced reminders based on user location",
-      "Smart notifications triggered by proximity",
-      "Fast task creation with minimal user input",
-      "Designed for commuters and modern multitaskers",
-    ],
-    technologies: [
-      "React.js",
-      "FastAPI",
-      "PostgreSQL",
-      "Alembic",
-      "Google Maps API",
-      "Geolocation Services",
-    ],
-    status: "inprogress",
-    type: "fullstack",
-    link: "https://karlo.momin-mohasin.me/",
-  },
   {
     name: "Sad Guru Tiles",
     category: "personal",
@@ -372,61 +373,7 @@ const Projects = () => {
               onChange={setActiveTab}
             />
 
-            {/* {activeTab === "company" && (
-              <div className=" mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {companyProjects.map((project) => (
-                    <MotionCard
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                      whileHover={{ scale: 1.05 }}
-                      key={project.name}
-                      className="rounded-lg border shadow-sm"
-                    >
-                      <CardHeader>
-                        <CardTitle className="text-lg font-bold">
-                          {project.name}
-                        </CardTitle>
-
-                        <CardDescription>{project.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <ul className="list-disc pl-5">
-                          {project.technologies.map((tech) => (
-                            <li key={tech}>{tech}</li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                      <CardFooter>
-                        <StatusBadge status={project.status} />
-
-                        {project.link && (
-                          <CardAction className="ml-auto">
-                            <Button asChild variant={"outline"} size={"sm"}>
-                              <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="no-underline text-sm font-medium"
-                              >
-                                View
-                              </a>
-                            </Button>
-                          </CardAction>
-                        )}
-                      </CardFooter>
-                    </MotionCard>
-                  ))}
-                  {companyProjects.length === 0 && (
-                    <div className="col-span-3 text-center text-muted-foreground">
-                      No company projects available at the moment. Please check
-                      back later.
-                    </div>
-                  )}
-                </div>
-              </div>
-            )} */}
+            
             {activeTab === "experience" && (
               <div className="mt-6">
                 <div className="flex flex-col gap-8">
@@ -660,51 +607,7 @@ const Projects = () => {
               </div>
             )}
           </div>
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <MotionCard
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ scale: 1.05 }}
-                key={project.name}
-                className="rounded-lg border shadow-sm"
-              >
-                <CardHeader>
-                  <CardTitle className="text-lg font-bold">
-                    {project.name}
-                  </CardTitle>
-
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="list-disc pl-5">
-                    {project.technologies.map((tech) => (
-                      <li key={tech}>{tech}</li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <StatusBadge status={project.status} />
-
-                  {project.link && (
-                    <CardAction className="ml-auto">
-                      <Button asChild variant={"outline"} size={"sm"}>
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="no-underline text-sm font-medium"
-                        >
-                          View
-                        </a>
-                      </Button>
-                    </CardAction>
-                  )}
-                </CardFooter>
-              </MotionCard>
-            ))}
-          </div> */}
+          
         </motion.div>
       </section>
     </>

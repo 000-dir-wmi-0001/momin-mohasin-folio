@@ -151,6 +151,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -187,7 +192,7 @@ export default function RootLayout({
         <Script
           id="structured-data"
           type="application/ld+json"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         >
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -234,7 +239,7 @@ export default function RootLayout({
         <Script
           id="contact-structured-data"
           type="application/ld+json"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         >
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -259,7 +264,7 @@ export default function RootLayout({
         <Script
           id="organization-structured-data"
           type="application/ld+json"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         >
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -291,7 +296,7 @@ export default function RootLayout({
         <Script
           id="faq-structured-data"
           type="application/ld+json"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         >
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -353,7 +358,7 @@ export default function RootLayout({
         <Script
           id="website-structured-data"
           type="application/ld+json"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         >
           {JSON.stringify({
             "@context": "https://schema.org",

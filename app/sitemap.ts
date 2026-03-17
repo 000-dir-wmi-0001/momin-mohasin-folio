@@ -3,8 +3,7 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://momin-mohasin.me'
 
-  // Use current date for portfolio content (last updated)
-  const lastUpdated = new Date('2026-01-09')
+  const lastUpdated = new Date()
 
   return [
     {

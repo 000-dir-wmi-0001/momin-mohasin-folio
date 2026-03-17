@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Projects - Full Stack Developer Portfolio",
   description:
     "Explore real-world full stack and backend projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
+  alternates: { canonical: "https://momin-mohasin.me/projects" },
 };
 
 export default function Projects() {
