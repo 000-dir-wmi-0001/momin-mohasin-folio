@@ -1,64 +1,84 @@
 import ProjectsClient from './ProjectsClient';
 import type { Metadata } from "next";
 import Script from "next/script";
+import { generateProjectSchema, generateBreadcrumbSchema, generateHreflangTags } from "@/lib/seo-utils";
+import { portfolioData } from "@/lib/portfolio-data";
 
 export const metadata: Metadata = {
   title: "Projects - Full Stack Developer Portfolio",
   description:
     "Explore real-world full stack and backend projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
-  alternates: { canonical: "https://momin-mohasin.me/projects" },
+  alternates: { 
+    canonical: "https://momin-mohasin.me/projects",
+    ...generateHreflangTags("/projects")
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://momin-mohasin.me/projects",
+    title: "Projects - Full Stack Developer Portfolio",
+    description:
+      "Explore real-world full stack and backend projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
+    siteName: "Momin Mohasin Portfolio",
+    images: [
+      {
+        url: "/og-momin.png",
+        width: 1200,
+        height: 630,
+        alt: "Momin Mohasin - Full Stack Developer Projects",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects - Full Stack Developer Portfolio",
+    description:
+      "Explore real-world full stack and backend projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
+    images: ["/og-momin.png"],
+    creator: "@mominmohasin",
+  },
 };
 
 export default function Projects() {
+  const breadcrumbSchema = generateBreadcrumbSchema("/projects");
+  
   const projectStructuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Momin Mohasin's Portfolio Projects",
     "description": "Collection of full-stack development projects showcasing expertise in modern web technologies",
-    "numberOfItems": 15,
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "SoftwareApplication",
-          "name": "LinkCode LMS & Admin Portal",
-          "description": "Enterprise-grade Learning Management System and administrative portal for managing student training, attendance, payments, and academic performance.",
-          "applicationCategory": "EducationalApplication",
-          "operatingSystem": "Web Browser",
-          "programmingLanguage": ["Angular", "TypeScript", "Node.js"],
-          "author": {
-            "@type": "Person",
-            "name": "Momin Mohasin"
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "INR"
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "SoftwareApplication",
-          "name": "Sadhguru Tiles & Marbles - Digital Catalog Platform",
-          "description": "Digital catalog platform for tiles and marbles business with product showcase and inquiry management.",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web Browser",
-          "programmingLanguage": ["React", "Node.js", "MongoDB"],
-          "author": {
-            "@type": "Person",
-            "name": "Momin Mohasin"
-          }
+    "numberOfItems": portfolioData.projects.length,
+    "itemListElement": portfolioData.projects.map((project, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": project.name,
+        "description": project.description,
+        ...(project.image && { "image": project.image }),
+        ...(project.datePublished && { "datePublished": project.datePublished }),
+        ...(project.keywords && { "keywords": project.keywords.join(', ') }),
+        ...(project.url && { "url": project.url }),
+        ...(project.category && { "applicationCategory": project.category }),
+        "operatingSystem": "Web Browser",
+        ...(project.technologies && { "programmingLanguage": project.technologies }),
+        "author": {
+          "@type": "Person",
+          "name": "Momin Mohasin"
         }
       }
-    ]
+    }))
   };
 
   return (
     <>
+      <Script
+        id="breadcrumb-structured-data"
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
+        {JSON.stringify(breadcrumbSchema)}
+      </Script>
       <Script
         id="projects-structured-data"
         type="application/ld+json"

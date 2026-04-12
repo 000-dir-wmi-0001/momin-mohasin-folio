@@ -3,38 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, HelpCircle } from "lucide-react";
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-const faqData: FAQItem[] = [
-  {
-    question: "What technologies do you specialize in?",
-    answer: "I specialize in full-stack development with expertise in React, Next.js, NestJS, FastAPI, Django, TypeScript, PostgreSQL, MongoDB, Docker, and AWS. I focus on building scalable web applications with modern technologies."
-  },
-  {
-    question: "Do you work on freelance projects?",
-    answer: "Yes, I'm open to freelance opportunities and collaborations. I can help with web development projects, API development, database design, and full-stack application development. Feel free to reach out to discuss your project requirements."
-  },
-  {
-    question: "What is your experience level?",
-    answer: "I have over 1+ years of professional experience in software development, working with multiple companies and delivering production-ready applications. I'm experienced in agile development practices and have worked on both small projects and large-scale applications."
-  },
-  {
-    question: "Do you provide maintenance and support for projects?",
-    answer: "Yes, I provide ongoing maintenance and support for projects I've developed. This includes bug fixes, feature updates, performance optimizations, and technical support to ensure your application continues to run smoothly."
-  },
-  {
-    question: "What is your typical project timeline?",
-    answer: "Project timelines vary depending on complexity and scope. Simple projects might take 1-2 weeks, while complex full-stack applications could take 4-8 weeks or more. I provide detailed timelines and milestones for each project after understanding the requirements."
-  },
-  {
-    question: "Do you work with international clients?",
-    answer: "Absolutely! I work with clients globally and am comfortable with different time zones. I communicate effectively in English and can adapt to various project management methodologies and collaboration tools."
-  }
-];
+import { faqData, type FAQItem } from "@/lib/faq-data";
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -56,10 +25,10 @@ export function FAQSection() {
             <HelpCircle className="w-4 h-4 mr-2 flex-shrink-0" />
             Frequently Asked Questions
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
             Got Questions?
             <span className="block text-primary">I've Got Answers</span>
-          </h2>
+          </h3>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Here are some common questions about my services, experience, and how I can help bring your project to life.
           </p>

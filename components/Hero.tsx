@@ -30,11 +30,11 @@ const item: Variants = {
 const Hero = () => {
   return (
     <motion.div
-      // variants={container}
-      initial={false}
+      variants={container}
+      initial="hidden"
       animate="visible"
       className="relative w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-12 lg:py-20"
-      style={{ contain: "layout style paint" }} // CSS containment for better performance
+      style={{ contain: "layout style paint" }}
     >
       {/* Simplified Background Elements - Reduced complexity for better LCP */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -57,25 +57,16 @@ const Hero = () => {
         </motion.div>
 
         {/* Main Heading */}
-        {/* <motion.h1
+        <motion.h1
           variants={item}
           className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
-        > */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+        >
           Hi, I&apos;m{" "}
           <span className="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             Momin Mohasin
           </span>
-        </h1>
-        {/* </motion.h1> */}
-
-        {/* Subtitle */}
-        <motion.h2
-          variants={item}
-          className="text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground mb-8 leading-relaxed font-light"
-        >
-          Full-Stack Developer & Tech Enthusiast
-        </motion.h2>
+          , Full-Stack Developer & Tech Enthusiast
+        </motion.h1>
 
         {/* Description */}
         <motion.p
@@ -126,20 +117,19 @@ const Hero = () => {
 
       {/* Hero Image */}
       <motion.div variants={item} className="relative z-10 shrink-0">
-        <div className="relative bg-white rounded-full">
+        <div className="relative rounded-full">
           {/* Subtle Image Glow */}
           <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-full blur-2xl scale-110 animate-pulse opacity-60" />
 
           <MotionImage
             src="/momin.jpg"
-            alt="Momin Mohasin portrait"
+            alt="Momin Mohasin - Full-Stack Developer specializing in React, Next.js, Node.js, Django, and FastAPI"
             width={240}
             height={240}
             priority
             quality={75}
             sizes="(min-width: 1024px) 240px, (min-width: 768px) 192px, 160px"
-            className="relative rounded-full object-cover w-40 h-40 sm:w-48 sm:h-48 lg:w-60 lg:h-60 shadow-2xl backdrop-blur-sm"
-            style={{ mixBlendMode: "darken" }}
+            className="relative rounded-full object-cover w-40 h-40 sm:w-48 sm:h-48 lg:w-60 lg:h-60 shadow-2xl"
             draggable={false}
             whileHover={{
               scale: 1.05,

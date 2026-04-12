@@ -16,6 +16,7 @@ import { useState } from "react";
 import { portfolioData } from "@/lib/portfolio-data";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import { generateProjectMetadata } from "@/lib/seo-utils";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -461,6 +462,21 @@ const projects = [
 
 const MotionCard = motion(Card);
 type ProjectTab = "experience" | "company" | "personal";
+
+/**
+ * Generates metadata for a project for SEO purposes
+ * This function creates unique metadata for each project that can be used
+ * for social sharing, search engine optimization, and structured data
+ */
+function getProjectMetadata(project: any) {
+  return generateProjectMetadata({
+    name: project.name,
+    description: project.description,
+    technologies: project.technologies,
+    image: project.image,
+    url: `/projects#${project.name.toLowerCase().replace(/\s+/g, '-')}`
+  });
+}
 const Projects = () => {
   const [activeTab, setActiveTab] = useState<ProjectTab>("company");
 
@@ -560,15 +576,20 @@ const Projects = () => {
               <div className="mt-6">
                 {companyProjects.length > 0 ? (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {companyProjects.map((project) => (
-                      <MotionCard
-                        key={project.name}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4 }}
-                        whileHover={{ scale: 1.03 }}
-                        className="rounded-lg border shadow-sm flex flex-col"
-                      >
+                    {companyProjects.map((project) => {
+                      const metadata = getProjectMetadata(project);
+                      return (
+                        <MotionCard
+                          key={project.name}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4 }}
+                          whileHover={{ scale: 1.03 }}
+                          className="rounded-lg border shadow-sm flex flex-col"
+                          data-project-name={project.name}
+                          data-project-title={metadata.title}
+                          data-project-description={metadata.description}
+                        >
                         {/* ---------- Header ---------- */}
                         <CardHeader>
                           <CardTitle className="text-lg font-bold">
@@ -706,7 +727,8 @@ const Projects = () => {
                           )}
                         </CardFooter>
                       </MotionCard>
-                    ))}
+                      );
+                    })}
                   </div>
                 ) : (
                   <div className="text-center text-muted-foreground py-12">
@@ -719,15 +741,20 @@ const Projects = () => {
             {activeTab === "personal" && (
               <div className=" mt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {projects.map((project) => (
-                    <MotionCard
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                      whileHover={{ scale: 1.05 }}
-                      key={project.name}
-                      className="rounded-lg border shadow-sm"
-                    >
+                  {projects.map((project) => {
+                    const metadata = getProjectMetadata(project);
+                    return (
+                      <MotionCard
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4 }}
+                        whileHover={{ scale: 1.05 }}
+                        key={project.name}
+                        className="rounded-lg border shadow-sm"
+                        data-project-name={project.name}
+                        data-project-title={metadata.title}
+                        data-project-description={metadata.description}
+                      >
                       <CardHeader>
                         <CardTitle className="text-lg font-bold">
                           {project.name}
@@ -761,7 +788,8 @@ const Projects = () => {
                         )}
                       </CardFooter>
                     </MotionCard>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}
