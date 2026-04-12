@@ -17,7 +17,6 @@ import { portfolioData } from "@/lib/portfolio-data";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 
-
 const container: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
@@ -57,19 +56,141 @@ export interface PersonalProject extends BaseProject {
 /* -------- Company Project -------- */
 export interface CompanyProject extends BaseProject {
   category: "company";
-  client: string;
+  company?: string;
+  client?: string;
   role: string;
   responsibilities: string[];
   integrations?: string[];
+  features?: string[];
   tools?: string[];
   impact?: string;
   link?: string;
 }
 export const companyProjects: CompanyProject[] = [
   {
+    name: "Vendor Verification & Fraud Detection Platform",
+    category: "company",
+    company: "Brilliantech Software Pvt Ltd",
+    client: "",
+    role: "Full-Stack Developer (Lead)",
+    type: "web",
+    status: "completed",
+
+    description:
+      "A secure vendor verification and fraud detection platform that enables users to register, verify identity, and connect with trusted entities to securely share sensitive financial data such as banking details. The system uses encrypted, access-controlled data exchange, real-time notifications, and advanced security mechanisms to minimize fraud and ensure trusted business interactions.",
+
+    technologies: [
+      "Next.js",
+      "NestJS",
+      "Node.js",
+      "PostgreSQL",
+      "TypeORM",
+      "Tailwind CSS",
+      "WebSockets",
+      "REST APIs",
+      "AWS EC2",
+      "AWS RDS",
+      "AWS S3",
+    ],
+
+    integrations: [
+      "Stripe",
+      "Twilio Verify",
+      "SendGrid",
+      "Calendly",
+      "Zoom",
+      "Address Auto-Suggest API",
+    ],
+
+    tools: ["Git", "GitHub", "Postman", "VS Code", "Vercel", "AWS"],
+
+    responsibilities: [
+      "Led end-to-end development including backend architecture using NestJS and frontend using Next.js",
+      "Designed relational database schema using PostgreSQL and TypeORM",
+      "Deployed backend services on AWS EC2 and managed PostgreSQL database via AWS RDS",
+      "Deployed frontend applications and dashboards on Vercel with domain and subdomain configuration",
+      "Configured domain routing and subdomain architecture for seamless frontend-backend communication",
+      "Implemented secure authentication with HTTP-only cookies, CSRF protection, double authentication, and silent token rotation",
+      "Implemented token blacklisting and secure session management",
+      "Built real-time notification system for admins and vendors using WebSockets",
+      "Integrated third-party services including Stripe, Twilio Verify, SendGrid, Calendly, and Zoom",
+      "Designed and implemented subscription-based payment system",
+      "Implemented secure file uploads using AWS S3 presigned URLs",
+      "Used public IDs instead of sequential IDs to prevent enumeration attacks",
+      "Ensured scalability, security, and performance optimization across the system",
+    ],
+
+    features: [
+      "Vendor identity verification and onboarding",
+      "Secure and encrypted financial data sharing",
+      "Real-time notifications using WebSockets",
+      "Fraud detection and validation mechanisms",
+      "Role-based authentication and authorization",
+      "Subscription and payment management system",
+      "Secure file upload via presigned URLs",
+      "Domain and subdomain-based architecture",
+      "Public ID-based resource access for enhanced security",
+    ],
+
+    impact:
+      "Delivered a production-ready, secure platform with scalable cloud deployment that reduces fraud risk and enables trusted financial data exchange between vendors, improving transparency and operational efficiency.",
+
+    link: "/",
+  },
+  {
+    name: "Ad Monetization Platform",
+    category: "company",
+    company: "Brilliantech Software Pvt Ltd",
+    client: "",
+    role: "Full-Stack Developer (Lead)",
+    type: "web",
+    status: "completed",
+
+    description:
+      "A customer-centric ad monetization platform designed to deliver targeted advertisements directly to end users at the point of purchase. Businesses can create and manage campaigns that run across POS systems, digital cubes, mobile devices, tablets, PCs, and smart TVs, ensuring real-time and context-aware ad delivery when customers are actively buying.",
+
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Sequelize",
+      "Tailwind CSS",
+      "Server-Sent Events (SSE)",
+      "REST APIs",
+    ],
+
+    integrations: ["Razorpay", "Cashfree Payments", "Authentication System"],
+
+    tools: ["Git", "GitHub", "Vercel", "Postman", "VS Code"],
+
+    responsibilities: [
+      "Developed responsive UI for creating and managing ad campaigns",
+      "Built and integrated REST APIs with real-time updates using SSE",
+      "Implemented secure authentication and role-based access control",
+      "Integrated payment gateways (Razorpay and Cashfree)",
+      "Optimized performance and ensured SEO-friendly rendering",
+      "Led development and managed team collaboration",
+    ],
+
+    features: [
+      "Direct-to-customer ad delivery at point of purchase",
+      "Multi-device ad support (POS, cubes, mobile, tablet, TV, PC)",
+      "Real-time campaign updates",
+      "Centralized dashboard for ad management",
+      "Payment-enabled campaign activation",
+      "Scalable architecture",
+    ],
+
+    impact:
+      "Enabled businesses to influence customer decisions in real-time by displaying targeted ads exactly where purchases happen, increasing conversion rates and enhancing in-store digital engagement.",
+
+    link: "/",
+  },
+  {
     name: "LinkCode LMS & Admin Portal",
     category: "company",
-    client: "LinkCode Technologies, Pune",
+    company: "TECHONSY Software Pvt Ltd",
     role: "Software Engineer",
     description:
       "Enterprise-grade Learning Management System and administrative portal used to manage student training, attendance, payments, academic performance, and placement workflows.",
@@ -96,6 +217,7 @@ export const companyProjects: CompanyProject[] = [
   {
     name: "Sadhguru Tiles & Marbles - Digital Catalog Platform",
     category: "company",
+    company: "Freelance",
     client: "Sadhguru Tiles & Marbles, Pune",
     role: "Full-Stack Developer",
 
@@ -161,7 +283,7 @@ const projects = [
     type: "web",
     link: "https://mchat.momin-mohasin.me/",
   },
-  
+
   {
     name: "KarLo",
     category: "personal",
@@ -373,7 +495,6 @@ const Projects = () => {
               onChange={setActiveTab}
             />
 
-            
             {activeTab === "experience" && (
               <div className="mt-6">
                 <div className="flex flex-col gap-8">
@@ -454,12 +575,21 @@ const Projects = () => {
                             {project.name}
                           </CardTitle>
 
-                          <CardDescription className="text-sm">
-                            <span className="font-medium text-foreground">
-                              {project.client}
-                            </span>
-                            <span className="text-muted-foreground"> • </span>
-
+                          <CardDescription className="text-sm flex flex-wrap items-center gap-1">
+                            {project.company && (
+                              <>
+                                <span className="font-medium text-foreground">
+                                  {project.company}
+                                </span>
+                                <span className="text-muted-foreground">•</span>
+                              </>
+                            )}
+                            {project.client && (
+                              <>
+                                <span className="text-muted-foreground text-xs">for {project.client}</span>
+                                <span className="text-muted-foreground">•</span>
+                              </>
+                            )}
                             <span
                               className="
       text-xs font-medium
@@ -520,9 +650,38 @@ const Projects = () => {
                             </ul>
                           </div>
 
+                          {/* Features */}
+                          {project.features && (
+                            <div>
+                              <p className="font-medium mb-1">Key Features</p>
+                              <ul className="list-disc pl-5 text-muted-foreground">
+                                {project.features.map((item) => (
+                                  <li key={item}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* Tools */}
+                          {project.tools && (
+                            <div>
+                              <p className="font-medium mb-1">Tools</p>
+                              <ul className="flex flex-wrap gap-1">
+                                {project.tools.map((tool) => (
+                                  <li
+                                    key={tool}
+                                    className="rounded bg-muted px-2 py-0.5 text-xs"
+                                  >
+                                    {tool}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
                           {/* Impact */}
                           {project.impact && (
-                            <div className="text-xs text-emerald-600 dark:text-emerald-400">
+                            <div className="text-xs text-emerald-600 dark:text-emerald-400 border-l-2 border-emerald-500/40 pl-2">
                               {project.impact}
                             </div>
                           )}
@@ -607,7 +766,6 @@ const Projects = () => {
               </div>
             )}
           </div>
-          
         </motion.div>
       </section>
     </>
