@@ -9,6 +9,9 @@ import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
+import { generateFAQSchema } from "@/lib/seo-utils";
+import { faqData } from "@/lib/faq-data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,6 +85,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://momin-mohasin.me"),
   alternates: {
     canonical: "/",
+    languages: {
+      'en-IN': 'https://momin-mohasin.me',
+      'en': 'https://momin-mohasin.me',
+      'x-default': 'https://momin-mohasin.me'
+    }
   },
 
   openGraph: {
@@ -298,60 +306,7 @@ export default function RootLayout({
           type="application/ld+json"
           strategy="beforeInteractive"
         >
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What technologies do you specialize in?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "I specialize in full-stack development with expertise in React, Next.js, NestJS, FastAPI, Django, TypeScript, PostgreSQL, MongoDB, Docker, and AWS. I focus on building scalable web applications with modern technologies."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you work on freelance projects?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, I'm open to freelance opportunities and collaborations. I can help with web development projects, API development, database design, and full-stack application development."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is your experience level?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "I have over 1+ years of professional experience in software development, working with multiple companies and delivering production-ready applications."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you provide maintenance and support for projects?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, I provide ongoing maintenance and support for projects I've developed. This includes bug fixes, feature updates, performance optimizations, and technical support."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is your typical project timeline?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Project timelines vary depending on complexity and scope. Simple projects might take 1-2 weeks, while complex full-stack applications could take 4-8 weeks or more."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you work with international clients?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Absolutely! I work with clients globally and am comfortable with different time zones. I communicate effectively in English and can adapt to various project management methodologies."
-                }
-              }
-            ]
-          })}
+          {JSON.stringify(generateFAQSchema(faqData))}
         </Script>
 
         {/* WebSite Structured Data */}
@@ -381,6 +336,10 @@ export default function RootLayout({
             }
           })}
         </Script>
+
+        {/* Breadcrumb Schema for Navigation */}
+        <BreadcrumbSchema />
+
         <Analytics />
       </body>
     </html>

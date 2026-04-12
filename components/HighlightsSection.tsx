@@ -32,9 +32,9 @@ export function HighlightsSection() {
                 <div className="inline-flex p-3 rounded-2xl bg-linear-to-br from-primary/6 via-secondary/6 to-accent/6 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <IconComponent className={`w-7 h-7 ${highlight.color} drop-shadow-sm`} />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-foreground/90 group-hover:text-foreground transition-colors duration-300">
+                <h4 className="text-2xl font-bold mb-4 text-foreground/90 group-hover:text-foreground transition-colors duration-300">
                   {highlight.title}
-                </h3>
+                </h4>
                 <p className="text-muted-foreground leading-relaxed text-lg group-hover:text-foreground/80 transition-colors duration-300 font-light">
                   {highlight.description}
                 </p>

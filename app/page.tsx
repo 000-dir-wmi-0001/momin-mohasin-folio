@@ -32,7 +32,14 @@ export const metadata: Metadata = {
   title: "Momin Mohasin - Full Stack Developer",
   description:
     "Full Stack Developer from Pune, India with hands-on experience in React, Next.js, NestJS, FastAPI, Django, and real-world backend systems.",
-  alternates: { canonical: "https://momin-mohasin.me" },
+  alternates: { 
+    canonical: "https://momin-mohasin.me",
+    languages: {
+      'en-IN': 'https://momin-mohasin.me',
+      'en': 'https://momin-mohasin.me',
+      'x-default': 'https://momin-mohasin.me'
+    }
+  },
 };
 
 
@@ -41,6 +48,7 @@ export default function Home() {
     <main className="w-full scroll-smooth">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center" id="hero" aria-label="Hero section">
+        <h1 className="sr-only">Hi, I'm Momin Mohasin, Full-Stack Developer & Tech Enthusiast</h1>
         <Hero />
       </section>
 
@@ -56,13 +64,13 @@ export default function Home() {
               <User className="w-4 h-4 mr-2 flex-shrink-0" />
               Professional Overview
             </div>
-            <h2 id="overview-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <h3 id="overview-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
               Combining{" "}
               <span className="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent hover:from-accent hover:via-primary hover:to-secondary transition-all duration-500">
                 Expertise
               </span>{" "}
               with Results
-            </h2>
+            </h3>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
               Technical proficiency meets strategic thinking in modern web development
             </p>
@@ -85,12 +93,12 @@ export default function Home() {
               <Code className="w-4 h-4 mr-2 flex-shrink-0" />
               Technical Expertise
             </div>
-            <h2 id="skills-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <h3 id="skills-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
               Modern{" "}
               <span className="bg-linear-to-r from-secondary via-primary to-accent bg-clip-text text-transparent hover:from-accent hover:via-secondary hover:to-primary transition-all duration-500">
                 Technology Stack
               </span>
-            </h2>
+            </h3>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
               Comprehensive proficiency across cutting-edge technologies and development frameworks
             </p>
@@ -111,13 +119,13 @@ export default function Home() {
               <Settings className="w-4 h-4 mr-2 flex-shrink-0" />
               Service Expertise
             </div>
-            <h2 id="services-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <h3 id="services-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
               Transforming{" "}
               <span className="bg-linear-to-r from-accent via-primary to-secondary bg-clip-text text-transparent hover:from-secondary hover:via-accent hover:to-primary transition-all duration-500">
                 Ideas
               </span>{" "}
               into Reality
-            </h2>
+            </h3>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
               Comprehensive solutions tailored to transform your digital vision into reality
             </p>

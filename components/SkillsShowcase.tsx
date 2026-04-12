@@ -35,14 +35,14 @@ export const SkillsShowcase = ({
       viewport={{ once: true, margin: "-100px" }}
       className="space-y-8"
     >
-      <motion.h2
+      <motion.h3
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 bg-linear-to-r from-foreground via-foreground/90 to-foreground bg-clip-text text-transparent"
       >
         {title}
-      </motion.h2>
+      </motion.h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
         {Object.entries(skillCategories).map(
@@ -82,9 +82,9 @@ export const SkillsShowcase = ({
                       />
                     </motion.div>
                     <div>
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                         {category}
-                      </h3>
+                      </h4>
                       <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
                         {categoryData.skills.length} technologies
                       </p>
