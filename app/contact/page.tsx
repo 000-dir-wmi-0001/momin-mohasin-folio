@@ -4,9 +4,9 @@ import Script from "next/script";
 import { generateBreadcrumbSchema } from "@/lib/seo-utils";
 
 export const metadata: Metadata = {
-  title: "Contact - Hire Full Stack Developer",
+  title: "Contact - Hire an AI & Full Stack Software Engineer",
   description:
-    "Get in touch with Momin Mohasin, a Full Stack Developer from Pune, India, open to full-time roles and freelance opportunities.",
+    "Get in touch with Momin Mohasin, an AI & Full Stack Software Engineer from Pune, India, open to full-time roles and freelance opportunities.",
   alternates: { 
     canonical: "https://momin-mohasin.me/contact",
     languages: {

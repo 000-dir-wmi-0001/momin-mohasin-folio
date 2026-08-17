@@ -14,7 +14,7 @@ export function HighlightsSection() {
   const highlights = Object.values(portfolioData.highlights);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
       {highlights.map((highlight, index) => {
         const IconComponent = iconMap[highlight.icon as keyof typeof iconMap] || Code;
 
@@ -23,23 +23,27 @@ export function HighlightsSection() {
             key={highlight.title}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
             viewport={{ once: true, margin: "-80px" }}
-            className="group"
+            whileHover={{ y: -4 }}
+            className="group relative rounded-2xl border border-border/60 bg-card p-6 md:p-7 transition-colors duration-300 hover:border-primary/30"
           >
-            <div className="p-6 rounded-3xl border border-border/30 bg-card/70 backdrop-blur-md hover:bg-card/85 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/8 transition-all duration-500 group-hover:-translate-y-4">
-              <div className="text-center">
-                <div className="inline-flex p-3 rounded-2xl bg-linear-to-br from-primary/6 via-secondary/6 to-accent/6 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <IconComponent className={`w-7 h-7 ${highlight.color} drop-shadow-sm`} />
-                </div>
-                <h4 className="text-2xl font-bold mb-4 text-foreground/90 group-hover:text-foreground transition-colors duration-300">
-                  {highlight.title}
-                </h4>
-                <p className="text-muted-foreground leading-relaxed text-lg group-hover:text-foreground/80 transition-colors duration-300 font-light">
-                  {highlight.description}
-                </p>
-              </div>
+            {/* Corner bracket accent, revealed on hover */}
+            <span className="absolute top-4 right-4 w-3 h-3 border-t border-r border-transparent group-hover:border-primary/50 transition-colors duration-300" />
+
+            <div className="flex items-center justify-between mb-6">
+              <span className="text-xs font-mono text-muted-foreground/70 tracking-widest">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <IconComponent className={`w-5 h-5 ${highlight.color}`} />
             </div>
+
+            <h4 className="text-lg font-semibold mb-2.5 text-foreground">
+              {highlight.title}
+            </h4>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              {highlight.description}
+            </p>
           </motion.div>
         );
       })}

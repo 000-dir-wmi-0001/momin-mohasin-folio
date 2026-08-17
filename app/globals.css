@@ -11,12 +11,34 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--border) transparent;
 }
 
 ::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 999px;
+  border: 2.5px solid var(--background);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted-foreground);
+  background-clip: padding-box;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
 
 /* Mobile-specific optimizations */
@@ -104,9 +126,9 @@ img, picture, video, canvas, svg {
 }
 
 :root {
-  --radius: 0.625rem;
---background: oklch(1 0 0); /* very light */
-  --foreground: oklch(0.145 0 0); /* dark text */
+  --radius: 0.75rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -139,8 +161,8 @@ img, picture, video, canvas, svg {
 }
 
 .dark {
-  --background: oklch(0.145 0 0); /* very dark */
-  --foreground: oklch(0.985 0 0); /* white-ish text */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -178,5 +200,17 @@ img, picture, video, canvas, svg {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Respect reduced-motion preference for CSS-driven animation/transition */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

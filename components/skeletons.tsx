@@ -14,7 +14,7 @@ export function StatsSectionSkeleton() {
           transition={{ delay: i * 0.1 }}
           className="group relative"
         >
-          <div className="relative p-6 rounded-3xl border border-border/40 bg-card/90 md:backdrop-blur-md min-h-[260px] animate-pulse">
+          <div className="relative p-6 rounded-2xl border border-border/60 bg-card min-h-[260px] animate-pulse">
             <div className="flex flex-col items-center text-center">
               {/* Icon skeleton */}
               <div className="p-4 rounded-2xl bg-muted/20 mb-6 animate-pulse">
@@ -52,7 +52,7 @@ export function HighlightsSectionSkeleton() {
           transition={{ delay: i * 0.1 }}
           className="group relative"
         >
-          <div className="p-6 rounded-xl border border-border/40 bg-card/90 backdrop-blur-sm hover:shadow-lg transition-all duration-300 animate-pulse">
+          <div className="p-6 rounded-xl border border-border/60 bg-card hover:shadow-lg transition-all duration-300 animate-pulse">
             <div className="flex items-start gap-4">
               {/* Icon skeleton */}
               <div className="p-3 rounded-lg bg-muted/20 animate-pulse">
@@ -89,7 +89,7 @@ export function ServicesSkeleton() {
           transition={{ delay: i * 0.05 }}
           className="group relative animate-pulse"
         >
-          <div className="p-8 rounded-2xl border border-border/40 bg-card/90 backdrop-blur-sm hover:shadow-xl transition-all duration-500 min-h-[300px]">
+          <div className="p-8 rounded-2xl border border-border/60 bg-card hover:shadow-xl transition-all duration-500 min-h-[300px]">
             <div className="text-center">
               {/* Icon skeleton */}
               <div className="w-16 h-16 bg-muted/20 rounded-2xl mx-auto mb-6 animate-pulse"></div>
@@ -145,7 +145,7 @@ export function SkillsShowcaseSkeleton() {
                 transition={{ delay: (categoryIndex * 6 + skillIndex) * 0.05 }}
                 className="group relative"
               >
-                <div className="p-4 rounded-xl border border-border/40 bg-card/90 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+                <div className="p-4 rounded-xl border border-border/60 bg-card hover:shadow-lg transition-all duration-300">
                   <div className="text-center">
                     {/* Icon skeleton */}
                     <div className="w-12 h-12 bg-muted/20 rounded-lg mx-auto mb-3 animate-pulse"></div>
@@ -183,7 +183,7 @@ export function FAQSectionSkeleton() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="rounded-xl border border-border/40 bg-card/90 backdrop-blur-sm overflow-hidden animate-pulse"
+              className="rounded-xl border border-border/60 bg-card overflow-hidden animate-pulse"
             >
               <div className="px-6 py-4">
                 <div className="flex items-center justify-between">

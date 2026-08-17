@@ -29,7 +29,7 @@ describe('SEO Optimization Bugfix - Preservation Tests', () => {
       // Check for Person schema
       expect(layoutContent).toContain('"@type": "Person"');
       expect(layoutContent).toContain('"name": "Momin Mohasin"');
-      expect(layoutContent).toContain('"jobTitle": "Full Stack Developer"');
+      expect(layoutContent).toContain('"jobTitle": "AI & Full Stack Software Engineer"');
       expect(layoutContent).toContain('"url": "https://momin-mohasin.me"');
     });
 
@@ -278,15 +278,15 @@ describe('SEO Optimization Bugfix - Preservation Tests', () => {
       const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
       
       // Check for Twitter title
-      expect(layoutContent).toContain('Momin Mohasin - Full Stack Developer');
+      expect(layoutContent).toContain('Momin Mohasin - AI & Full Stack Software Engineer');
     });
 
     it('should include Twitter Card description', () => {
       const layoutPath = path.join(process.cwd(), 'app/layout.tsx');
       const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
-      
+
       // Check for Twitter description
-      expect(layoutContent).toContain('Full Stack Developer specializing in modern web and backend technologies');
+      expect(layoutContent).toContain('AI & Full Stack Software Engineer specializing in modern web, backend, and LLM-powered technologies');
     });
 
     it('should include Twitter Card image', () => {
@@ -326,7 +326,7 @@ describe('SEO Optimization Bugfix - Preservation Tests', () => {
       const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
       
       // Check for OG title
-      expect(layoutContent).toContain('title: "Momin Mohasin - Full Stack Developer"');
+      expect(layoutContent).toContain('title: "Momin Mohasin - AI & Full Stack Software Engineer"');
     });
 
     it('should include Open Graph description', () => {
@@ -334,7 +334,7 @@ describe('SEO Optimization Bugfix - Preservation Tests', () => {
       const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
       
       // Check for OG description
-      expect(layoutContent).toContain('Full Stack Developer from Pune, India');
+      expect(layoutContent).toContain('AI & Full Stack Software Engineer from Pune, India');
     });
 
     it('should include Open Graph image', () => {

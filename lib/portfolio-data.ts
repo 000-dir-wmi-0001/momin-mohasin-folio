@@ -12,10 +12,10 @@ import { Briefcase, Rocket, Building2, Code, Database, Shield, Wrench, Layers } 
 export const portfolioData = {
   personal: {
     name: "Momin Mohasin",
-    title: "Full-Stack Developer",
-    tagline: "Tech Enthusiast",
-    description: "Passionate about creating scalable web applications with modern technologies",
-    detailedDescription: "I build modern, scalable web applications with React, Next.js, Node.js, Django, and FastAPI. Currently working at Brilliantech Software Pvt Ltd, passionate about impactful solutions.",
+    title: "AI & Full Stack Software Engineer",
+    tagline: "Building AI-Powered Full-Stack Applications",
+    description: "AI & Full Stack Software Engineer building scalable production applications and AI/LLM-powered features with React, Next.js, NestJS, FastAPI, and modern cloud infrastructure",
+    detailedDescription: "I build scalable production applications using React.js, Next.js, TypeScript, Node.js, NestJS, and FastAPI, with hands-on experience integrating AI/LLM-powered features using RAG, LangChain, and vector search. Currently working at Brilliantech Software Pvt Ltd, focused on secure APIs, cloud deployments, and reliable software delivery.",
     avatar: "/momin.jpg",
     resumeUrl: "/resume.pdf"
   },
@@ -23,7 +23,7 @@ export const portfolioData = {
   stats: {
     experience: {
       label: "Years Experience",
-      value: "1+",
+      value: "1.5+",
       icon: "Briefcase",
       color: "text-blue-500",
       description: "Professional development experience"
@@ -46,20 +46,20 @@ export const portfolioData = {
 
   highlights: {
     expertise: {
-      title: "Full-Stack Expertise",
-      description: "MERN, MEAN, Django, FastAPI & more",
+      title: "Full-Stack & AI Expertise",
+      description: "React, Next.js, NestJS, FastAPI, Django & LLM integration",
       icon: "Code",
       color: "text-blue-500"
     },
     methodology: {
       title: "Agile Development",
-      description: "Scrum, CI/CD, and modern development practices",
+      description: "Scrum, CI/CD, Docker, Kubernetes, and modern engineering practices",
       icon: "Wrench",
       color: "text-green-500"
     },
     impact: {
       title: "Business Impact",
-      description: "Solutions that drive growth and user satisfaction",
+      description: "Secure, scalable solutions that drive growth and reliability",
       icon: "Rocket",
       color: "text-purple-500"
     }
@@ -73,102 +73,138 @@ export const portfolioData = {
         "JavaScript",
         "TypeScript",
         "Python",
+        "SQL",
         "Java",
         "PHP",
       ]
     },
-    Frameworks: {
-      icon: "Code",
-      color: "text-blue-500",
-      skills: [
-        "Next.js",
-        "Angular",
-        "Node.js",
-        "NestJS",
-        "Express.js",
-        "Fastify",
-        "Django",
-        "FastAPI",
-      ]
-    },
-    Libraries: {
+    Frontend: {
       icon: "Layers",
       color: "text-green-500",
       skills: [
-        "React",
+        "React.js",
+        "Next.js",
+        "Next.js App Router",
+        "Server-Side Rendering (SSR)",
+        "Server Components",
+        "Tailwind CSS",
+        "Shadcn/UI",
         "Framer Motion",
-        "Shadcn UI",
-        "Lucide Icons",
-        "TailwindCSS",
-        "Bootstrap",
+        "TanStack Query",
+        "Zustand",
+        "React Hook Form",
+        "Zod",
       ]
     },
-    Databases: {
+    Backend: {
+      icon: "Code",
+      color: "text-blue-500",
+      skills: [
+        "Node.js",
+        "NestJS",
+        "Express.js",
+        "Angular",
+        "Django",
+        "FastAPI",
+        "REST APIs",
+        "GraphQL",
+        "Microservices",
+        "Socket.IO",
+      ]
+    },
+    "AI / Generative AI": {
+      icon: "Sparkles",
+      color: "text-pink-500",
+      skills: [
+        "LLM Integration",
+        "Generative AI",
+        "RAG",
+        "LangChain",
+        "Prompt Engineering",
+        "Embeddings",
+        "Vector Search",
+        "AI Application Development",
+      ]
+    },
+    "Databases & ORMs": {
       icon: "Database",
       color: "text-orange-500",
       skills: [
-        "MySQL",
         "PostgreSQL",
         "MongoDB",
+        "MySQL",
+        "Redis",
         "SQLite",
-        "Prisma",
-        "SQLAlchemy",
-        "Mongoose",
-        "Sequelize",
+        "Vector Databases",
+        "Prisma ORM",
         "TypeORM",
+        "Sequelize",
       ]
     },
-    "Tools / DevOps": {
-      icon: "Wrench",
-      color: "text-red-500",
-      skills: [
-        "Git",
-        "GitHub",
-        "Linux",
-        "Docker",
-        "DigitalOcean",
-        "AWS (S3, EC2)",
-        "Nginx",
-        "PM2",
-        "CI/CD (GitHub Actions)",
-        "Nano / Vim",
-      ]
-    },
-    "Authentication / Security": {
+    "Authentication & Security": {
       icon: "Shield",
       color: "text-yellow-500",
       skills: [
-        "Advanced JWT",
+        "JWT Authentication",
         "OAuth 2.0",
-        "Advanced RBAC",
-        "HttpOnly Cookies",
+        "RBAC",
+        "Session Management",
+        "HTTP-Only Cookies",
+        "API Security",
       ]
     },
-    "Others / Advanced": {
+    "Cloud & DevOps": {
+      icon: "Wrench",
+      color: "text-red-500",
+      skills: [
+        "AWS (EC2, S3, SES)",
+        "Docker",
+        "Kubernetes",
+        "Linux",
+        "Nginx",
+        "Vercel",
+        "DigitalOcean",
+        "CI/CD (GitHub Actions)",
+      ]
+    },
+    "Testing & Observability": {
+      icon: "Wrench",
+      color: "text-cyan-500",
+      skills: [
+        "Jest",
+        "Postman",
+        "Unit & Integration Testing",
+        "API Testing",
+        "Application Logging",
+        "Monitoring & Error Tracking",
+        "Performance Optimization",
+      ]
+    },
+    "Integrations & Tools": {
       icon: "Layers",
       color: "text-indigo-500",
       skills: [
-        "WebRTC",
-        "WebSockets",
-        "Redis",
         "Stripe",
-        "Cashfree",
         "Razorpay",
-        "Zoom SDK",
-        "Calendly",
-        "Twilio",
+        "Cashfree",
         "SendGrid",
-        "Strapi (Headless CMS)",
-        "Firebase",
+        "Twilio",
+        "Zoom API",
+        "Calendly",
+        "Strapi CMS",
+        "Payload CMS",
+        "WebSockets",
+        "Git & GitHub",
+        "Swagger/OpenAPI",
       ]
     },
   },
 
   about: {
     paragraphs: [
-      'Hi, I\'m Momin Mohasin, a passionate Full-Stack Developer who enjoys turning ideas into scalable and modern web applications. I specialize in building with React, Next.js, Node.js, Django, and FastAPI, and I love learning new technologies to stay ahead.',
-      'I\'m currently working as a Full-Stack Developer at Brilliantech Software Pvt Ltd. I\'m passionate about mastering modern technologies, improving system performance, and delivering high-quality solutions that create real business value.',
-      'Beyond coding, I\'m a tech enthusiast who enjoys experimenting with new stacks and building side projects like live-streaming platforms, AR try-on apps, and real-time chat systems.',
+      'Hi, I\'m Momin Mohasin, an AI & Full Stack Software Engineer with 1.5+ years of experience building, testing, and deploying scalable production applications using React.js, Next.js, TypeScript, Node.js, NestJS, Express.js, Python, and FastAPI.',
+      'I\'m currently working as a Full Stack Developer at Brilliantech Software Pvt Ltd, where I design secure RESTful and GraphQL APIs, scalable backend architectures, and cloud deployments across AWS, Docker, and Kubernetes. I also have hands-on experience building AI/LLM-powered applications, integrating Python-based AI services with Node.js backends using RAG, LangChain, embeddings, and vector search.',
+      'Beyond coding, I\'m a tech enthusiast who enjoys experimenting with new stacks, from real-time chat systems to AI-powered tooling, with a strong focus on maintainability, security, and reliable software delivery.',
     ]
   },
 
@@ -176,27 +212,38 @@ export const portfolioData = {
     {
       company: "Brilliantech Software Pvt Ltd",
       logo: "/bt.png",
-      role: "Full-Stack Developer",
+      role: "Full Stack Developer",
       period: "Jul 2025 - Present",
       startDate: "2025-07-01",
       location: "Pune, Maharashtra, India",
       techs: [
-        "MERN Stack",
-        "MEAN Stack",
-        "React",
+        "React.js",
         "Next.js",
+        "TypeScript",
         "Node.js",
-        "REST APIs",
-        "Django",
-        "FastAPI",
+        "NestJS",
+        "Express.js",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Docker",
+        "Kubernetes",
+        "AWS",
       ],
       description:
-        "Working on full-stack development projects using MERN stack and other modern technologies, delivering scalable and responsive web applications.",
+        "Designing and developing scalable production web applications with secure RESTful and GraphQL APIs, modular backend architectures, and optimized PostgreSQL/MongoDB data models. Integrating third-party services (Stripe, Razorpay, Twilio, SendGrid), containerizing services with Docker and Kubernetes, and maintaining CI/CD pipelines, automated testing, and production observability.",
+      highlights: [
+        "Built modern Next.js applications using App Router, SSR, Server Components, and performance optimization techniques.",
+        "Designed secure RESTful and GraphQL APIs with authentication, RBAC, request validation, and optimized database access.",
+        "Optimized PostgreSQL and MongoDB data models with TypeORM/Prisma and Redis caching to reduce database load.",
+        "Containerized applications with Docker and deployed across AWS, Kubernetes, Vercel, and DigitalOcean.",
+        "Implemented CI/CD pipelines, automated testing, logging, monitoring, and error tracking for production reliability.",
+      ],
     },
     {
       company: "TECHONSY Software Pvt Ltd",
       logo: "/ts.png",
-      role: "Software Engineer",
+      role: "Software Developer",
       period: "Jan 2025 - Jun 2025",
       startDate: "2025-01-01",
       endDate: "2025-06-01",
@@ -233,6 +280,36 @@ export const portfolioData = {
       url: "https://momin-mohasin.me/projects#ad-monetization",
       category: "SoftwareApplication",
       technologies: ["React.js", "Node.js", "Express.js", "PostgreSQL", "Sequelize", "Tailwind CSS", "Server-Sent Events", "REST APIs"]
+    },
+    {
+      name: "Canextgen",
+      description: "A responsive, SEO-optimized production website developed and deployed using Next.js and TypeScript, hosted on a custom domain through Vercel.",
+      datePublished: "2025-08-01",
+      image: "/projects/canextgen.png",
+      keywords: ["production website", "SEO-optimized", "Next.js", "TypeScript", "Vercel"],
+      url: "https://momin-mohasin.me/projects#canextgen",
+      category: "BusinessApplication",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Web3Forms"]
+    },
+    {
+      name: "Everlogic Consulting",
+      description: "A full-stack production application with authentication, dashboard modules, REST APIs, and database models, built and deployed for a consulting business.",
+      datePublished: "2025-07-15",
+      image: "/projects/everlogic-consulting.png",
+      keywords: ["consulting website", "authentication", "dashboard", "Next.js", "TypeScript"],
+      url: "https://momin-mohasin.me/projects#everlogic-consulting",
+      category: "BusinessApplication",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Web3Forms"]
+    },
+    {
+      name: "BeVerifyd",
+      description: "A responsive production web application with modern UI, third-party API integrations, and database services, deployed on a custom domain.",
+      datePublished: "2025-06-20",
+      image: "/projects/beverifyd.png",
+      keywords: ["production website", "third-party integrations", "Next.js", "TypeScript"],
+      url: "https://momin-mohasin.me/projects#beverifyd",
+      category: "BusinessApplication",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Web3Forms"]
     },
     {
       name: "LinkCode LMS & Admin Portal",

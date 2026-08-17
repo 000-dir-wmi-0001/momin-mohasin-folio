@@ -12,6 +12,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { BreadcrumbSchema } from "@/components/BreadcrumbSchema";
 import { generateFAQSchema } from "@/lib/seo-utils";
 import { faqData } from "@/lib/faq-data";
+import { MotionConfig } from "motion/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,14 +49,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Momin Mohasin - Full Stack Developer",
+    default: "Momin Mohasin - AI & Full Stack Software Engineer",
     template: "%s | Momin Mohasin",
   },
   description:
-    "Explore Momin Mohasin's portfolio - Full Stack Developer from Pune, India. Expert in React, Next.js, NestJS, FastAPI, Django, and scalable backend systems. View innovative projects and get in touch for collaborations.",
+    "Explore Momin Mohasin's portfolio - AI & Full Stack Software Engineer from Pune, India. Expert in React, Next.js, NestJS, FastAPI, Django, LLM integration with RAG and LangChain, and scalable backend systems. View innovative projects and get in touch for collaborations.",
 
   keywords: [
   "Momin Mohasin",
+  "AI & Full Stack Software Engineer",
+  "AI Software Engineer Pune",
   "Full Stack Developer Pune",
   "Mid-Level Full Stack Developer India",
   "Backend-heavy Full Stack Developer",
@@ -66,9 +69,16 @@ export const metadata: Metadata = {
   "React.js Specialist",
   "TypeScript Software Engineer",
   "REST API Developer",
+  "GraphQL API Developer",
+  "LLM Integration Developer",
+  "RAG Developer",
+  "LangChain Developer",
+  "Generative AI Developer",
+  "AI Application Development",
   "Real-time WebSocket Developer",
   "PostgreSQL & MongoDB Database Design",
-  "Docker & AWS Cloud Deployment",
+  "Docker & Kubernetes Cloud Deployment",
+  "AWS Cloud Deployment",
   "Scalable Web Applications",
   "Software Engineer Portfolio",
   "Pune Developer",
@@ -96,25 +106,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://momin-mohasin.me",
-    title: "Momin Mohasin - Full Stack Developer",
+    title: "Momin Mohasin - AI & Full Stack Software Engineer",
     description:
-      "Full Stack Developer from Pune, India with experience in React, Next.js, NestJS, FastAPI, Django, and real-world backend systems.",
+      "AI & Full Stack Software Engineer from Pune, India with experience in React, Next.js, NestJS, FastAPI, Django, LLM integration, and real-world backend systems.",
     siteName: "Momin Mohasin Portfolio",
     images: [
       {
         url: "/og-momin.png",
         width: 1200,
         height: 630,
-        alt: "Momin Mohasin - Full Stack Developer",
+        alt: "Momin Mohasin - AI & Full Stack Software Engineer",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Momin Mohasin - Full Stack Developer",
+    title: "Momin Mohasin - AI & Full Stack Software Engineer",
     description:
-      "Full Stack Developer specializing in modern web and backend technologies.",
+      "AI & Full Stack Software Engineer specializing in modern web, backend, and LLM-powered technologies.",
     images: ["/og-momin.png"],
     creator: "@mominmohasin",
   },
@@ -173,13 +183,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ErrorBoundary>
-            <PerformanceMonitor />
-            <Header />
-            {children}
-            <Footer />
-            <SpeedInsights />
-          </ErrorBoundary>
+          <MotionConfig reducedMotion="user">
+            <ErrorBoundary>
+              <PerformanceMonitor />
+              <Header />
+              {children}
+              <Footer />
+              <SpeedInsights />
+            </ErrorBoundary>
+          </MotionConfig>
         </ThemeProvider>
 
         {/* Microsoft Clarity Analytics */}
@@ -206,8 +218,8 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Momin Mohasin",
-            "jobTitle": "Full Stack Developer",
-            "description": "Full Stack Developer from Pune, India specializing in React, Next.js, NestJS, FastAPI, Django, and scalable backend development.",
+            "jobTitle": "AI & Full Stack Software Engineer",
+            "description": "AI & Full Stack Software Engineer from Pune, India specializing in React, Next.js, NestJS, FastAPI, Django, LLM integration (RAG, LangChain), and scalable backend development.",
             "url": "https://momin-mohasin.me",
             "email": "momindy321@gmail.com",
             "telephone": "+91 7249826872",
@@ -238,7 +250,13 @@ export default function RootLayout({
               "PostgreSQL",
               "MongoDB",
               "Docker",
-              "AWS"
+              "Kubernetes",
+              "AWS",
+              "GraphQL",
+              "LLM Integration",
+              "RAG",
+              "LangChain",
+              "Generative AI"
             ]
           })}
         </Script>
@@ -320,7 +338,7 @@ export default function RootLayout({
             "@type": "WebSite",
             "name": "Momin Mohasin Portfolio",
             "url": "https://momin-mohasin.me",
-            "description": "Portfolio of Momin Mohasin, a Full Stack Developer specializing in modern web technologies.",
+            "description": "Portfolio of Momin Mohasin, an AI & Full Stack Software Engineer specializing in modern web technologies and LLM-powered applications.",
             "author": {
               "@type": "Person",
               "name": "Momin Mohasin"

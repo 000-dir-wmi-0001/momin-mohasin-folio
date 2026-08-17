@@ -189,6 +189,72 @@ export const companyProjects: CompanyProject[] = [
     link: "/",
   },
   {
+    name: "Canextgen",
+    category: "company",
+    company: "Freelance",
+    client: "Canextgen",
+    role: "Full-Stack Developer",
+    type: "web",
+    status: "completed",
+
+    description:
+      "A responsive, SEO-optimized production website developed and deployed using Next.js and TypeScript, hosted on a custom domain through Vercel.",
+
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Web3Forms"],
+
+    tools: ["Git", "GitHub", "Vercel"],
+
+    responsibilities: [
+      "Developed and deployed a responsive, SEO-optimized production website using Next.js and TypeScript",
+      "Configured custom domain hosting and deployment pipeline through Vercel",
+      "Implemented structured metadata and semantic markup for search engine visibility",
+    ],
+  },
+  {
+    name: "Everlogic Consulting",
+    category: "company",
+    company: "Freelance",
+    client: "Everlogic Consulting",
+    role: "Full-Stack Developer",
+    type: "fullstack",
+    status: "completed",
+
+    description:
+      "A full-stack production application with authentication, dashboard modules, REST APIs, and database models, built and deployed for a consulting business.",
+
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Web3Forms"],
+
+    tools: ["Git", "GitHub", "Vercel", "Postman"],
+
+    responsibilities: [
+      "Built and deployed a full-stack production application with authentication and role-based dashboard modules",
+      "Designed REST APIs and database models to support consulting workflows",
+      "Deployed and configured hosting on a custom domain through Vercel",
+    ],
+  },
+  {
+    name: "BeVerifyd",
+    category: "company",
+    company: "Freelance",
+    client: "BeVerifyd",
+    role: "Full-Stack Developer",
+    type: "web",
+    status: "completed",
+
+    description:
+      "A responsive production web application with modern UI, third-party API integrations, and database services, deployed on a custom domain.",
+
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Web3Forms"],
+
+    tools: ["Git", "GitHub", "Vercel"],
+
+    responsibilities: [
+      "Developed and deployed a responsive production web application with a modern UI",
+      "Integrated third-party APIs and database services for core functionality",
+      "Configured and deployed the application on a custom domain",
+    ],
+  },
+  {
     name: "LinkCode LMS & Admin Portal",
     category: "company",
     company: "TECHONSY Software Pvt Ltd",
@@ -488,22 +554,29 @@ const Projects = () => {
 
   return (
     <>
-      <section className="w-full font-mono mt-10">
+      <section className="w-full mt-6">
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="mx-auto max-w-6xl px-4 md:px-6 py-8 md:py-12"
+          className="mx-auto max-w-6xl px-4 md:px-6 py-8 md:py-14"
         >
-          <motion.h1
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-8"
-          >
-            {activeTab === "experience" ? "Experience" : "Projects"}
-          </motion.h1>
+          <div className="text-center mb-10">
+            <motion.h1
+              key={activeTab}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3"
+            >
+              {activeTab === "experience" ? "Experience" : "Projects"}
+            </motion.h1>
+            <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto">
+              {activeTab === "experience"
+                ? "Where I've worked and what I've built along the way."
+                : "A mix of client, company, and personal engineering work."}
+            </p>
+          </div>
           <div className="w-full justify-center items-center">
             <InlineTabs
               tabs={tabs}
@@ -512,54 +585,57 @@ const Projects = () => {
             />
 
             {activeTab === "experience" && (
-              <div className="mt-6">
-                <div className="flex flex-col gap-8">
+              <div className="mt-10">
+                <div className="flex flex-col gap-5">
                   {portfolioData.experience.map((exp) => (
                     <Card
                       key={exp.company}
-                      className="rounded-xl border shadow-sm backdrop-blur bg-white/60 dark:bg-zinc-900/50"
+                      className="rounded-2xl border-border/60 hover:border-primary/30"
                     >
                       <CardHeader className="flex gap-4">
                         <Image
                           src={exp.logo}
                           alt={`${exp.company} logo`}
-                          width={56}
-                          height={56}
-                          className="rounded-md object-cover"
+                          width={52}
+                          height={52}
+                          className="rounded-lg object-cover ring-1 ring-border"
                         />
 
                         <div className="flex flex-col">
-                          <CardTitle className="font-bold text-xl">
+                          <CardTitle className="font-semibold text-lg">
                             {exp.role}
                           </CardTitle>
 
-                          <CardDescription className="text-sm text-muted-foreground">
+                          <CardDescription className="text-sm">
                             {exp.company} · {exp.period}
                           </CardDescription>
 
-                          <CardDescription className="text-xs text-muted-foreground/80 mt-1">
+                          <CardDescription className="text-xs text-muted-foreground/70 mt-0.5">
                             {exp.location}
                           </CardDescription>
                         </div>
                       </CardHeader>
 
                       <CardContent>
-                        <CardDescription className="mb-2 text-wrap">
+                        <CardDescription className="mb-3 text-wrap leading-relaxed">
                           {exp.description}
                         </CardDescription>
                         {exp.highlights && (
-                          <ul className="list-disc pl-5 text-sm mb-2">
+                          <ul className="space-y-1.5 text-sm mb-4 text-muted-foreground">
                             {exp.highlights.map((highlight, index) => (
-                              <li key={index}>{highlight}</li>
+                              <li key={index} className="flex gap-2">
+                                <span className="text-primary mt-1.5 size-1 rounded-full bg-primary shrink-0" />
+                                <span>{highlight}</span>
+                              </li>
                             ))}
                           </ul>
                         )}
-                        <CardFooter className="flex flex-wrap gap-2 mt-2 px-0">
+                        <CardFooter className="flex flex-wrap gap-1.5 mt-2 px-0">
                           {exp.techs.map((tech) => (
                             <Badge
                               key={tech}
                               variant="secondary"
-                              className="px-3 py-1 text-sm hover:scale-105 transition-transform duration-200"
+                              className="px-2.5 py-1 text-xs font-medium bg-muted/60"
                             >
                               {tech}
                             </Badge>
@@ -573,54 +649,45 @@ const Projects = () => {
             )}
 
             {activeTab === "company" && (
-              <div className="mt-6">
+              <div className="mt-10">
                 {companyProjects.length > 0 ? (
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     {companyProjects.map((project) => {
                       const metadata = getProjectMetadata(project);
                       return (
                         <MotionCard
                           key={project.name}
-                          initial={{ opacity: 0, y: 20 }}
+                          initial={{ opacity: 0, y: 16 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.4 }}
-                          whileHover={{ scale: 1.03 }}
-                          className="rounded-lg border shadow-sm flex flex-col"
+                          whileHover={{ y: -4 }}
+                          className="rounded-2xl border-border/60 hover:border-primary/30 flex flex-col transition-colors duration-300"
                           data-project-name={project.name}
                           data-project-title={metadata.title}
                           data-project-description={metadata.description}
                         >
                         {/* ---------- Header ---------- */}
                         <CardHeader>
-                          <CardTitle className="text-lg font-bold">
+                          <CardTitle className="text-base font-semibold">
                             {project.name}
                           </CardTitle>
 
-                          <CardDescription className="text-sm flex flex-wrap items-center gap-1">
+                          <CardDescription className="text-sm flex flex-wrap items-center gap-1.5 mt-1">
                             {project.company && (
                               <>
                                 <span className="font-medium text-foreground">
                                   {project.company}
                                 </span>
-                                <span className="text-muted-foreground">•</span>
+                                <span className="text-border">•</span>
                               </>
                             )}
                             {project.client && (
                               <>
                                 <span className="text-muted-foreground text-xs">for {project.client}</span>
-                                <span className="text-muted-foreground">•</span>
+                                <span className="text-border">•</span>
                               </>
                             )}
-                            <span
-                              className="
-      text-xs font-medium
-      px-2 py-0.5 rounded-md
-      bg-sky-500/10 text-sky-700
-      dark:bg-sky-400/10 dark:text-sky-300
-      backdrop-blur
-      ring-1 ring-sky-500/20
-    "
-                            >
+                            <span className="text-xs font-medium px-2 py-0.5 rounded-md bg-primary/10 text-primary">
                               {project.role}
                             </span>
                           </CardDescription>
@@ -628,18 +695,18 @@ const Projects = () => {
 
                         {/* ---------- Content ---------- */}
                         <CardContent className="space-y-4 text-sm">
-                          <p className="text-muted-foreground">
+                          <p className="text-muted-foreground leading-relaxed">
                             {project.description}
                           </p>
 
                           {/* Technologies */}
                           <div>
-                            <p className="font-medium mb-1">Tech Stack</p>
-                            <ul className="flex flex-wrap gap-1">
+                            <p className="font-medium mb-1.5 text-xs uppercase tracking-wide text-muted-foreground">Tech Stack</p>
+                            <ul className="flex flex-wrap gap-1.5">
                               {project.technologies.map((tech) => (
                                 <li
                                   key={tech}
-                                  className="rounded bg-muted px-2 py-0.5 text-xs"
+                                  className="rounded-md bg-muted/60 px-2 py-0.5 text-xs font-medium"
                                 >
                                   {tech}
                                 </li>
@@ -650,8 +717,8 @@ const Projects = () => {
                           {/* Integrations */}
                           {project.integrations && (
                             <div>
-                              <p className="font-medium mb-1">Integrations</p>
-                              <ul className="list-disc pl-5 text-muted-foreground">
+                              <p className="font-medium mb-1.5 text-xs uppercase tracking-wide text-muted-foreground">Integrations</p>
+                              <ul className="list-disc pl-4 text-muted-foreground space-y-0.5">
                                 {project.integrations.map((item) => (
                                   <li key={item}>{item}</li>
                                 ))}
@@ -661,8 +728,8 @@ const Projects = () => {
 
                           {/* Responsibilities */}
                           <div>
-                            <p className="font-medium mb-1">Responsibilities</p>
-                            <ul className="list-disc pl-5 text-muted-foreground">
+                            <p className="font-medium mb-1.5 text-xs uppercase tracking-wide text-muted-foreground">Responsibilities</p>
+                            <ul className="list-disc pl-4 text-muted-foreground space-y-0.5">
                               {project.responsibilities
                                 .slice(0, 3)
                                 .map((item) => (
@@ -674,8 +741,8 @@ const Projects = () => {
                           {/* Features */}
                           {project.features && (
                             <div>
-                              <p className="font-medium mb-1">Key Features</p>
-                              <ul className="list-disc pl-5 text-muted-foreground">
+                              <p className="font-medium mb-1.5 text-xs uppercase tracking-wide text-muted-foreground">Key Features</p>
+                              <ul className="list-disc pl-4 text-muted-foreground space-y-0.5">
                                 {project.features.map((item) => (
                                   <li key={item}>{item}</li>
                                 ))}
@@ -686,12 +753,12 @@ const Projects = () => {
                           {/* Tools */}
                           {project.tools && (
                             <div>
-                              <p className="font-medium mb-1">Tools</p>
-                              <ul className="flex flex-wrap gap-1">
+                              <p className="font-medium mb-1.5 text-xs uppercase tracking-wide text-muted-foreground">Tools</p>
+                              <ul className="flex flex-wrap gap-1.5">
                                 {project.tools.map((tool) => (
                                   <li
                                     key={tool}
-                                    className="rounded bg-muted px-2 py-0.5 text-xs"
+                                    className="rounded-md bg-muted/60 px-2 py-0.5 text-xs font-medium"
                                   >
                                     {tool}
                                   </li>
@@ -702,7 +769,7 @@ const Projects = () => {
 
                           {/* Impact */}
                           {project.impact && (
-                            <div className="text-xs text-emerald-600 dark:text-emerald-400 border-l-2 border-emerald-500/40 pl-2">
+                            <div className="text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-500/5 rounded-lg border-l-2 border-emerald-500/40 pl-2.5 py-2">
                               {project.impact}
                             </div>
                           )}
@@ -739,37 +806,42 @@ const Projects = () => {
             )}
 
             {activeTab === "personal" && (
-              <div className=" mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="mt-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {projects.map((project) => {
                     const metadata = getProjectMetadata(project);
                     return (
                       <MotionCard
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4 }}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ y: -4 }}
                         key={project.name}
-                        className="rounded-lg border shadow-sm"
+                        className="rounded-2xl border-border/60 hover:border-primary/30 flex flex-col transition-colors duration-300"
                         data-project-name={project.name}
                         data-project-title={metadata.title}
                         data-project-description={metadata.description}
                       >
                       <CardHeader>
-                        <CardTitle className="text-lg font-bold">
+                        <CardTitle className="text-base font-semibold">
                           {project.name}
                         </CardTitle>
 
-                        <CardDescription>{project.description}</CardDescription>
+                        <CardDescription className="leading-relaxed">{project.description}</CardDescription>
                       </CardHeader>
-                      <CardContent>
-                        <ul className="list-disc pl-5">
+                      <CardContent className="flex-1">
+                        <ul className="flex flex-wrap gap-1.5">
                           {project.technologies.map((tech) => (
-                            <li key={tech}>{tech}</li>
+                            <li
+                              key={tech}
+                              className="rounded-md bg-muted/60 px-2 py-0.5 text-xs font-medium"
+                            >
+                              {tech}
+                            </li>
                           ))}
                         </ul>
                       </CardContent>
-                      <CardFooter>
+                      <CardFooter className="mt-auto">
                         <StatusBadge status={project.status} />
 
                         {project.link && (

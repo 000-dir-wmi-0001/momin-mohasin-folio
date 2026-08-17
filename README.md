@@ -10,7 +10,7 @@ A modern, responsive portfolio built with Next.js App Router. It showcases a her
 - lucide-react icons
 - next-themes for theme toggle
 - react-hook-form for contact form
-- axios for API requests
+- Web3Forms for contact form submission (no backend required)
 
 ### Features
 - Responsive Hero with animated image and CTAs
@@ -18,20 +18,18 @@ A modern, responsive portfolio built with Next.js App Router. It showcases a her
 - Distinct Footer with CTA, tech stack chips, status, socials, and client-only local time
 - About page: profile card, skills (badges), and quick stats
 - Services grid using shadcn Card components
-- Contact page with validation, honeypot spam trap, a11y hints, and API submission
+- Contact page with validation, honeypot spam trap, a11y hints, and Web3Forms submission
 
 ### Project structure (highlights)
 - `app/page.tsx` — Home: Hero + Services
 - `app/about/page.tsx` — About section
 - `app/experience/page.tsx` — Experience cards
 - `app/projects/page.tsx` — Projects listing (skeleton placeholder if empty)
-- `app/contact/page.tsx` — Contact form (react-hook-form)
+- `app/contact/page.tsx` — Contact form (react-hook-form + Web3Forms)
 - `components/layout/Header.tsx` — Sticky header, active nav, theme toggle
 - `components/layout/Footer.tsx` — CTA + status + socials with smooth back-to-top
 - `components/Hero.tsx` — Responsive hero with Motion animations
 - `components/Services.tsx` — Services grid (shadcn Card)
-- `api/api.ts` — Client helper using axios
-- `config/axios.ts` — Axios instance (optional base URL, interceptors)
 
 ## Getting started
 
@@ -63,39 +61,29 @@ npm run build && npm start
 ## Configuration
 
 ### Environment variables
-The axios client reads an optional base URL:
+The contact form submits directly to [Web3Forms](https://web3forms.com) from the browser and needs an access key:
 
 ```
 # .env.local
-NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your-access-key
 ```
 
-- If `NEXT_PUBLIC_API_URL` is set, requests will be sent to that base (e.g., `http://localhost:3001`).
-- If not set, axios posts to relative paths on the same origin.
+Get a free access key at <https://web3forms.com> — no backend required.
 
 ### Resume download
 Place your resume file at `public/resume.pdf` or update the link in:
 - `components/Hero.tsx`
 - `app/about/page.tsx`
 
-## Contact form API
-The contact page submits to an API via `axios`:
+## Contact form submission
 
-- Client helper: `api/api.ts`
-- Endpoint (configurable by base URL): `POST /v1/contact/create`
+The contact page (`app/contact/ContactClient.tsx`) submits directly to Web3Forms — no backend server needed:
 
-Expected JSON body shape:
-```json
-{
-	"name": "Your Name",
-	"email": "you@example.com",
-	"subject": "Optional subject",
-	"message": "Your message",
-	"website": "" // honeypot: leave empty
-}
-```
+- Endpoint: `POST https://api.web3forms.com/submit`
+- Access key: `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` (see [Environment variables](#environment-variables))
+- A client-side honeypot field (`website`) silently no-ops the submission if filled, without alerting bots.
 
-Back-end should return a 2xx response on success. Update the path/base URL as needed for your server.
+Web3Forms returns `{ success: boolean, message: string }`, which drives the success/error banner shown to the user.
 
 ## Notes
 - Footer local time is rendered client-side after mount to avoid hydration mismatches.

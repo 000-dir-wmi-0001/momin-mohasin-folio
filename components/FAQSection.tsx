@@ -13,48 +13,46 @@ export function FAQSection() {
   };
 
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-linear-to-br from-primary/[0.015] via-background to-secondary/[0.015]" />
-      <div className="absolute top-0 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-secondary/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-
-      <div className="relative mx-auto max-w-4xl px-4 md:px-6">
-        <div className="text-center mb-16 md:mb-24">
-          <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
-            <HelpCircle className="w-4 h-4 mr-2 flex-shrink-0" />
+    <section className="w-full py-20 md:py-28 lg:py-32 border-t border-border/60">
+      <div className="relative mx-auto max-w-3xl px-4 md:px-6">
+        <div className="text-center mb-14 md:mb-16">
+          <div className="inline-flex items-center px-3.5 py-1.5 mb-6 text-xs font-mono font-medium tracking-widest uppercase text-muted-foreground bg-muted/50 rounded-full border border-border/70">
+            <HelpCircle className="w-3.5 h-3.5 mr-1.5 shrink-0 text-primary" />
             Frequently Asked Questions
           </div>
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+          <h3 id="faq-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
             Got Questions?
-            <span className="block text-primary">I've Got Answers</span>
+            <span className="block text-primary">I&apos;ve Got Answers</span>
           </h3>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
             Here are some common questions about my services, experience, and how I can help bring your project to life.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqData.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="rounded-xl border shadow-sm bg-white/60 dark:bg-zinc-900/50 backdrop-blur-sm overflow-hidden"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: Math.min(index * 0.06, 0.3), duration: 0.4 }}
+              className="rounded-xl border border-border/60 bg-card overflow-hidden transition-colors duration-300 hover:border-primary/30"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/50 transition-colors duration-200"
+                className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 transition-colors duration-200 hover:bg-muted/40"
+                aria-expanded={openIndex === index}
               >
-                <span className="text-lg font-semibold text-foreground pr-4">
+                <span className="text-sm md:text-base font-semibold text-foreground">
                   {faq.question}
                 </span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
+                  className="shrink-0 rounded-full bg-muted/60 p-1"
                 >
-                  <ChevronDown className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                  <ChevronDown className="w-4 h-4 text-muted-foreground" />
                 </motion.div>
               </button>
 
@@ -64,10 +62,10 @@ export function FAQSection() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-4 text-muted-foreground leading-relaxed">
+                    <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>
@@ -78,17 +76,18 @@ export function FAQSection() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
           className="text-center mt-12"
         >
-          <p className="text-muted-foreground mb-6">
-            Still have questions? I'd love to hear from you.
+          <p className="text-muted-foreground mb-5 text-sm">
+            Still have questions? I&apos;d love to hear from you.
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-sm rounded-full hover:bg-primary/90 transition-colors duration-200 font-medium"
           >
             Get In Touch
           </a>

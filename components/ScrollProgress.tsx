@@ -14,10 +14,10 @@ const ScrollProgress = () => {
         left: 0,
         right: 0,
         top: 0,
-        height: "4px",
+        height: "2px",
         originX: 0,
       }}
-      className="bg-primary"
+      className="bg-primary shadow-[0_0_8px_var(--primary)]"
     />
   );
 };
