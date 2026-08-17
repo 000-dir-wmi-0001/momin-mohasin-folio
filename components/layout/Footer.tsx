@@ -43,27 +43,29 @@ const Footer = () => {
   ];
 
   return (
-    <div className="w-full border-t mt-10 bg-white/60 dark:bg-black/40 backdrop-blur-md">
-      <footer className="mx-auto w-full max-w-7xl px-4 sm:px-6 py-10">
+    <div className="w-full border-t border-border/60 mt-10 bg-muted/20">
+      <footer className="mx-auto w-full max-w-7xl px-4 sm:px-6 py-14 md:py-16">
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 gap-8 md:grid-cols-3"
+          className="grid grid-cols-1 gap-5 md:grid-cols-3"
         >
           {/* CTA */}
-          <motion.div variants={item} className="rounded-xl border shadow-sm p-5 bg-white/60 dark:bg-zinc-900/50">
+          <motion.div variants={item} className="rounded-2xl border border-border/60 bg-card p-6 transition-colors duration-300 hover:border-primary/30">
             <div className="flex items-start gap-3">
-              <Sparkles className="w-5 h-5 text-primary mt-1" />
+              <span className="flex items-center justify-center rounded-lg bg-primary/10 p-2 mt-0.5">
+                <Sparkles className="w-4 h-4 text-primary" />
+              </span>
               <div>
-                <p className="text-lg font-bold">Let’s build something great.</p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  I’m open to impactful web projects. If you have an idea, I’d love to help ship it.
+                <p className="text-base font-semibold tracking-tight">Let&rsquo;s build something great.</p>
+                <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
+                  I&rsquo;m open to impactful web projects. If you have an idea, I&rsquo;d love to help ship it.
                 </p>
               </div>
             </div>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-5 flex gap-2">
               <Button asChild size="sm">
                 <Link href="/contact">Contact</Link>
               </Button>
@@ -74,35 +76,41 @@ const Footer = () => {
           </motion.div>
 
           {/* Tech stack chips */}
-          <motion.div variants={item} className="rounded-xl border shadow-sm p-5 bg-white/60 dark:bg-zinc-900/50">
-            <p className="text-sm font-semibold mb-3">Tech I enjoy</p>
-            <div className="flex flex-wrap gap-2">
+          <motion.div variants={item} className="rounded-2xl border border-border/60 bg-card p-6 transition-colors duration-300 hover:border-primary/30">
+            <p className="text-sm font-semibold mb-3.5">Tech I enjoy</p>
+            <div className="flex flex-wrap gap-1.5">
               {stack.map((s) => (
-                <Button key={s} size="sm" variant="outline" className="rounded-full">
+                <span
+                  key={s}
+                  className="rounded-full border border-border/70 bg-muted/50 px-3 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-primary/30"
+                >
                   {s}
-                </Button>
+                </span>
               ))}
             </div>
-            <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+            <div className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
               <Heart className="w-3.5 h-3.5" />
               Built with curiosity and care
             </div>
           </motion.div>
 
           {/* Status + Socials + Back to top */}
-          <motion.div variants={item} className="rounded-xl border shadow-sm p-5 bg-white/60 dark:bg-zinc-900/50">
-            <p className="text-sm font-semibold mb-3">Status</p>
-            <ul className="space-y-2 text-sm">
+          <motion.div variants={item} className="rounded-2xl border border-border/60 bg-card p-6 transition-colors duration-300 hover:border-primary/30">
+            <p className="text-sm font-semibold mb-3.5">Status</p>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
-                <span className="size-2 rounded-full bg-emerald-500" />
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+                </span>
                 Open to opportunities
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
+                <MapPin className="w-4 h-4 shrink-0" />
                 Remote-friendly
               </li>
               <li className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
+                <Clock className="w-4 h-4 shrink-0" />
                 {/* Only render client time after mount to avoid SSR/client mismatch */}
                 <span suppressHydrationWarning>
                   Local time: {mounted ? timeStr : "—"}
@@ -110,7 +118,7 @@ const Footer = () => {
               </li>
             </ul>
 
-            <div className="mt-4 flex gap-2">
+            <div className="mt-5 flex items-center gap-2">
               <Button asChild size="icon" variant="outline" aria-label="GitHub">
                 <Link href="https://github.com/000-dir-wmi-0001" target="_blank" rel="noopener noreferrer">
                   <Github className="w-4 h-4" />
@@ -128,19 +136,19 @@ const Footer = () => {
               </Button>
               <Button
                 size="sm"
-                variant="outline"
-                className="ml-auto"
+                variant="ghost"
+                className="ml-auto text-muted-foreground hover:text-foreground"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 <ArrowUp />
-                Back to top
+                Top
               </Button>
             </div>
           </motion.div>
         </motion.div>
 
         {/* Bottom line */}
-        <div className="mt-8 text-center text-xs text-muted-foreground">
+        <div className="mt-10 pt-6 border-t border-border/60 text-center text-xs text-muted-foreground">
           © {year} Momin Mohasin — Built with Next.js, Tailwind CSS, and Motion.
         </div>
       </footer>

@@ -29,9 +29,9 @@ const FAQSection = dynamic(() => import("@/components/FAQSection").then(mod => (
 
 
 export const metadata: Metadata = {
-  title: "Momin Mohasin - Full Stack Developer",
+  title: "Momin Mohasin - AI & Full Stack Software Engineer",
   description:
-    "Full Stack Developer from Pune, India with hands-on experience in React, Next.js, NestJS, FastAPI, Django, and real-world backend systems.",
+    "AI & Full Stack Software Engineer from Pune, India with hands-on experience in React, Next.js, NestJS, FastAPI, Django, LLM integration (RAG, LangChain), and real-world backend systems.",
   alternates: { 
     canonical: "https://momin-mohasin.me",
     languages: {
@@ -48,30 +48,22 @@ export default function Home() {
     <main className="w-full scroll-smooth">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center" id="hero" aria-label="Hero section">
-        <h1 className="sr-only">Hi, I'm Momin Mohasin, Full-Stack Developer & Tech Enthusiast</h1>
+        <h1 className="sr-only">Hi, I'm Momin Mohasin, AI & Full-Stack Software Engineer</h1>
         <Hero />
       </section>
 
       {/* Professional Overview */}
-      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" id="overview" aria-labelledby="overview-heading">
-        {/* Background */}
-        <div className="absolute inset-0 bg-linear-to-br from-primary/[0.015] via-background to-secondary/[0.015]" />
-        <div className="absolute top-0 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-primary/3 rounded-full blur-3xl" />
-
+      <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden border-t border-border/60" id="overview" aria-labelledby="overview-heading">
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
-          <div className="text-center mb-16 md:mb-24">
-            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
-              <User className="w-4 h-4 mr-2 flex-shrink-0" />
+          <div className="text-center mb-14 md:mb-20 max-w-3xl mx-auto">
+            <div className="inline-flex items-center px-3.5 py-1.5 mb-6 text-xs font-mono font-medium tracking-widest uppercase text-muted-foreground bg-muted/50 rounded-full border border-border/70">
+              <User className="w-3.5 h-3.5 mr-1.5 shrink-0 text-primary" />
               Professional Overview
             </div>
-            <h3 id="overview-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-              Combining{" "}
-              <span className="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent hover:from-accent hover:via-primary hover:to-secondary transition-all duration-500">
-                Expertise
-              </span>{" "}
-              with Results
+            <h3 id="overview-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
+              Combining <span className="text-primary">Expertise</span> with Results
             </h3>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Technical proficiency meets strategic thinking in modern web development
             </p>
           </div>
@@ -82,24 +74,17 @@ export default function Home() {
       </section>
 
       {/* Technical Expertise */}
-      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" id="skills" aria-labelledby="skills-heading">
-        {/* Background */}
-        <div className="absolute inset-0 bg-muted/10" />
-        <div className="absolute top-0 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-secondary/4 rounded-full blur-3xl" />
-
+      <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden border-t border-border/60 bg-muted/20" id="skills" aria-labelledby="skills-heading">
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
-          <div className="text-center mb-16 md:mb-24">
-            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
-              <Code className="w-4 h-4 mr-2 flex-shrink-0" />
+          <div className="text-center mb-14 md:mb-20 max-w-3xl mx-auto">
+            <div className="inline-flex items-center px-3.5 py-1.5 mb-6 text-xs font-mono font-medium tracking-widest uppercase text-muted-foreground bg-muted/50 rounded-full border border-border/70">
+              <Code className="w-3.5 h-3.5 mr-1.5 shrink-0 text-primary" />
               Technical Expertise
             </div>
-            <h3 id="skills-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-              Modern{" "}
-              <span className="bg-linear-to-r from-secondary via-primary to-accent bg-clip-text text-transparent hover:from-accent hover:via-secondary hover:to-primary transition-all duration-500">
-                Technology Stack
-              </span>
+            <h3 id="skills-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
+              Modern <span className="text-primary">Technology Stack</span>
             </h3>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Comprehensive proficiency across cutting-edge technologies and development frameworks
             </p>
           </div>
@@ -108,25 +93,17 @@ export default function Home() {
       </section>
 
       {/* Service Expertise */}
-      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" id="services" aria-labelledby="services-heading">
-        {/* Background */}
-        <div className="absolute inset-0 bg-linear-to-tl from-primary/[0.015] via-background to-accent/[0.015]" />
-        <div className="absolute top-1/2 left-0 w-64 h-64 md:w-96 md:h-96 bg-accent/3 rounded-full blur-3xl" />
-
+      <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden border-t border-border/60" id="services" aria-labelledby="services-heading">
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
-          <div className="text-center mb-16 md:mb-24">
-            <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold text-primary bg-primary/8 rounded-full border border-primary/15 backdrop-blur-sm shadow-lg">
-              <Settings className="w-4 h-4 mr-2 flex-shrink-0" />
+          <div className="text-center mb-14 md:mb-20 max-w-3xl mx-auto">
+            <div className="inline-flex items-center px-3.5 py-1.5 mb-6 text-xs font-mono font-medium tracking-widest uppercase text-muted-foreground bg-muted/50 rounded-full border border-border/70">
+              <Settings className="w-3.5 h-3.5 mr-1.5 shrink-0 text-primary" />
               Service Expertise
             </div>
-            <h3 id="services-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-              Transforming{" "}
-              <span className="bg-linear-to-r from-accent via-primary to-secondary bg-clip-text text-transparent hover:from-secondary hover:via-accent hover:to-primary transition-all duration-500">
-                Ideas
-              </span>{" "}
-              into Reality
+            <h3 id="services-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
+              Transforming <span className="text-primary">Ideas</span> into Reality
             </h3>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Comprehensive solutions tailored to transform your digital vision into reality
             </p>
           </div>

@@ -29,7 +29,9 @@ const Loader2 = dynamic(() => import('lucide-react').then(mod => ({ default: mod
 // Import form hook normally (can't be dynamically imported)
 import { useForm } from 'react-hook-form';
 import { FormState } from "@/interface/contact"
-import { sendContactForm } from "@/api/api";
+
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 
 const container: Variants = {
@@ -53,12 +55,42 @@ export default function Contact() {
 
   const onSubmit = async (data: FormState) => {
     setServerMessage('');
-    try {
-      setStatus('loading');
-      await sendContactForm(data);
+
+    // Honeypot: bots fill hidden fields — silently no-op instead of tipping them off
+    if (data.website) {
       setStatus('success');
       setServerMessage('Thanks! Your message has been sent.');
       reset?.();
+      setTimeout(() => setStatus('idle'), 1200);
+      return;
+    }
+
+    try {
+      setStatus('loading');
+
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: data.name,
+        email: data.email,
+        subject: data.subject || `New message from ${data.name}`,
+        message: data.message,
+      };
+
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('success');
+        setServerMessage(result.message || 'Thanks! Your message has been sent.');
+        reset?.();
+      } else {
+        throw new Error(result.message || 'Something went wrong.');
+      }
     } catch (err: unknown) {
       setStatus('error');
       const message = err instanceof Error ? err.message : 'Something went wrong.';
@@ -69,12 +101,12 @@ export default function Contact() {
   };
 
   return (
-    <section className="w-full font-mono min-h-screen">
+    <section className="w-full min-h-screen">
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="mx-auto max-w-3xl px-4 md:px-6 py-8 md:py-12"
+        className="mx-auto max-w-2xl px-4 md:px-6 py-14 md:py-20"
         style={{
           contain: 'layout style paint',
           // Optimize for mobile scrolling
@@ -83,13 +115,13 @@ export default function Contact() {
       >
         <motion.h1
           variants={item}
-          className="text-3xl md:text-4xl font-extrabold text-center select-none"
+          className="text-3xl md:text-4xl font-bold text-center tracking-tight select-none"
         >
           Contact
         </motion.h1>
         <motion.p
           variants={item}
-          className="text-center text-sm text-muted-foreground mt-2 select-none"
+          className="text-center text-sm md:text-base text-muted-foreground mt-3 select-none max-w-md mx-auto"
         >
           Have a project in mind? Send a message and I’ll get back to you.
         </motion.p>
@@ -97,7 +129,7 @@ export default function Contact() {
         <motion.form
           variants={item}
           onSubmit={handleSubmit ? handleSubmit(onSubmit) : undefined}
-          className="mt-8 rounded-xl border shadow-sm p-5 md:p-6 backdrop-blur bg-white/60 dark:bg-zinc-900/50"
+          className="mt-10 rounded-2xl border border-border/60 bg-card p-6 md:p-8"
           style={{ contain: 'layout style paint' }}
         >
           {/* Honeypot */}
@@ -109,15 +141,15 @@ export default function Contact() {
             {...(register ? register('website') : {})}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="name" className="text-sm font-semibold">Name</label>
-              <Suspense fallback={<div className="mt-1 h-10 w-full bg-muted animate-pulse rounded-md" />}>
+              <label htmlFor="name" className="text-sm font-medium text-foreground/90">Name</label>
+              <Suspense fallback={<div className="mt-1.5 h-10 w-full bg-muted animate-pulse rounded-lg" />}>
                 <Input
                   id="name"
                   aria-invalid={!!errors?.name}
                   {...(register ? register('name', { required: 'Name is required' }) : {})}
-                  className="mt-1 w-full rounded-md border bg-background px-3 py-3 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 text-base"
+                  className="mt-1.5 w-full"
                   placeholder="Your name"
                   autoComplete="name"
                   // Mobile optimizations
@@ -125,11 +157,11 @@ export default function Contact() {
                   autoCapitalize="words"
                 />
               </Suspense>
-              {errors?.name && <p className="mt-1 text-xs text-destructive">{errors.name.message}</p>}
+              {errors?.name && <p className="mt-1.5 text-xs text-destructive">{errors.name.message}</p>}
             </div>
             <div>
-              <label htmlFor="email" className="text-sm font-semibold">Email</label>
-              <Suspense fallback={<div className="mt-1 h-10 w-full bg-muted animate-pulse rounded-md" />}>
+              <label htmlFor="email" className="text-sm font-medium text-foreground/90">Email</label>
+              <Suspense fallback={<div className="mt-1.5 h-10 w-full bg-muted animate-pulse rounded-lg" />}>
                 <Input
                   id="email"
                   type="email"
@@ -138,7 +170,7 @@ export default function Contact() {
                     required: 'Email is required',
                     pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address' }
                   }) : {})}
-                  className="mt-1 w-full rounded-md border bg-background px-3 py-3 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 text-base"
+                  className="mt-1.5 w-full"
                   placeholder="you@example.com"
                   autoComplete="email"
                   // Mobile optimizations
@@ -147,17 +179,17 @@ export default function Contact() {
                   autoCorrect="off"
                 />
               </Suspense>
-              {errors?.email && <p className="mt-1 text-xs text-destructive">{errors.email.message}</p>}
+              {errors?.email && <p className="mt-1.5 text-xs text-destructive">{errors.email.message}</p>}
             </div>
           </div>
 
-          <div className="mt-4">
-            <label htmlFor="subject" className="text-sm font-semibold">Subject (optional)</label>
-            <Suspense fallback={<div className="mt-1 h-10 w-full bg-muted animate-pulse rounded-md" />}>
+          <div className="mt-5">
+            <label htmlFor="subject" className="text-sm font-medium text-foreground/90">Subject (optional)</label>
+            <Suspense fallback={<div className="mt-1.5 h-10 w-full bg-muted animate-pulse rounded-lg" />}>
               <Input
                 id="subject"
                 {...(register ? register('subject', { required: false }) : {})}
-                className="mt-1 w-full rounded-md border bg-background px-3 py-3 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 text-base"
+                className="mt-1.5 w-full"
                 placeholder="How can I help?"
                 autoComplete="off"
                 // Mobile optimizations
@@ -167,14 +199,14 @@ export default function Contact() {
             </Suspense>
           </div>
 
-          <div className="mt-4">
-            <label htmlFor="message" className="text-sm font-semibold">Message</label>
-            <Suspense fallback={<div className="mt-1 h-32 w-full bg-muted animate-pulse rounded-md" />}>
+          <div className="mt-5">
+            <label htmlFor="message" className="text-sm font-medium text-foreground/90">Message</label>
+            <Suspense fallback={<div className="mt-1.5 h-32 w-full bg-muted animate-pulse rounded-lg" />}>
               <Textarea
                 id="message"
                 aria-invalid={!!errors?.message}
                 {...(register ? register('message', { required: 'Message is required' }) : {})}
-                className="mt-1 min-h-32 w-full rounded-md border bg-background px-3 py-3 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 resize-none text-base"
+                className="mt-1.5 min-h-32 w-full resize-none"
                 placeholder="Tell me a bit about your project..."
                 autoComplete="off"
                 // Mobile optimizations
@@ -183,17 +215,17 @@ export default function Contact() {
                 rows={4}
               />
             </Suspense>
-            {errors?.message && <p className="mt-1 text-xs text-destructive">{errors.message.message}</p>}
+            {errors?.message && <p className="mt-1.5 text-xs text-destructive">{errors.message.message}</p>}
           </div>
 
           {/* Feedback */}
           {serverMessage && (
             <div
-              className={`mt-4 rounded-md border px-3 py-2 text-sm ${
+              className={`mt-5 rounded-lg border px-3.5 py-2.5 text-sm ${
                 status === 'success'
-                  ? 'border-emerald-500/40 text-emerald-600 dark:text-emerald-400'
+                  ? 'border-emerald-500/30 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400'
                   : status === 'error'
-                  ? 'border-destructive/40 text-destructive'
+                  ? 'border-destructive/30 bg-destructive/5 text-destructive'
                   : 'border-border text-muted-foreground'
               }`}
             >
@@ -201,8 +233,8 @@ export default function Contact() {
             </div>
           )}
 
-          <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <Suspense fallback={<div className="h-10 w-32 bg-muted animate-pulse rounded" />}>
+          <div className="mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <Suspense fallback={<div className="h-10 w-32 bg-muted animate-pulse rounded-lg" />}>
               <Button
                 type="submit"
                 disabled={status === 'loading'}
@@ -221,7 +253,7 @@ export default function Contact() {
                 {status === 'loading' ? 'Sending...' : 'Send message'}
               </Button>
             </Suspense>
-            <Suspense fallback={<div className="h-10 w-20 bg-muted animate-pulse rounded" />}>
+            <Suspense fallback={<div className="h-10 w-20 bg-muted animate-pulse rounded-lg" />}>
               <Button
                 type="button"
                 variant="outline"

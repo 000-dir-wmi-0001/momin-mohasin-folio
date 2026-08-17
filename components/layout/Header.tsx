@@ -27,46 +27,51 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full font-mono border-b sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-black/60 shadow-2xl rounded-b-lg">
+    <div className="w-full font-mono sticky top-0 z-50 backdrop-blur-xl bg-background/75 border-b border-border/60 supports-backdrop-filter:bg-background/60">
       <ScrollProgress />
 
-      <nav className="flex items-center justify-between py-2 px-4 sm:px-6 mx-auto w-full max-w-7xl">
-        <div className="flex items-center gap-3">
-          <Avatar className="w-10 h-10 lg:w-12 lg:h-12 origin-left transition-transform hover:scale-105 hover:shadow-lg">
+      <nav className="flex items-center justify-between h-16 lg:h-18 px-4 sm:px-6 mx-auto w-full max-w-7xl">
+        <Link href="/" className="flex items-center gap-3 group">
+          <Avatar className="w-9 h-9 lg:w-10 lg:h-10 ring-1 ring-border transition-all duration-300 group-hover:ring-primary/40 group-hover:ring-2">
             <AvatarImage src="/momin.jpg" />
             <AvatarFallback>MM</AvatarFallback>
           </Avatar>
 
           <span
-            className="font-extrabold text-lg origin-left lg:text-2xl font-mono transition-colors hover:text-primary cursor-pointer"
+            className="font-bold text-base lg:text-lg tracking-tight transition-colors group-hover:text-primary"
             aria-label="Momin Mohasin"
           >
             Momin Mohasin
           </span>
-        </div>
+        </Link>
 
         {/* Nav Links (Desktop) */}
-        <ul className="hidden sm:flex items-center space-x-2">
-          {items.map((item, i) => (
-            <motion.li
-              key={item.name}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, type: "spring" }}
-            >
-              <Link
-                href={item.link}
-                aria-current={pathname === item.link ? "page" : undefined}
-                className={`px-3 py-1 font-semibold rounded-md transition-colors ${
-                  pathname === item.link
-                    ? "text-primary bg-primary/10"
-                    : "hover:bg-primary/20 hover:text-primary"
-                }`}
-              >
-                {item.name}
-              </Link>
-            </motion.li>
-          ))}
+        <ul className="hidden sm:flex items-center gap-1 rounded-full border border-border/60 bg-muted/40 p-1">
+          {items.map((item) => {
+            const isActive = pathname === item.link;
+            return (
+              <li key={item.name} className="relative">
+                <Link
+                  href={item.link}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative z-10 block px-4 py-1.5 text-sm font-medium rounded-full transition-colors duration-300 ${
+                    isActive
+                      ? "text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active-pill"
+                      className="absolute inset-0 -z-10 rounded-full bg-primary shadow-sm"
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    />
+                  )}
+                  {item.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Right Controls */}
@@ -75,11 +80,11 @@ const Header = () => {
           <div className="sm:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button size="sm" variant="outline" aria-label="Open menu">
+                <Button size="icon" variant="outline" aria-label="Open menu">
                   <Menu className="w-4 h-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" className="min-w-40">
                 {items.map((item) => (
                   <DropdownMenuItem key={item.name} asChild>
                     <Link
@@ -100,13 +105,7 @@ const Header = () => {
           </div>
 
           {/* Theme Toggle */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring" }}
-          >
-            <ModeToggle />
-          </motion.div>
+          <ModeToggle />
         </div>
       </nav>
     </div>

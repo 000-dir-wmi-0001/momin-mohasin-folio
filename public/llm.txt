@@ -2,28 +2,34 @@
 
 ## Site Information
 - **Name**: Momin Mohasin Portfolio
-- **Description**: A personal portfolio website showcasing the work, skills, and projects of Momin Mohasin, a Full-Stack Developer specializing in modern web technologies.
+- **Description**: A personal portfolio website showcasing the work, skills, and projects of Momin Mohasin, an AI & Full Stack Software Engineer specializing in modern web technologies and LLM-powered applications.
 - **Purpose**: To provide an overview of professional background, technical expertise, experience, and contact information for potential collaborators, employers, or clients.
-- **Primary Audience**: Recruiters, developers, and tech enthusiasts interested in web development and software engineering.
+- **Primary Audience**: Recruiters, developers, and tech enthusiasts interested in web development, software engineering, and AI application development.
 - **Language**: English
-- **Technology Stack**: Built with Next.js, React, TypeScript, Tailwind CSS, and various backend technologies including Node.js, Django, and FastAPI.
+- **Technology Stack**: Built with Next.js, React, TypeScript, Tailwind CSS, and various backend technologies including Node.js, NestJS, Django, and FastAPI.
 - **Author**: Momin Mohasin
 - **Created**: 2024
-- **Modified**: January 9, 2026
+- **Modified**: August 16, 2026
 
 ## Personal Information
 - **Name**: Momin Mohasin
-- **Title**: Full-Stack Developer
-- **Tagline**: Tech Enthusiast
-- **Description**: Passionate about creating scalable web applications with modern technologies. Builds modern, scalable web applications with React, Next.js, Node.js, Django, and FastAPI. Currently working at Brilliantech Software Pvt Ltd, passionate about impactful solutions.
+- **Title**: AI & Full Stack Software Engineer
+- **Tagline**: Building AI-Powered Full-Stack Applications
+- **Description**: AI & Full Stack Software Engineer with 1.5+ years of professional experience building, testing, and deploying scalable production applications using React.js, Next.js, TypeScript, Node.js, NestJS, and FastAPI. Hands-on experience building AI/LLM-powered applications and integrating Python-based AI services with Node.js backends, with practical knowledge of RAG, LangChain, LLM APIs, embeddings, and vector search. Currently working at Brilliantech Software Pvt Ltd, passionate about impactful solutions.
 - **Location**: Pune, Maharashtra, India
 
 ## Professional Experience
-- **Current Role**: Full-Stack Developer at Brilliantech Software Pvt Ltd (Jul 2025 - Present)
-  - Technologies: MERN Stack, MEAN Stack, React, Next.js, Node.js, REST APIs, Django, FastAPI
-  - Description: Working on full-stack development projects using MERN stack and other modern technologies, delivering scalable and responsive web applications.
+- **Current Role**: Full Stack Developer at Brilliantech Software Pvt Ltd (Jul 2025 - Present)
+  - Technologies: React.js, Next.js, TypeScript, Node.js, NestJS, Express.js, PostgreSQL, MongoDB, Redis, Docker, Kubernetes, AWS
+  - Description: Designing and developing scalable production web applications with secure RESTful and GraphQL APIs, modular backend architectures, and optimized PostgreSQL/MongoDB data models. Integrating third-party services (Stripe, Razorpay, Twilio, SendGrid), containerizing services with Docker and Kubernetes, and maintaining CI/CD pipelines, automated testing, and production observability.
+  - Highlights:
+    - Built modern Next.js applications using App Router, SSR, Server Components, and performance optimization techniques.
+    - Designed secure RESTful and GraphQL APIs with authentication, RBAC, request validation, and optimized database access.
+    - Optimized PostgreSQL and MongoDB data models with TypeORM/Prisma and Redis caching to reduce database load.
+    - Containerized applications with Docker and deployed across AWS, Kubernetes, Vercel, and DigitalOcean.
+    - Implemented CI/CD pipelines, automated testing, logging, monitoring, and error tracking for production reliability.
 
-- **Previous Role**: Software Engineer at TECHONSY Software Pvt Ltd (Jan 2025 - Jun 2025)
+- **Previous Role**: Software Developer at TECHONSY Software Pvt Ltd (Jan 2025 - Jun 2025)
   - Technologies: Angular, TypeScript, MEAN Stack, REST APIs
   - Description: Contributed to full-stack development using the MEAN stack. Developed LMS, integrated REST APIs, optimized API rendering, and implemented responsive UI/UX.
   - Highlights:
@@ -33,30 +39,36 @@
     - Participated in Agile sprints, daily stand-ups, and code reviews.
 
 ## Skills and Expertise
-### Frameworks
-- Next.js, Angular, Node.js, NestJS, Express.js, Fastify, Django, FastAPI
-
-### Libraries
-- React, Framer Motion, Shadcn UI, Lucide Icons, TailwindCSS, Bootstrap
-
 ### Languages
-- JavaScript, TypeScript, Python, Java, PHP
+- JavaScript, TypeScript, Python, SQL, Java, PHP
 
-### Databases
-- MySQL, PostgreSQL, MongoDB, SQLite, Prisma, SQLAlchemy, Mongoose, Sequelize
+### Frontend
+- React.js, Next.js, Next.js App Router, Server-Side Rendering (SSR), Server Components, Tailwind CSS, Shadcn/UI, Framer Motion, TanStack Query, Zustand, React Hook Form, Zod
 
-### Tools / DevOps
-- Git, GitHub, Linux, Docker, DigitalOcean, AWS (S3, EC2), Nginx, PM2, CI/CD (GitHub Actions)
+### Backend
+- Node.js, NestJS, Express.js, Angular, Django, FastAPI, REST APIs, GraphQL, Microservices, Socket.IO
 
-### Authentication / Security
-- JWT, OAuth 2.0, Role-Based Access Control (RBAC)
+### AI / Generative AI
+- LLM Integration, Generative AI, RAG, LangChain, Prompt Engineering, Embeddings, Vector Search, AI Application Development
 
-### Others / Advanced
-- WebRTC, WebSockets, Redis, Stripe, Cashfree, Razorpay, Zoom SDK, Calendly, Twilio, SendGrid, Strapi (Headless CMS), Firebase
+### Databases & ORMs
+- PostgreSQL, MongoDB, MySQL, Redis, SQLite, Vector Databases, Prisma ORM, TypeORM, Sequelize
+
+### Authentication & Security
+- JWT Authentication, OAuth 2.0, Role-Based Access Control (RBAC), Session Management, HTTP-Only Cookies, API Security
+
+### Cloud & DevOps
+- AWS (EC2, S3, SES), Docker, Kubernetes, Linux, Nginx, Vercel, DigitalOcean, CI/CD (GitHub Actions)
+
+### Testing & Observability
+- Jest, Postman, Unit & Integration Testing, API Testing, Application Logging, Monitoring & Error Tracking, Performance Optimization
+
+### Integrations & Tools
+- Stripe, Razorpay, Cashfree, SendGrid, Twilio, Zoom API, Calendly, Strapi CMS, Payload CMS, WebSockets, WebRTC, Firebase, Git & GitHub, Swagger/OpenAPI
 
 ## Statistics
-- Years of Experience: 1+
-- Projects Completed: 15+
+- Years of Experience: 1.5+
+- Projects Completed: 18+
 - Companies Worked: 2
 
 ## Site Structure
@@ -64,15 +76,15 @@ The website is organized into the following main sections:
 
 ### Home Page (/)
 - Hero section introducing Momin Mohasin
-- Highlights of expertise, methodology, and impact
-- Services offered
+- Highlights of full-stack & AI expertise, methodology, and impact
+- Services offered, including AI & LLM integration
 - Statistics and performance metrics
 - Call-to-action for contact
 
 ### Projects Page (/projects)
-- Showcase of completed projects
+- Showcase of completed projects, including production websites (Canextgen, Everlogic Consulting, BeVerifyd), the Vendor Verification & Fraud Detection Platform, and the Ad Monetization Platform
 - Descriptions, technologies used, and links to live demos or repositories
-- Interactive project gallery
+- Interactive project gallery with Experience, Company & Clients, and Personal tabs
 
 ### Contact Page (/contact)
 - Contact form for inquiries
@@ -80,8 +92,8 @@ The website is organized into the following main sections:
 - Location and availability information
 
 ### Skills and Services
-- Technical skills section with proficiency levels
-- Services offered (e.g., web development, consulting)
+- Technical skills section with proficiency levels, including AI/Generative AI expertise
+- Services offered (e.g., web development, backend & APIs, AI & LLM integration)
 - FAQ section for common questions
 
 ## Key Features
@@ -93,13 +105,13 @@ The website is organized into the following main sections:
 - Modern UI with animations and interactive elements
 
 ## Contact Information
-- Email: [Contact email, if available]
-- LinkedIn: [LinkedIn profile]
-- GitHub: [GitHub profile]
+- Email: momindy321@gmail.com
+- LinkedIn: linkedin.com/in/momin-mohasin
+- GitHub: github.com/000-dir-wmi-0001
 - Resume: /resume.pdf
 
 ## AI/LLM Optimization Notes
-This llm.txt file is provided to help Large Language Models (LLMs) better understand and index the website content. It includes structured information about the site's purpose, structure, key elements, and detailed professional information to facilitate easier parsing and summarization by AI systems. For SEO purposes, the site is designed with semantic HTML, clear headings, and descriptive metadata. The content is based on the latest portfolio data as of January 9, 2026.
+This llm.txt file is provided to help Large Language Models (LLMs) better understand and index the website content. It includes structured information about the site's purpose, structure, key elements, and detailed professional information to facilitate easier parsing and summarization by AI systems. For SEO purposes, the site is designed with semantic HTML, clear headings, and descriptive metadata. The content is based on the latest portfolio data as of August 16, 2026.
 
 ## Additional Resources
 - Sitemap: /sitemap.xml

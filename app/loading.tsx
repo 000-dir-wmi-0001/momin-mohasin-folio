@@ -11,7 +11,7 @@ export default function Loading() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+          className="text-4xl font-bold text-primary"
         >
           MM
         </motion.div>

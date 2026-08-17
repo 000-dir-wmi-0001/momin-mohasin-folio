@@ -2,23 +2,19 @@
 
 import React from "react";
 import { motion, Variants } from "motion/react";
-import { Code2, Server, Sparkles } from "lucide-react";
+import { Code2, Server, BrainCircuit } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 
 const container: Variants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const item: Variants = {
   hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
-
-const MotionCard = motion(Card);
-
 
 const Services = () => {
   const services = [
@@ -35,52 +31,59 @@ const Services = () => {
       Icon: Server,
     },
     {
-      title: "Innovations",
+      title: "AI & LLM Integration",
       desc:
-        "Building innovative side projects like KarLo, a location-based To-Do reminder platform, and more.",
-      Icon: Sparkles,
+        "Building AI/LLM-powered features and applications using RAG, LangChain, embeddings, and vector search integrated with Node.js and Python backends.",
+      Icon: BrainCircuit,
     },
   ];
 
   return (
-    <section className="w-full font-mono">
+    <section className="w-full">
       <motion.div
         variants={container}
         initial="hidden"
-        animate="visible"
-        className="mx-auto max-w-6xl px-4 md:px-6"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="mx-auto max-w-4xl px-4 md:px-6"
       >
         <motion.h3
           variants={item}
-          className="text-2xl md:text-3xl font-extrabold text-center mb-4 md:mb-6"
+          className="text-sm font-semibold uppercase tracking-wide text-muted-foreground text-center mb-8"
         >
           Services
         </motion.h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+
+        <div className="rounded-2xl border border-border/60 bg-card divide-y divide-border/60 overflow-hidden">
           {services.map(({ title, desc, Icon }, i) => (
             <motion.div
               key={title}
               variants={item}
-              transition={{ delay: i * 0.05, type: "spring" }}
+              className="group flex flex-col sm:flex-row sm:items-center gap-4 p-6 md:p-7 transition-colors duration-300 hover:bg-muted/30"
             >
-              <MotionCard
-              whileHover={{ scale: 1.05 }}
-              className="backdrop-blur bg-card/80 hover:bg-primary/5 transition-colors transform">
-                <CardHeader className="flex flex-row items-start gap-3">
-                  <span className="rounded-md border p-2 bg-white/60 dark:bg-zinc-900/40">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </span>
-                  <div>
-                    <CardTitle className="text-lg">{title}</CardTitle>
-                    <CardDescription className="mt-1">{desc}</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardFooter>
-                  <Button asChild size="sm" variant="ghost">
-                    <Link href="/contact">Work with me</Link>
-                  </Button>
-                </CardFooter>
-              </MotionCard>
+              <span className="text-xs font-mono text-muted-foreground/70 tracking-widest shrink-0 sm:w-8">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <span className="rounded-lg bg-muted/60 p-2.5 shrink-0 transition-colors duration-300 group-hover:bg-primary/10">
+                <Icon className="w-5 h-5 text-primary" />
+              </span>
+
+              <div className="flex-1">
+                <h4 className="text-base font-semibold">{title}</h4>
+                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                  {desc}
+                </p>
+              </div>
+
+              <Button
+                asChild
+                size="sm"
+                variant="ghost"
+                className="shrink-0 text-muted-foreground hover:text-primary sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <Link href="/contact">Work with me →</Link>
+              </Button>
             </motion.div>
           ))}
         </div>

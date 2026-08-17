@@ -5,10 +5,10 @@ import { generateProjectSchema, generateBreadcrumbSchema, generateHreflangTags }
 import { portfolioData } from "@/lib/portfolio-data";
 
 export const metadata: Metadata = {
-  title: "Projects - Full Stack Developer Portfolio",
+  title: "Projects - AI & Full Stack Software Engineer Portfolio",
   description:
-    "Explore real-world full stack and backend projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
-  alternates: { 
+    "Explore real-world full stack, backend, and AI/LLM-powered projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
+  alternates: {
     canonical: "https://momin-mohasin.me/projects",
     ...generateHreflangTags("/projects")
   },
@@ -16,24 +16,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://momin-mohasin.me/projects",
-    title: "Projects - Full Stack Developer Portfolio",
+    title: "Projects - AI & Full Stack Software Engineer Portfolio",
     description:
-      "Explore real-world full stack and backend projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
+      "Explore real-world full stack, backend, and AI/LLM-powered projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
     siteName: "Momin Mohasin Portfolio",
     images: [
       {
         url: "/og-momin.png",
         width: 1200,
         height: 630,
-        alt: "Momin Mohasin - Full Stack Developer Projects",
+        alt: "Momin Mohasin - AI & Full Stack Software Engineer Projects",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Projects - Full Stack Developer Portfolio",
+    title: "Projects - AI & Full Stack Software Engineer Portfolio",
     description:
-      "Explore real-world full stack and backend projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
+      "Explore real-world full stack, backend, and AI/LLM-powered projects built by Momin Mohasin using React, Next.js, NestJS, FastAPI, Django, and modern web technologies.",
     images: ["/og-momin.png"],
     creator: "@mominmohasin",
   },

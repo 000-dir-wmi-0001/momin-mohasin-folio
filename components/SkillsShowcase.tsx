@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { Badge } from "@/components/ui/badge";
-import { Code, Layers, Database, Wrench, Shield } from "lucide-react";
+import { Code, Layers, Database, Wrench, Shield, Sparkles } from "lucide-react";
 
 interface SkillCategory {
   icon: string;
@@ -21,6 +21,7 @@ const iconMap = {
   Database,
   Wrench,
   Shield,
+  Sparkles,
 };
 
 export const SkillsShowcase = ({
@@ -35,16 +36,18 @@ export const SkillsShowcase = ({
       viewport={{ once: true, margin: "-100px" }}
       className="space-y-8"
     >
-      <motion.h3
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 bg-linear-to-r from-foreground via-foreground/90 to-foreground bg-clip-text text-transparent"
-      >
-        {title}
-      </motion.h3>
+      {title && (
+        <motion.h3
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 tracking-tight"
+        >
+          {title}
+        </motion.h3>
+      )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
         {Object.entries(skillCategories).map(
           ([category, categoryData], categoryIndex) => {
             const IconComponent =
@@ -55,72 +58,42 @@ export const SkillsShowcase = ({
                 key={category}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.4, delay: (categoryIndex % 3) * 0.06 }}
                 viewport={{ once: true }}
-                className="group relative transform hover:scale-105 transition-transform duration-500"
+                whileHover={{ y: -4 }}
+                className="group relative rounded-2xl border border-border/60 bg-card p-6 md:p-7 transition-colors duration-300 hover:border-primary/30"
               >
-                {/* Enhanced Background Glow */}
-                {/* <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-700 scale-105 group-hover:scale-110 opacity-0 group-hover:opacity-100" />
-                <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-secondary/8 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-700" /> */}
-                <div className="absolute inset-0 hidden md:block bg-linear-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-2xl blur-2xl" />
-                <div className="absolute inset-0 hidden md:block bg-linear-to-br from-primary/8 to-secondary/8 rounded-2xl blur-xl opacity-60" />
+                {/* Corner bracket accent, revealed on hover */}
+                <span className="absolute top-4 right-4 w-3 h-3 border-t border-r border-transparent group-hover:border-primary/50 transition-colors duration-300" />
 
-                {/* Main Card */}
-                <div className="relative p-8 rounded-2xl border border-border/40 bg-card/90 md:backdrop-blur-md hover:bg-card/95 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden">
-                  {/* Subtle Inner Glow */}
-                  <div className="absolute inset-0 bg-linear-to-br from-transparent via-primary/2 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl" />
+                {/* Category Header */}
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="p-2.5 rounded-lg bg-muted/60 transition-colors duration-300 group-hover:bg-primary/10">
+                    <IconComponent
+                      className={`w-5 h-5 ${categoryData.color}`}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold text-foreground">
+                      {category}
+                    </h4>
+                    <p className="text-xs font-mono text-muted-foreground">
+                      {categoryData.skills.length} technologies
+                    </p>
+                  </div>
+                </div>
 
-                  {/* Category Header */}
-                  <div className="relative z-10 flex items-center gap-4 mb-6">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                      className={`p-3 rounded-xl bg-linear-to-br from-primary/10 via-secondary/10 to-accent/10 shadow-lg transform`}
+                {/* Skills Grid */}
+                <div className="flex flex-wrap gap-2">
+                  {categoryData.skills.map((skill) => (
+                    <Badge
+                      key={skill}
+                      variant="secondary"
+                      className="px-2.5 py-1 text-xs font-medium bg-muted/60 hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/30 transition-colors duration-200"
                     >
-                      <IconComponent
-                        className={`w-6 h-6 ${categoryData.color} drop-shadow-sm`}
-                      />
-                    </motion.div>
-                    <div>
-                      <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                        {category}
-                      </h4>
-                      <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
-                        {categoryData.skills.length} technologies
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Skills Grid */}
-                  <div className="relative z-10 grid grid-cols-2 gap-3">
-                    {categoryData.skills.map((skill, skillIndex) => (
-                      <motion.div
-                        key={skill}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        initial={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        viewport={{ once: true }}
-                        whileHover={{ scale: 1.03 }}
-                        className="group/skill"
-                      >
-                        <Badge
-                          variant="secondary"
-                          className="w-full justify-center px-3 py-2 text-sm font-medium bg-muted/60 hover:bg-primary/10 hover:text-primary hover:border-primary/30 border border-border/50 transition-all duration-300 hover:shadow-md hover:shadow-primary/20 backdrop-blur-sm"
-                        >
-                          {skill}
-                        </Badge>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Decorative Elements */}
-                  <div
-                    className="absolute top-4 right-4 w-2 h-2 bg-primary/20 rounded-full hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  />
-                  <div
-                    className="absolute bottom-4 left-4 w-1 h-1 bg-secondary/20 rounded-full hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                    style={{ animationDelay: "0.5s" }}
-                  />
+                      {skill}
+                    </Badge>
+                  ))}
                 </div>
               </motion.div>
             );
