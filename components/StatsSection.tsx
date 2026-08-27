@@ -11,8 +11,17 @@ const iconMap = {
   Building2,
 };
 
-export const StatsSection = React.memo(() => {
-  const stats = Object.values(portfolioData.stats);
+interface StatsSectionProps {
+  /** Dynamically computed total experience (e.g. "1.5+"), from a Server Component. */
+  experienceValue?: string;
+}
+
+export const StatsSection = React.memo(({ experienceValue }: StatsSectionProps) => {
+  const { experience, ...restStats } = portfolioData.stats;
+  const stats = [
+    experienceValue ? { ...experience, value: experienceValue } : experience,
+    ...Object.values(restStats),
+  ];
 
   return (
     <div className="relative rounded-2xl border border-border/60 bg-card mb-16 md:mb-20 overflow-hidden">

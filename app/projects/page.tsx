@@ -1,8 +1,8 @@
 import ProjectsClient from './ProjectsClient';
 import type { Metadata } from "next";
-import Script from "next/script";
-import { generateProjectSchema, generateBreadcrumbSchema, generateHreflangTags } from "@/lib/seo-utils";
+import { generateProjectSchema, generateHreflangTags } from "@/lib/seo-utils";
 import { portfolioData } from "@/lib/portfolio-data";
+import { formatDuration } from "@/lib/date-utils";
 
 export const metadata: Metadata = {
   title: "Projects - AI & Full Stack Software Engineer Portfolio",
@@ -40,8 +40,20 @@ export const metadata: Metadata = {
 };
 
 export default function Projects() {
-  const breadcrumbSchema = generateBreadcrumbSchema("/projects");
-  
+  // Breadcrumb structured data is already emitted site-wide by the root
+  // layout's <BreadcrumbSchema />, which is pathname-aware — a page-level
+  // copy here would just duplicate it.
+
+  // Computed server-side (see lib/date-utils.ts for why) so the "Present"
+  // role's tenure — and every past role's — stays accurate without manual
+  // upkeep of the hand-written `period` strings in portfolio-data.ts.
+  const experienceDurations = Object.fromEntries(
+    portfolioData.experience.map((exp) => [
+      exp.company,
+      formatDuration(exp.startDate, exp.endDate),
+    ])
+  );
+
   const projectStructuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -51,42 +63,18 @@ export default function Projects() {
     "itemListElement": portfolioData.projects.map((project, index) => ({
       "@type": "ListItem",
       "position": index + 1,
-      "item": {
-        "@type": "SoftwareApplication",
-        "name": project.name,
-        "description": project.description,
-        ...(project.image && { "image": project.image }),
-        ...(project.datePublished && { "datePublished": project.datePublished }),
-        ...(project.keywords && { "keywords": project.keywords.join(', ') }),
-        ...(project.url && { "url": project.url }),
-        ...(project.category && { "applicationCategory": project.category }),
-        "operatingSystem": "Web Browser",
-        ...(project.technologies && { "programmingLanguage": project.technologies }),
-        "author": {
-          "@type": "Person",
-          "name": "Momin Mohasin"
-        }
-      }
+      "item": generateProjectSchema(project)
     }))
   };
 
   return (
     <>
-      <Script
-        id="breadcrumb-structured-data"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {JSON.stringify(breadcrumbSchema)}
-      </Script>
-      <Script
+      <script
         id="projects-structured-data"
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {JSON.stringify(projectStructuredData)}
-      </Script>
-      <ProjectsClient />
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectStructuredData) }}
+      />
+      <ProjectsClient experienceDurations={experienceDurations} />
     </>
   );
 }

@@ -5,7 +5,6 @@ import { ModeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { motion } from "motion/react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import Image from "next/image";
@@ -27,15 +26,20 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full font-mono sticky top-0 z-50 backdrop-blur-xl bg-background/75 border-b border-border/60 supports-backdrop-filter:bg-background/60">
+    <div className="w-full font-mono sticky top-0 z-50 backdrop-blur-md md:backdrop-blur-xl bg-background/90 md:bg-background/75 border-b border-border/60 supports-backdrop-filter:bg-background/60">
       <ScrollProgress />
 
       <nav className="flex items-center justify-between h-16 lg:h-18 px-4 sm:px-6 mx-auto w-full max-w-7xl">
         <Link href="/" className="flex items-center gap-3 group">
-          <Avatar className="w-9 h-9 lg:w-10 lg:h-10 ring-1 ring-border transition-all duration-300 group-hover:ring-primary/40 group-hover:ring-2">
-            <AvatarImage src="/momin.jpg" />
-            <AvatarFallback>MM</AvatarFallback>
-          </Avatar>
+          <div className="relative w-9 h-9 lg:w-10 lg:h-10 shrink-0 overflow-hidden rounded-full ring-1 ring-border transition-all duration-300 group-hover:ring-primary/40 group-hover:ring-2">
+            <Image
+              src="/momin.jpg"
+              alt="Momin Mohasin"
+              fill
+              sizes="40px"
+              className="object-cover"
+            />
+          </div>
 
           <span
             className="font-bold text-base lg:text-lg tracking-tight transition-colors group-hover:text-primary"

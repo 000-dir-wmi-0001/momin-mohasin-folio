@@ -74,9 +74,9 @@ export const SkillsShowcase = ({
                     />
                   </div>
                   <div>
-                    <h4 className="text-base font-semibold text-foreground">
+                    <h3 className="text-base font-semibold text-foreground">
                       {category}
-                    </h4>
+                    </h3>
                     <p className="text-xs font-mono text-muted-foreground">
                       {categoryData.skills.length} technologies
                     </p>

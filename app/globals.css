@@ -59,8 +59,10 @@ html {
   }
 }
 
-/* Ensure stable layout for buttons and interactive elements */
-button, a, [role="button"] {
+/* Ensure stable layout for buttons — scoped to actual buttons rather than
+   every anchor, since promoting every link to its own GPU compositor layer
+   is costly on mobile GPUs with far less compositing memory than desktop */
+button, [role="button"] {
   transform: translateZ(0); /* Force hardware acceleration */
 }
 

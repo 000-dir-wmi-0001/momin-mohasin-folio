@@ -28,13 +28,18 @@ const item: Variants = {
   },
 };
 
-const stats = [
-  { value: portfolioData.stats.experience.value, label: "Years Exp." },
-  { value: portfolioData.stats.projects.value, label: "Projects" },
-  { value: portfolioData.stats.companies.value, label: "Companies" },
-];
+interface HeroProps {
+  /** Dynamically computed total experience (e.g. "1.5+"), from a Server Component. */
+  experienceValue?: string;
+}
 
-const Hero = () => {
+const Hero = ({ experienceValue }: HeroProps) => {
+  const stats = [
+    { value: experienceValue ?? portfolioData.stats.experience.value, label: "Years Exp." },
+    { value: portfolioData.stats.projects.value, label: "Projects" },
+    { value: portfolioData.stats.companies.value, label: "Companies" },
+  ];
+
   return (
     <motion.div
       variants={container}

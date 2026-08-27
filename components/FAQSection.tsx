@@ -20,10 +20,10 @@ export function FAQSection() {
             <HelpCircle className="w-3.5 h-3.5 mr-1.5 shrink-0 text-primary" />
             Frequently Asked Questions
           </div>
-          <h3 id="faq-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
+          <h2 id="faq-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
             Got Questions?
             <span className="block text-primary">I&apos;ve Got Answers</span>
-          </h3>
+          </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
             Here are some common questions about my services, experience, and how I can help bring your project to life.
           </p>
