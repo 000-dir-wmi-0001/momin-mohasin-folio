@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import { portfolioData } from "@/lib/portfolio-data";
+import { formatTotalExperience } from "@/lib/date-utils";
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { StatsSectionSkeleton, HighlightsSectionSkeleton, ServicesSkeleton, SkillsShowcaseSkeleton, FAQSectionSkeleton } from "@/components/skeletons";
@@ -44,12 +45,19 @@ export const metadata: Metadata = {
 
 
 export default function Home() {
+  // Computed here (server-side, once per build/request) rather than inside
+  // the client components that display it — a "use client" component can't
+  // safely call `new Date()` itself, since the value baked into the
+  // server-rendered HTML would drift from whatever the browser computes at
+  // hydration time and trigger a mismatch.
+  const experienceValue = formatTotalExperience(portfolioData.experience);
+
   return (
     <main className="w-full scroll-smooth">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center" id="hero" aria-label="Hero section">
         <h1 className="sr-only">Hi, I'm Momin Mohasin, AI & Full-Stack Software Engineer</h1>
-        <Hero />
+        <Hero experienceValue={experienceValue} />
       </section>
 
       {/* Professional Overview */}
@@ -60,15 +68,15 @@ export default function Home() {
               <User className="w-3.5 h-3.5 mr-1.5 shrink-0 text-primary" />
               Professional Overview
             </div>
-            <h3 id="overview-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
+            <h2 id="overview-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
               Combining <span className="text-primary">Expertise</span> with Results
-            </h3>
+            </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Technical proficiency meets strategic thinking in modern web development
             </p>
           </div>
 
-          <StatsSection />
+          <StatsSection experienceValue={experienceValue} />
           <HighlightsSection />
         </div>
       </section>
@@ -81,9 +89,9 @@ export default function Home() {
               <Code className="w-3.5 h-3.5 mr-1.5 shrink-0 text-primary" />
               Technical Expertise
             </div>
-            <h3 id="skills-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
+            <h2 id="skills-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
               Modern <span className="text-primary">Technology Stack</span>
-            </h3>
+            </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Comprehensive proficiency across cutting-edge technologies and development frameworks
             </p>
@@ -100,9 +108,9 @@ export default function Home() {
               <Settings className="w-3.5 h-3.5 mr-1.5 shrink-0 text-primary" />
               Service Expertise
             </div>
-            <h3 id="services-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
+            <h2 id="services-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight tracking-tight">
               Transforming <span className="text-primary">Ideas</span> into Reality
-            </h3>
+            </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Comprehensive solutions tailored to transform your digital vision into reality
             </p>

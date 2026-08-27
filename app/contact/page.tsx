@@ -1,13 +1,14 @@
 import ContactClient from './ContactClient';
 import type { Metadata } from "next";
-import Script from "next/script";
-import { generateBreadcrumbSchema } from "@/lib/seo-utils";
+
+const CONTACT_TITLE = "Contact - Hire an AI & Full Stack Software Engineer";
+const CONTACT_DESCRIPTION =
+  "Get in touch with Momin Mohasin, an AI & Full Stack Software Engineer from Pune, India, open to full-time roles and freelance opportunities.";
 
 export const metadata: Metadata = {
-  title: "Contact - Hire an AI & Full Stack Software Engineer",
-  description:
-    "Get in touch with Momin Mohasin, an AI & Full Stack Software Engineer from Pune, India, open to full-time roles and freelance opportunities.",
-  alternates: { 
+  title: CONTACT_TITLE,
+  description: CONTACT_DESCRIPTION,
+  alternates: {
     canonical: "https://momin-mohasin.me/contact",
     languages: {
       'en-IN': 'https://momin-mohasin.me/contact',
@@ -15,41 +16,39 @@ export const metadata: Metadata = {
       'x-default': 'https://momin-mohasin.me/contact'
     }
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://momin-mohasin.me/contact",
+    title: CONTACT_TITLE,
+    description: CONTACT_DESCRIPTION,
+    siteName: "Momin Mohasin Portfolio",
+    images: [
+      {
+        url: "/og-momin.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact Momin Mohasin - AI & Full Stack Software Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: CONTACT_TITLE,
+    description: CONTACT_DESCRIPTION,
+    images: ["/og-momin.png"],
+    creator: "@mominmohasin",
+  },
 };
 
 export default function Contact() {
-  const breadcrumbSchema = generateBreadcrumbSchema("/contact");
-  
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPoint",
-    "name": "Momin Mohasin - Professional Contact",
-    "telephone": "+91 7249826872",
-    "email": "momindy321@gmail.com",
-    "contactType": "customer service",
-    "areaServed": "IN",
-    "availableLanguage": ["English", "Hindi"]
-  };
-
+  // Breadcrumb AND ContactPoint structured data are already emitted
+  // site-wide by the root layout (<BreadcrumbSchema /> plus the global
+  // "contact-structured-data" script, which is a strict superset of what
+  // used to be duplicated here) — no page-level copy needed.
   return (
-    <>
-      <Script
-        id="contact-breadcrumb-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {JSON.stringify(breadcrumbSchema)}
-      </Script>
-      <Script
-        id="contact-point-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {JSON.stringify(contactSchema)}
-      </Script>
-      <div className="will-change-auto">
-        <ContactClient />
-      </div>
-    </>
+    <div className="will-change-auto">
+      <ContactClient />
+    </div>
   );
 }

@@ -70,7 +70,7 @@ const Services = () => {
               </span>
 
               <div className="flex-1">
-                <h4 className="text-base font-semibold">{title}</h4>
+                <h3 className="text-base font-semibold">{title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
                   {desc}
                 </p>

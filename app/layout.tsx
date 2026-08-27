@@ -170,7 +170,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.clarity.ms" />
         <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
       </head>
@@ -208,152 +207,151 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Structured Data for SEO */}
-        <Script
+        {/* Structured Data for SEO — plain inert scripts (not next/script) so this
+            JSON-LD never competes with hydration on the main thread */}
+        <script
           id="structured-data"
           type="application/ld+json"
-          strategy="beforeInteractive"
-        >
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Momin Mohasin",
-            "jobTitle": "AI & Full Stack Software Engineer",
-            "description": "AI & Full Stack Software Engineer from Pune, India specializing in React, Next.js, NestJS, FastAPI, Django, LLM integration (RAG, LangChain), and scalable backend development.",
-            "url": "https://momin-mohasin.me",
-            "email": "momindy321@gmail.com",
-            "telephone": "+91 7249826872",
-            "sameAs": [
-              "https://github.com/000-dir-wmi-0001",
-              "https://www.linkedin.com/in/momin-mohasin/",
-              "https://twitter.com/mominmohasin"
-            ],
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Pune",
-              "addressCountry": "India"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91 7249826872",
-              "email": "momindy321@gmail.com",
-              "contactType": "professional",
-              "availableLanguage": "English"
-            },
-            "knowsAbout": [
-              "React",
-              "Next.js",
-              "NestJS",
-              "FastAPI",
-              "Django",
-              "TypeScript",
-              "PostgreSQL",
-              "MongoDB",
-              "Docker",
-              "Kubernetes",
-              "AWS",
-              "GraphQL",
-              "LLM Integration",
-              "RAG",
-              "LangChain",
-              "Generative AI"
-            ]
-          })}
-        </Script>
-
-        {/* Contact Information Structured Data */}
-        <Script
-          id="contact-structured-data"
-          type="application/ld+json"
-          strategy="beforeInteractive"
-        >
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ContactPoint",
-            "name": "Momin Mohasin - Professional Contact",
-            "telephone": "+91 7249826872",
-            "email": "momindy321@gmail.com",
-            "contactType": "customer service",
-            "areaServed": "IN",
-            "availableLanguage": ["English", "Hindi"],
-            "hoursAvailable": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              "opens": "09:00",
-              "closes": "18:00",
-              "timeZone": "Asia/Kolkata"
-            }
-          })}
-        </Script>
-
-        {/* Organization Structured Data */}
-        <Script
-          id="organization-structured-data"
-          type="application/ld+json"
-          strategy="beforeInteractive"
-        >
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Brilliantech Software Pvt Ltd",
-            "description": "Leading software development company specializing in web and mobile applications.",
-            "url": "https://brilliantech.com",
-            "logo": "https://momin-mohasin.me/Bt.png",
-            "employee": {
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
               "@type": "Person",
               "name": "Momin Mohasin",
-              "jobTitle": "Full Stack Developer"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Pune",
-              "addressCountry": "India"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "customer service",
+              "jobTitle": "AI & Full Stack Software Engineer",
+              "description": "AI & Full Stack Software Engineer from Pune, India specializing in React, Next.js, NestJS, FastAPI, Django, LLM integration (RAG, LangChain), and scalable backend development.",
+              "url": "https://momin-mohasin.me",
+              "email": "momindy321@gmail.com",
               "telephone": "+91 7249826872",
-              "email": "momindy321@gmail.com"
-            }
-          })}
-        </Script>
+              "sameAs": [
+                "https://github.com/000-dir-wmi-0001",
+                "https://www.linkedin.com/in/momin-mohasin/",
+                "https://twitter.com/mominmohasin"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Pune",
+                "addressCountry": "India"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91 7249826872",
+                "email": "momindy321@gmail.com",
+                "contactType": "professional",
+                "availableLanguage": "English"
+              },
+              "knowsAbout": [
+                "React",
+                "Next.js",
+                "NestJS",
+                "FastAPI",
+                "Django",
+                "TypeScript",
+                "PostgreSQL",
+                "MongoDB",
+                "Docker",
+                "Kubernetes",
+                "AWS",
+                "GraphQL",
+                "LLM Integration",
+                "RAG",
+                "LangChain",
+                "Generative AI"
+              ]
+            }),
+          }}
+        />
+
+        {/* Contact Information Structured Data */}
+        <script
+          id="contact-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ContactPoint",
+              "name": "Momin Mohasin - Professional Contact",
+              "telephone": "+91 7249826872",
+              "email": "momindy321@gmail.com",
+              "contactType": "customer service",
+              "areaServed": "IN",
+              "availableLanguage": ["English", "Hindi"],
+              "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "09:00",
+                "closes": "18:00",
+                "timeZone": "Asia/Kolkata"
+              }
+            }),
+          }}
+        />
+
+        {/* Organization Structured Data */}
+        <script
+          id="organization-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Brilliantech Software Pvt Ltd",
+              "description": "Leading software development company specializing in web and mobile applications.",
+              "url": "https://brilliantech.com",
+              "logo": "https://momin-mohasin.me/Bt.png",
+              "employee": {
+                "@type": "Person",
+                "name": "Momin Mohasin",
+                "jobTitle": "Full Stack Developer"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Pune",
+                "addressCountry": "India"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "telephone": "+91 7249826872",
+                "email": "momindy321@gmail.com"
+              }
+            }),
+          }}
+        />
 
         {/* FAQ Structured Data */}
-        <Script
+        <script
           id="faq-structured-data"
           type="application/ld+json"
-          strategy="beforeInteractive"
-        >
-          {JSON.stringify(generateFAQSchema(faqData))}
-        </Script>
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqData)) }}
+        />
 
         {/* WebSite Structured Data */}
-        <Script
+        <script
           id="website-structured-data"
           type="application/ld+json"
-          strategy="beforeInteractive"
-        >
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Momin Mohasin Portfolio",
-            "url": "https://momin-mohasin.me",
-            "description": "Portfolio of Momin Mohasin, an AI & Full Stack Software Engineer specializing in modern web technologies and LLM-powered applications.",
-            "author": {
-              "@type": "Person",
-              "name": "Momin Mohasin"
-            },
-            "publisher": {
-              "@type": "Person",
-              "name": "Momin Mohasin"
-            },
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://momin-mohasin.me/projects?q={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          })}
-        </Script>
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Momin Mohasin Portfolio",
+              "url": "https://momin-mohasin.me",
+              "description": "Portfolio of Momin Mohasin, an AI & Full Stack Software Engineer specializing in modern web technologies and LLM-powered applications.",
+              "author": {
+                "@type": "Person",
+                "name": "Momin Mohasin"
+              },
+              "publisher": {
+                "@type": "Person",
+                "name": "Momin Mohasin"
+              },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://momin-mohasin.me/projects?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            }),
+          }}
+        />
 
         {/* Breadcrumb Schema for Navigation */}
         <BreadcrumbSchema />

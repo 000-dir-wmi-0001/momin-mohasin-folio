@@ -543,7 +543,12 @@ function getProjectMetadata(project: any) {
     url: `/projects#${project.name.toLowerCase().replace(/\s+/g, '-')}`
   });
 }
-const Projects = () => {
+interface ProjectsProps {
+  /** Company name -> dynamically computed tenure (e.g. "1 yr 1 mo"), from a Server Component. */
+  experienceDurations?: Record<string, string>;
+}
+
+const Projects = ({ experienceDurations = {} }: ProjectsProps) => {
   const [activeTab, setActiveTab] = useState<ProjectTab>("company");
 
   const tabs: { title: string; value: ProjectTab }[] = [
@@ -606,8 +611,14 @@ const Projects = () => {
                             {exp.role}
                           </CardTitle>
 
-                          <CardDescription className="text-sm">
-                            {exp.company} · {exp.period}
+                          <CardDescription className="text-sm flex flex-wrap items-center gap-1.5">
+                            <span>{exp.company} · {exp.period}</span>
+                            {experienceDurations[exp.company] && (
+                              <span className="text-xs font-medium px-2 py-0.5 rounded-md bg-primary/10 text-primary">
+                                {experienceDurations[exp.company]}
+                                {!exp.endDate && " so far"}
+                              </span>
+                            )}
                           </CardDescription>
 
                           <CardDescription className="text-xs text-muted-foreground/70 mt-0.5">

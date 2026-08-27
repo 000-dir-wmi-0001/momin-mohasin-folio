@@ -38,9 +38,9 @@ export function HighlightsSection() {
               <IconComponent className={`w-5 h-5 ${highlight.color}`} />
             </div>
 
-            <h4 className="text-lg font-semibold mb-2.5 text-foreground">
+            <h3 className="text-lg font-semibold mb-2.5 text-foreground">
               {highlight.title}
-            </h4>
+            </h3>
             <p className="text-muted-foreground leading-relaxed text-sm">
               {highlight.description}
             </p>

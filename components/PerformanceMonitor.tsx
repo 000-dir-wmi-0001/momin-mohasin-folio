@@ -14,7 +14,7 @@ export function PerformanceMonitor() {
     onLCP((metric) => { if (isDev) console.log("LCP:", metric); });
     onTTFB((metric) => { if (isDev) console.log("TTFB:", metric); });
 
-    if (typeof window === "undefined" || window.innerWidth < 768) return;
+    if (typeof window === "undefined") return;
     if (!("PerformanceObserver" in window)) return;
 
     try {
