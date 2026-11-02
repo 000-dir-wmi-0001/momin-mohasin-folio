@@ -19,7 +19,7 @@ export const faqData: FAQItem[] = [
   },
   {
     question: "What is your experience level?",
-    answer: "I have over 1.5+ years of professional experience in software development, working with multiple companies and delivering production-ready applications. I'm experienced in agile development practices and have worked on both small projects and large-scale applications."
+    answer: "I have over 3+ years of professional experience in software development, working with multiple companies and delivering production-ready applications. I'm experienced in agile development practices and have worked on both small projects and large-scale applications."
   },
   {
     question: "Do you provide maintenance and support for projects?",
