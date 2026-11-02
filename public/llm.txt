@@ -9,17 +9,17 @@
 - **Technology Stack**: Built with Next.js, React, TypeScript, Tailwind CSS, and various backend technologies including Node.js, NestJS, Django, and FastAPI.
 - **Author**: Momin Mohasin
 - **Created**: 2024
-- **Modified**: August 16, 2026
+- **Modified**: November 2, 2026
 
 ## Personal Information
 - **Name**: Momin Mohasin
 - **Title**: AI & Full Stack Software Engineer
 - **Tagline**: Building AI-Powered Full-Stack Applications
-- **Description**: AI & Full Stack Software Engineer with 1.5+ years of professional experience building, testing, and deploying scalable production applications using React.js, Next.js, TypeScript, Node.js, NestJS, and FastAPI. Hands-on experience building AI/LLM-powered applications and integrating Python-based AI services with Node.js backends, with practical knowledge of RAG, LangChain, LLM APIs, embeddings, and vector search. Currently working at Brilliantech Software Pvt Ltd, passionate about impactful solutions.
+- **Description**: AI & Full Stack Software Engineer with 3+ years of professional experience building, testing, and deploying scalable production applications using React.js, Next.js, TypeScript, Node.js, NestJS, and FastAPI. Hands-on experience building AI/LLM-powered applications and integrating Python-based AI services with Node.js backends, with practical knowledge of RAG, LangChain, LLM APIs, embeddings, and vector search. Currently working at Brilliantech Software Pvt Ltd, passionate about impactful solutions.
 - **Location**: Pune, Maharashtra, India
 
 ## Professional Experience
-- **Current Role**: Full Stack Developer at Brilliantech Software Pvt Ltd (Jul 2025 - Present)
+- **Current Role**: Full Stack Developer at Brilliantech Software Pvt Ltd (Jun 2025 - Present)
   - Technologies: React.js, Next.js, TypeScript, Node.js, NestJS, Express.js, PostgreSQL, MongoDB, Redis, Docker, Kubernetes, AWS
   - Description: Designing and developing scalable production web applications with secure RESTful and GraphQL APIs, modular backend architectures, and optimized PostgreSQL/MongoDB data models. Integrating third-party services (Stripe, Razorpay, Twilio, SendGrid), containerizing services with Docker and Kubernetes, and maintaining CI/CD pipelines, automated testing, and production observability.
   - Highlights:
@@ -29,7 +29,7 @@
     - Containerized applications with Docker and deployed across AWS, Kubernetes, Vercel, and DigitalOcean.
     - Implemented CI/CD pipelines, automated testing, logging, monitoring, and error tracking for production reliability.
 
-- **Previous Role**: Software Developer at TECHONSY Software Pvt Ltd (Jan 2025 - Jun 2025)
+- **Previous Role**: Software Developer at TECHONSY Software Pvt Ltd (Jan 2024 - Jun 2025)
   - Technologies: Angular, TypeScript, MEAN Stack, REST APIs
   - Description: Contributed to full-stack development using the MEAN stack. Developed LMS, integrated REST APIs, optimized API rendering, and implemented responsive UI/UX.
   - Highlights:
@@ -67,7 +67,7 @@
 - Stripe, Razorpay, Cashfree, SendGrid, Twilio, Zoom API, Calendly, Strapi CMS, Payload CMS, WebSockets, WebRTC, Firebase, Git & GitHub, Swagger/OpenAPI
 
 ## Statistics
-- Years of Experience: 1.5+
+- Years of Experience: 3+
 - Projects Completed: 18+
 - Companies Worked: 2
 

@@ -180,7 +180,7 @@ const Hero = ({ experienceValue }: HeroProps) => {
             {/* Photo frame */}
             <div className="relative w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-96 rounded-4xl overflow-hidden ring-1 ring-border shadow-2xl bg-muted">
               <MotionImage
-                src="/momin.jpg"
+                src="/momin-1.jpeg"
                 alt="Momin Mohasin - AI & Full-Stack Software Engineer specializing in React, Next.js, NestJS, FastAPI, and LLM integration"
                 fill
                 priority

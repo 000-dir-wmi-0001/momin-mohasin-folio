@@ -23,7 +23,7 @@ export const portfolioData = {
   stats: {
     experience: {
       label: "Years Experience",
-      value: "1.5+",
+      value: "3+",
       icon: "Briefcase",
       color: "text-blue-500",
       description: "Professional development experience"
@@ -202,7 +202,7 @@ export const portfolioData = {
 
   about: {
     paragraphs: [
-      'Hi, I\'m Momin Mohasin, an AI & Full Stack Software Engineer with 1.5+ years of experience building, testing, and deploying scalable production applications using React.js, Next.js, TypeScript, Node.js, NestJS, Express.js, Python, and FastAPI.',
+      'Hi, I\'m Momin Mohasin, an AI & Full Stack Software Engineer with 3+ years of experience building, testing, and deploying scalable production applications using React.js, Next.js, TypeScript, Node.js, NestJS, Express.js, Python, and FastAPI.',
       'I\'m currently working as a Full Stack Developer at Brilliantech Software Pvt Ltd, where I design secure RESTful and GraphQL APIs, scalable backend architectures, and cloud deployments across AWS, Docker, and Kubernetes. I also have hands-on experience building AI/LLM-powered applications, integrating Python-based AI services with Node.js backends using RAG, LangChain, embeddings, and vector search.',
       'Beyond coding, I\'m a tech enthusiast who enjoys experimenting with new stacks, from real-time chat systems to AI-powered tooling, with a strong focus on maintainability, security, and reliable software delivery.',
     ]
@@ -213,8 +213,8 @@ export const portfolioData = {
       company: "Brilliantech Software Pvt Ltd",
       logo: "/bt.png",
       role: "Full Stack Developer",
-      period: "Jul 2025 - Present",
-      startDate: "2025-07-01",
+      period: "Jun 2025 - Present",
+      startDate: "2025-06-01",
       location: "Pune, Maharashtra, India",
       techs: [
         "React.js",
@@ -244,8 +244,8 @@ export const portfolioData = {
       company: "TECHONSY Software Pvt Ltd",
       logo: "/ts.png",
       role: "Software Developer",
-      period: "Jan 2025 - Jun 2025",
-      startDate: "2025-01-01",
+      period: "Jan 2024 - Jun 2025",
+      startDate: "2024-01-01",
       endDate: "2025-06-01",
       location: "Pune, Maharashtra, India",
       techs: ["Angular", "TypeScript", "MEAN Stack", "REST APIs"],

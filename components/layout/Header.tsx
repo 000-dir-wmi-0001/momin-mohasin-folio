@@ -33,7 +33,7 @@ const Header = () => {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-9 h-9 lg:w-10 lg:h-10 shrink-0 overflow-hidden rounded-full ring-1 ring-border transition-all duration-300 group-hover:ring-primary/40 group-hover:ring-2">
             <Image
-              src="/momin.jpg"
+              src="/momin-2.jpeg"
               alt="Momin Mohasin"
               fill
               sizes="40px"
